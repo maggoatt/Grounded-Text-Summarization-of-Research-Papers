@@ -1,56 +1,124 @@
 # Technical Approach: Grounded Text Summarization of Research Papers
 
-## Project Feasibility Assessment
+## Data Source: S2ORC Corpus
 
-This project is **highly feasible** within a 10-week academic timeline. The proposed system—generating reference-grounded summaries with traceable evidence—aligns well with established NLP pipelines for summarization and retrieval. Key feasibility factors:
+### Overview
 
-| Aspect | Assessment |
-|--------|------------|
-| **Computational Resources** | ✅ CPU-friendly models (BART-base, T5-base) are sufficient |
-| **Data Availability** | ✅ S2ORC provides pre-structured data; PDF parsing tools exist for uploads |
-| **Technical Complexity** | ✅ Modular pipeline with well-documented components |
-| **Evaluation Methods** | ✅ NLI-based hallucination detection is established practice |
-| **Timeline** | ✅ Achievable with clear milestone breakdown |
+S2ORC contains 81.1M English-language academic papers as structured JSON objects with pre-segmented sections, paragraphs, bibliographic references, and metadata.
+
+| Property | Value |
+|----------|-------|
+| Total Papers | 81.1M (8.1M with full text) |
+| Format | JSON (one object per paper) |
+| Pre-segmented | ✅ Paragraphs, sections labeled |
+| Metadata | Field of study, authors, citations, year |
+| Access | Data use agreement required |
+
+### Recommended Subset Strategy
+
+For this project, we will use a **filtered subset** rather than the full corpus:
+
+| Filter | Rationale |
+|--------|-----------|
+| **Field of Study:** Computer Science | Familiar domain, manageable vocabulary |
+| **Has Full Text:** True | Need body text for grounding |
+| **Year:** 2018-2023 | Recent, relevant papers |
+| **Target Size:** 5,000-10,000 papers | Sufficient for evaluation, manageable storage |
+
+Approximately **2-5 GB** of JSON data.
 
 ---
 
-## Corpus Comparison: S2ORC vs. User-Uploaded Papers
+## Complete S2ORC Workflow
 
-### Option A: S2ORC (Semantic Scholar Open Research Corpus)
+### Phase 1: Data Acquisition & Preprocessing
 
-**Overview:** S2ORC contains 81.1M English-language academic papers as structured JSON objects with pre-segmented sections, paragraphs, bibliographic references, and metadata.
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 1: Download S2ORC Subset                                  │
+│  - Request access via Semantic Scholar API                      │
+│  - Download relevant shards (CS papers with full text)          │
+│  - Storage: ~2-5 GB for filtered subset                         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 2: Filter & Extract                                       │
+│  - Parse JSON files                                             │
+│  - Filter by: field_of_study, has_pdf_parse, year              │
+│  - Extract: paper_id, title, abstract, body_text, sections     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 3: Chunk Body Text                                        │
+│  - Split body_text into chunks (~256-512 tokens each)          │
+│  - Preserve section labels (intro, methods, results, etc.)     │
+│  - Store: paper_id → [chunk_1, chunk_2, ..., chunk_n]          │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 4: Build Retrieval Index                                  │
+│  - Compute embeddings for all chunks (Sentence-BERT)           │
+│  - Store in FAISS index for fast similarity search             │
+│  - Also build BM25 index for baseline comparison               │
+└─────────────────────────────────────────────────────────────────┘
 
-| Advantages | Disadvantages |
-|------------|---------------|
-| Pre-processed and consistently structured | Large storage footprint (~500GB+ for full corpus) |
-| Section-level segmentation already complete | Requires data use agreement and API access |
-| Rich metadata (field of study, citation links) | Static dataset—no papers after corpus freeze date |
-| Ideal for systematic evaluation at scale | Limited to papers included in the corpus |
-| Enables reproducible experiments | Initial setup overhead for download/indexing |
+OUTPUT: Preprocessed dataset ready for summarization & retrieval
+```
 
-**Best For:** Systematic evaluation, benchmarking against other methods, reproducible research experiments.
+### Phase 2: Summarization Pipeline
 
-### Option B: User-Uploaded Papers (Real-Time Processing)
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  INPUT: User selects paper (by ID, title search, or filter)    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 5: Prepare Input for Summarization                        │
+│  - Retrieve full text from preprocessed data                    │
+│  - Use sliding window to chunk paper into ~1024 token segments │
+│  - Select key sections: [intro] [methods] [conclusion]         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 6: Generate Summary                                       │
+│  - BASELINE: TextRank extracts top-k central sentences         │
+│  - ADVANCED: BART generates abstractive summary                │
+│  - Split summary into individual sentences for retrieval       │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-**Overview:** Users upload PDF papers directly, which are then parsed, segmented, summarized, and grounded in real-time.
+### Phase 3: Evidence Retrieval & Grounding
 
-| Advantages | Disadvantages |
-|------------|---------------|
-| Maximum flexibility—any paper can be processed | Requires robust PDF parsing pipeline |
-| Real-time access to latest publications | Inconsistent PDF formatting across publishers |
-| Practical end-user product potential | Tables, figures, equations may parse poorly |
-| Minimal storage requirements | Quality depends on extraction accuracy |
-| No licensing restrictions on user's own papers | More preprocessing code to maintain |
-
-**Best For:** Interactive demo, user-facing product, handling papers outside S2ORC.
-
-### Recommendation: Hybrid Approach
-
-We recommend a **hybrid architecture** that leverages both approaches:
-
-1. **Development & Evaluation Phase:** Use a subset of S2ORC (e.g., 10K-50K papers from Computer Science) for controlled experiments and benchmarking
-2. **Demo & Production Phase:** Implement PDF upload capability using GROBID or PaperMage for user-submitted papers
-3. **Fallback:** If PDF parsing fails, prompt users to paste plain text or use abstract-only mode
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 7: Retrieve Evidence for Each Summary Sentence            │
+│  - For each sentence in generated summary:                      │
+│    - Query BM25 index → get top-5 chunk candidates             │
+│    - Query FAISS index → get top-5 chunk candidates            │
+│    - Merge and re-rank results                                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 8: Verify Grounding (NLI)                                 │
+│  - For each (summary_sentence, evidence_chunk) pair:           │
+│    - Run through DeBERTa NLI model                             │
+│    - Label: entailed / neutral / contradicted                  │
+│  - Flag sentences with no entailed evidence as "ungrounded"    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  OUTPUT: Summary with linked evidence + grounding scores        │
+│  - Each sentence → list of supporting chunks                   │
+│  - Each link → entailment confidence score                     │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -61,22 +129,23 @@ We recommend a **hybrid architecture** that leverages both approaches:
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              USER INPUT                                      │
-│         (Select paper from S2ORC  OR  Upload PDF  OR  Paste text)           │
+│              (Select paper from S2ORC subset via Streamlit UI)              │
+│           Future potential: query specific topics within a paper            │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        PREPROCESSING MODULE                                  │
-│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐         │
-│  │  S2ORC Parser   │    │  PDF Extractor  │    │  Text Cleaner   │         │
-│  │  (JSON → text)  │    │  (GROBID/PyMuPDF)│   │  (normalize)    │         │
-│  └─────────────────┘    └─────────────────┘    └─────────────────┘         │
+│  ┌─────────────────┐              ┌─────────────────┐                       │
+│  │  S2ORC Parser   │──────────────│  Text Cleaner   │                       │
+│  │  (JSON → text)  │              │  (normalize)    │                       │
+│  └─────────────────┘              └─────────────────┘                       │
 │                                      │                                       │
 │                                      ▼                                       │
 │                    ┌─────────────────────────────────┐                      │
 │                    │    CHUNKING & SEGMENTATION      │                      │
-│                    │  (paragraphs, sections, ~512    │                      │
-│                    │   token sliding windows)        │                      │
+│                    │  - Sliding window (~512 tokens) │                      │
+│                    │  - Preserve section labels      │                      │
 │                    └─────────────────────────────────┘                      │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
@@ -92,52 +161,73 @@ We recommend a **hybrid architecture** that leverages both approaches:
 │   └──────────────────────────────────────────────────────────────────┘     │
 │                                                                              │
 │   ┌──────────────────────────────────────────────────────────────────┐     │
-│   │  ADVANCED: BART / T5 (Abstractive)                               │     │
+│   │  ADVANCED: Facebook's BART (Abstractive)                         │     │
 │   │  - Encoder-decoder transformer architecture                       │     │
 │   │  - Generates novel, fluent summaries                             │     │
 │   │  - Higher hallucination risk → requires grounding                │     │
+│   │  - Uses sliding window to chunk paper into processable tokens    │     │
 │   └──────────────────────────────────────────────────────────────────┘     │
 │                                                                              │
-│   OUTPUT: Generated summary (3-7 sentences)                                 │
+│   OUTPUT: Generated summary (displayed in final UI)                         │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        RETRIEVAL MODULE                                      │
-│         (For each sentence in the generated summary)                         │
+│         (User clicks on a summary sentence → retrieve 1-3 evidence)         │
 │                                                                              │
 │   ┌──────────────────────────────────────────────────────────────────┐     │
 │   │  BASELINE: BM25 (Sparse Retrieval)                               │     │
-│   │  - Term frequency-based scoring                                   │     │
+│   │  - TF-IDF based scoring                                          │     │
+│   │  - Top-k chunks based on exact term match                        │     │
 │   │  - Fast, interpretable, no training required                     │     │
-│   │  - Struggles with paraphrasing/synonyms                          │     │
 │   └──────────────────────────────────────────────────────────────────┘     │
 │                                                                              │
 │   ┌──────────────────────────────────────────────────────────────────┐     │
-│   │  ADVANCED: Sentence-BERT (Dense Retrieval)                       │     │
-│   │  - Semantic embedding similarity (cosine)                        │     │
-│   │  - Handles paraphrasing and synonyms well                        │     │
-│   │  - Pre-trained: all-MiniLM-L6-v2 or all-mpnet-base-v2           │     │
+│   │  ADVANCED: Sentence-BERT + FAISS (Dense Retrieval)               │     │
+│   │  - Sentence-BERT (all-MiniLM-L6-v2) creates embeddings          │     │
+│   │  - FAISS compares embeddings via cosine similarity              │     │
+│   │  - Semantic-based: handles paraphrasing well                     │     │
 │   └──────────────────────────────────────────────────────────────────┘     │
 │                                                                              │
-│   OUTPUT: Top-k evidence chunks per summary sentence                        │
+│   OUTPUT: 1-3 evidence sentences + section title for location context      │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     GROUNDING & PRESENTATION                                 │
+│                     GROUNDING & PRESENTATION (Streamlit)                     │
 │                                                                              │
-│   - Link each summary sentence to retrieved evidence                        │
-│   - Highlight matching spans in source text                                 │
-│   - Display confidence scores for each link                                 │
-│   - Interactive UI: click sentence → show evidence                          │
+│   - Display summary with clickable sentences                                │
+│   - Show retrieved evidence from original text                              │
+│   - Display section title to help user locate original chunk                │
+│   - Interactive UI: click sentence → show supporting evidence               │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Model Selection
+## Model Selection & Setup
+
+### Important Clarification: Pre-trained Models (No Training Required)
+
+**You are NOT training BERT/BART/T5 from scratch.** These are large pre-trained models that you load and use directly. The "setup" involves:
+
+1. **Installing libraries** (`pip install transformers sentence-transformers`)
+2. **Loading pre-trained weights** (automatic download from HuggingFace)
+3. **Running inference** (feed text in, get summary/embeddings out)
+
+```python
+# This is ALL you need to "set up" BART for summarization
+from transformers import pipeline
+
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+summary = summarizer(paper_text, max_length=150, min_length=50)
+```
+
+**Optional fine-tuning** (if time permits): You could fine-tune on scientific papers, but this is NOT required for a working system.
+
+---
 
 ### Baseline: TextRank (Extractive Summarization)
 
@@ -147,47 +237,109 @@ We recommend a **hybrid architecture** that leverages both approaches:
 - **Interpretable:** Clear ranking mechanism
 - **Fast inference:** No neural network overhead
 
-**Implementation:** Use `sumy` library or `gensim.summarization`
+**Implementation:** Use `sumy` library
+
+```python
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.text_rank import TextRankSummarizer
+
+parser = PlaintextParser.from_string(paper_text, Tokenizer("english"))
+summarizer = TextRankSummarizer()
+summary_sentences = summarizer(parser.document, sentences_count=5)
+```
 
 **Limitations:** Summaries can be choppy; no novel phrasing; may miss key information if not in high-centrality sentences.
 
-### Advanced: BART and T5 (Abstractive Summarization)
+---
 
-#### Facebook's BART (Bidirectional and Auto-Regressive Transformer)
+### Advanced: Facebook's BART (Abstractive Summarization)
 
 | Model | Parameters | Context Length | Notes |
 |-------|------------|----------------|-------|
-| `facebook/bart-base` | 139M | 1024 tokens | Faster, lighter |
-| `facebook/bart-large-cnn` | 406M | 1024 tokens | Fine-tuned for summarization |
+| `facebook/bart-large-cnn` | 406M | 1024 tokens | Fine-tuned for summarization on CNN/DailyMail |
 
 **Why BART?**
 - Pre-trained denoising autoencoder—excellent for text generation
-- `bart-large-cnn` specifically fine-tuned on CNN/DailyMail news summarization
-- Strong abstractive capabilities with reasonable faithfulness
+- Specifically fine-tuned on summarization tasks
+- 1024 token context is larger than T5-base (512), better for papers
 
-#### Google's T5 (Text-to-Text Transfer Transformer)
+**Implementation:**
 
-| Model | Parameters | Context Length | Notes |
-|-------|------------|----------------|-------|
-| `t5-small` | 60M | 512 tokens | Minimal resources |
-| `t5-base` | 220M | 512 tokens | Good balance |
-| `google/flan-t5-base` | 250M | 512 tokens | Instruction-tuned variant |
+```python
+from transformers import BartForConditionalGeneration, BartTokenizer
 
-**Why T5?**
-- Unified text-to-text framework ("summarize: [text]")
-- Multiple sizes available for resource constraints
-- FLAN-T5 variant offers improved instruction-following
+tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
+model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
 
-### Long Document Handling (Exploration Area)
+# Paper text needs to be chunked via sliding window for long documents
+inputs = tokenizer(paper_text, return_tensors="pt", max_length=1024, truncation=True)
+summary_ids = model.generate(inputs["input_ids"], max_length=150, min_length=50)
+summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+```
+
+**Note:** For papers longer than 1024 tokens (~750 words), use a sliding window approach to chunk the paper, then either concatenate chunk summaries or summarize the most important sections (intro + methods + conclusion).
+
+---
+
+### Sentence-BERT + FAISS for Retrieval
+
+**Clarification:** BERT itself is an encoder-only model—it produces embeddings, not text. You use **Sentence-BERT** for creating embeddings and **FAISS** for fast similarity search.
+
+| Component | Role |
+|-----------|------|
+| **Sentence-BERT** (`all-MiniLM-L6-v2`) | Converts text → 384-dim vector embeddings |
+| **FAISS** | Stores vectors & performs fast cosine similarity search |
+
+**Why `all-MiniLM-L6-v2`?**
+- Fast: ~14,000 sentences/sec on GPU, ~1,000 on CPU
+- Good quality semantic similarity
+- 80 MB model size—lightweight for deployment
+
+```python
+from sentence_transformers import SentenceTransformer
+import faiss
+import numpy as np
+
+# --- INDEXING (done once during preprocessing) ---
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Encode all chunks from the paper
+chunk_embeddings = model.encode(paper_chunks)  # Shape: (num_chunks, 384)
+
+# Build FAISS index
+dimension = 384
+index = faiss.IndexFlatIP(dimension)  # Inner product for cosine similarity
+faiss.normalize_L2(chunk_embeddings)   # Normalize for cosine
+index.add(chunk_embeddings)
+
+# Save index
+faiss.write_index(index, "paper_chunks.index")
+
+# --- RETRIEVAL (at query time) ---
+query = "The model achieves state-of-the-art results."
+query_vec = model.encode([query])
+faiss.normalize_L2(query_vec)
+
+k = 3  # Retrieve top 3 evidence chunks
+distances, indices = index.search(query_vec, k)
+evidence_chunks = [paper_chunks[i] for i in indices[0]]
+```
+
+---
+
+### Long Document Handling
 
 For papers exceeding model context limits (1024 tokens ≈ 750 words):
 
-| Approach | Description |
-|----------|-------------|
-| **Truncation** | Use introduction + conclusion only |
-| **Hierarchical** | Summarize sections → summarize summaries |
-| **Sliding Window** | Generate summaries per chunk, then merge |
-| **Long-context Models** | Longformer, LED, LongT5 (exploration) |
+| Approach | Description | Complexity |
+|----------|-------------|------------|
+| **Truncation** | Use introduction + conclusion only | Easy |
+| **Hierarchical** | Summarize sections → summarize summaries | Medium |
+| **Sliding Window** | Generate summaries per chunk, then merge | Medium |
+| **Long-context Models** | LongT5, LED | Advanced (exploration) |
+
+**Recommended starting point:** Truncation (intro + methods + conclusion)
 
 ---
 
@@ -214,50 +366,60 @@ for sentence in summary_sentences:
 
 **Hyperparameters to tune:** k1 (term saturation), b (length normalization)
 
-### Advanced: Sentence Transformers (Dense Retrieval)
+### Advanced: Sentence-BERT + FAISS (Dense Retrieval)
 
-**Algorithm:** Encode both summary sentences and source chunks into dense vectors; retrieve by cosine similarity.
+**Algorithm:** Encode both summary sentences and source chunks into dense vectors using Sentence-BERT; store and search using FAISS for speed.
+
+| Property | Value |
+|----------|-------|
+| **Embedding Model** | `all-MiniLM-L6-v2` |
+| **Embedding Dimension** | 384 |
+| **Index Type** | FAISS IndexFlatIP (exact search) |
+| **Similarity Metric** | Cosine similarity (via normalized inner product) |
 
 ```python
-# Pseudocode for dense retrieval
 from sentence_transformers import SentenceTransformer
-import numpy as np
+import faiss
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Encode source chunks (do once)
+# Encode source chunks (done once, stored in FAISS index)
 chunk_embeddings = model.encode(source_chunks)
+faiss.normalize_L2(chunk_embeddings)
 
-# For each summary sentence
+# Build FAISS index
+index = faiss.IndexFlatIP(384)
+index.add(chunk_embeddings)
+
+# For each summary sentence, retrieve evidence
 for sentence in summary_sentences:
-    query_embedding = model.encode(sentence)
-    similarities = np.dot(chunk_embeddings, query_embedding)
-    top_k_indices = similarities.argsort()[-k:][::-1]
-    evidence = [source_chunks[i] for i in top_k_indices]
+    query_vec = model.encode([sentence])
+    faiss.normalize_L2(query_vec)
+    distances, indices = index.search(query_vec, k=3)
+    evidence = [source_chunks[i] for i in indices[0]]
+    # Also retrieve section_titles[i] to display location context
 ```
 
-**Recommended Models:**
-- `all-MiniLM-L6-v2` — Fast, 384-dim embeddings, good quality
-- `all-mpnet-base-v2` — Higher quality, 768-dim, slower
-- `SPECTER` — Specifically trained on scientific papers (exploration)
-
-### Hybrid Retrieval (Exploration Area)
-
-Combine BM25 and dense retrieval for best of both:
-1. BM25 for initial candidate selection (top-100)
-2. Re-rank candidates using Sentence-BERT
-3. Return top-k after re-ranking
+**Key advantage over BM25:** Handles paraphrasing and synonyms. If the summary says "outperforms" and the source says "achieves improvements", Sentence-BERT will still find the match.
 
 ---
 
 ## Evaluation Framework
 
-### Factual Consistency (Primary Metric)
+### Summarization Evaluation
 
-**Method:** NLI-based claim verification using DeBERTa-v3
+Compare TextRank (baseline) vs. BART (advanced) on:
+
+| Metric | Description | How to Measure |
+|--------|-------------|----------------|
+| **Coherence** | Is the summary logically organized and readable? | Human evaluation (1-5 scale) |
+| **Informativeness** | Does the summary capture key information? | ROUGE scores, human evaluation |
+| **Hallucination** | Does the summary contain fabricated content? | NLI-based verification |
+
+#### Hallucination Detection (NLI-based)
 
 ```
-For each (claim, evidence) pair:
+For each (summary_sentence, evidence_chunk) pair:
     If NLI predicts "contradiction" → hallucination
     If NLI predicts "entailment" → grounded
     If NLI predicts "neutral" → unverifiable
@@ -267,72 +429,228 @@ Hallucination Rate = # contradictions / # total claims
 
 **Model:** `microsoft/deberta-v3-large-nli` or `facebook/bart-large-mnli`
 
-### Reference Alignment (Coverage Metric)
+**Expected Result:** TextRank should have ~0% hallucination (extractive), while BART may have some hallucinations that our grounding system helps identify.
 
-**Method:** Measure distribution of evidence across source document
+---
 
+### Retrieval Evaluation
+
+Compare BM25 (baseline) vs. Sentence-BERT + FAISS (advanced) on:
+
+| Metric | Description | How to Measure |
+|--------|-------------|----------------|
+| **True Relevancy** | Does retrieved evidence actually support the summary sentence? | Human evaluation, NLI entailment score |
+| **Hallucination Detection** | Can the retrieval system identify unsupported claims? | % of summary sentences with no entailed evidence |
+
+#### Relevancy Scoring
+
+```python
+# For each (summary_sentence, retrieved_evidence) pair:
+# Run NLI to check if evidence entails the claim
+
+relevancy_score = entailment_probability  # 0.0 to 1.0
 ```
-coverage_score = 1 - std([evidence_positions]) / max_position
-```
 
-Penalize summaries that only cite the introduction or conclusion.
+**Expected Result:** Sentence-BERT should retrieve more semantically relevant evidence than BM25, especially when summary uses different words than source.
 
-### Additional Metrics (Exploration)
+---
+
+### Additional Metrics (Optional)
 
 | Metric | Tool | Purpose |
 |--------|------|---------|
-| ROUGE-1/2/L | `rouge-score` | N-gram overlap with reference |
-| BERTScore | `bert-score` | Semantic similarity to reference |
-| Grammarly API | External | Fluency and readability |
-| Human Evaluation | Manual | Ground truth for subset |
+| ROUGE-1/2/L | `rouge-score` | N-gram overlap with original abstract |
+| BERTScore | `bert-score` | Semantic similarity to original abstract |
+| Coverage Score | Custom | Evidence distribution across document sections |
 
 ---
 
 ## Implementation Stack
 
-| Component | Library/Tool |
-|-----------|--------------|
-| **UI Framework** | Streamlit |
-| **PDF Parsing** | PyMuPDF, pdfplumber, or GROBID |
-| **Extractive Summarization** | sumy, gensim |
-| **Abstractive Summarization** | Hugging Face Transformers (BART, T5) |
-| **Sparse Retrieval** | rank-bm25 |
-| **Dense Retrieval** | sentence-transformers |
-| **NLI Evaluation** | Hugging Face Transformers (DeBERTa) |
-| **Text Processing** | spaCy, nltk |
-| **Vector Storage** | FAISS (optional, for larger scale) |
+| Component | Library/Tool | Install |
+|-----------|--------------|---------|
+| **UI Framework** | Streamlit | `pip install streamlit` |
+| **Extractive Summarization** | sumy | `pip install sumy` |
+| **Abstractive Summarization** | Hugging Face Transformers (BART) | `pip install transformers` |
+| **Sparse Retrieval** | rank-bm25 | `pip install rank-bm25` |
+| **Dense Retrieval** | sentence-transformers | `pip install sentence-transformers` |
+| **Vector Index** | FAISS | `pip install faiss-cpu` |
+| **NLI Evaluation** | Hugging Face Transformers (DeBERTa) | (included with transformers) |
+| **Text Processing** | nltk | `pip install nltk` |
+
+### requirements.txt
+
+```
+streamlit>=1.28.0
+transformers>=4.35.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4
+rank-bm25>=0.2.2
+sumy>=0.11.0
+nltk>=3.8.0
+torch>=2.0.0
+```
+
+---
+
+## Coding Scope Breakdown
+
+**Yes, there is substantial coding work.** Here's a realistic breakdown:
+
+### Module 1: Data Pipeline (~300-400 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `data/download_s2orc.py` | Download and filter S2ORC subset | 80-100 |
+| `data/preprocess.py` | Parse JSON, extract fields, clean text | 100-150 |
+| `data/chunker.py` | Split papers into retrievable chunks | 80-100 |
+| `data/index_builder.py` | Build BM25 and FAISS indices | 80-100 |
+
+**Key tasks:**
+- [ ] Write S2ORC JSON parser
+- [ ] Implement text cleaning (remove LaTeX, special chars)
+- [ ] Implement chunking with overlap
+- [ ] Build and save retrieval indices
+
+### Module 2: Summarization (~150-200 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `models/textrank_summarizer.py` | Extractive baseline wrapper | 40-50 |
+| `models/bart_summarizer.py` | BART wrapper with sliding window handling | 80-100 |
+| `models/summarizer_factory.py` | Unified interface for both methods | 30-50 |
+
+**Key tasks:**
+- [ ] Wrap TextRank in consistent API
+- [ ] Wrap BART with sliding window chunking for long papers
+- [ ] Handle long documents (section selection: intro + methods + conclusion)
+
+### Module 3: Retrieval (~200-250 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `retrieval/bm25_retriever.py` | BM25 search over chunks | 60-80 |
+| `retrieval/dense_retriever.py` | Sentence-BERT similarity search | 80-100 |
+| `retrieval/hybrid_retriever.py` | Combine BM25 + dense (optional) | 60-80 |
+
+**Key tasks:**
+- [ ] Implement BM25 query interface
+- [ ] Implement FAISS query interface
+- [ ] Return top-k chunks with scores
+
+### Module 4: Evaluation (~150-200 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `evaluation/nli_checker.py` | DeBERTa entailment scoring | 80-100 |
+| `evaluation/metrics.py` | Hallucination rate, coverage score | 50-80 |
+| `evaluation/run_eval.py` | Batch evaluation over test set | 50-80 |
+
+**Key tasks:**
+- [ ] Load DeBERTa NLI model
+- [ ] Score (summary, evidence) pairs
+- [ ] Compute aggregate metrics
+
+### Module 5: UI (~200-300 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `app/streamlit_app.py` | Main Streamlit application | 150-200 |
+| `app/components.py` | Reusable UI components | 50-100 |
+
+**Key tasks:**
+- [ ] Paper selection interface (search/filter)
+- [ ] Summary display with clickable sentences
+- [ ] Evidence panel showing source chunks
+- [ ] Grounding score visualization
+
+### Module 6: Utilities & Config (~100 lines)
+
+| File | Purpose | Estimated Lines |
+|------|---------|-----------------|
+| `config.py` | Paths, model names, hyperparameters | 30-40 |
+| `utils.py` | Text processing helpers | 50-60 |
+
+---
+
+### Total Coding Estimate
+
+| Module | Lines | Complexity |
+|--------|-------|------------|
+| Data Pipeline | 300-400 | Medium |
+| Summarization | 150-200 | Low (using libraries) |
+| Retrieval | 200-250 | Medium |
+| Evaluation | 150-200 | Medium |
+| UI | 200-300 | Medium |
+| Utilities | ~100 | Low |
+| **TOTAL** | **~1,100-1,450 lines** | |
+
+**Note:** This estimate assumes clean, well-documented code. The actual work also includes:
+- Debugging and testing
+- Hyperparameter tuning
+- Writing evaluation scripts
+- Documentation
+
+---
+
+### Suggested File Structure
+
+```
+project/
+├── data/
+│   ├── download_s2orc.py       # Download and filter S2ORC subset
+│   ├── preprocess.py           # Parse JSON, extract fields, clean text
+│   ├── chunker.py              # Sliding window chunking with section labels
+│   └── index_builder.py        # Build BM25 and FAISS indices
+├── models/
+│   ├── textrank_summarizer.py  # Extractive baseline
+│   ├── bart_summarizer.py      # BART abstractive summarization
+│   └── summarizer_factory.py   # Unified interface
+├── retrieval/
+│   ├── bm25_retriever.py       # BM25 baseline retrieval
+│   └── dense_retriever.py      # Sentence-BERT + FAISS retrieval
+├── evaluation/
+│   ├── nli_checker.py          # DeBERTa entailment scoring
+│   ├── metrics.py              # Hallucination rate, relevancy metrics
+│   └── run_eval.py             # Batch evaluation script
+├── app/
+│   ├── streamlit_app.py        # Main UI application
+│   └── components.py           # Reusable UI components
+├── config.py                   # Paths, model names, hyperparameters
+├── utils.py                    # Text processing helpers
+├── requirements.txt
+└── README.md
+```
 
 ---
 
 ## Areas for Exploration and Adjustment
 
-### Model Variations
-- [ ] Compare BART vs. T5 vs. FLAN-T5 on same dataset
-- [ ] Experiment with Pegasus (specifically designed for abstractive summarization)
-- [ ] Try SciBERT embeddings for scientific domain retrieval
-- [ ] Evaluate LongT5 or LED for full-paper processing without truncation
+### Summarization Variations
+- [ ] Tune BART generation parameters (max_length, min_length, num_beams)
+- [ ] Experiment with different section combinations for input (intro+methods+conclusion vs. full text)
+- [ ] Try Pegasus as alternative abstractive model (specifically designed for summarization)
 
 ### Retrieval Enhancements
-- [ ] Implement hybrid BM25 + dense retrieval pipeline
-- [ ] Experiment with cross-encoder re-ranking (slower but more accurate)
+- [ ] Compare `all-MiniLM-L6-v2` vs. `SPECTER` (scientific domain embeddings)
+- [ ] Implement hybrid BM25 + Sentence-BERT retrieval pipeline
 - [ ] Tune chunk size (256, 512, 1024 tokens) for optimal retrieval
-- [ ] Add section-aware retrieval (weight methodology vs. results differently)
+- [ ] Experiment with retrieving more evidence (1-3 vs. 3-5 chunks)
 
 ### Grounding Strategies
-- [ ] Post-generation filtering: Remove summary sentences with no strong evidence
-- [ ] Constrained decoding: Guide generation to stay faithful to source
-- [ ] Iterative refinement: Regenerate low-grounding sentences
+- [ ] Post-generation filtering: Flag summary sentences with no strong evidence
+- [ ] Display confidence scores for each retrieved evidence chunk
+- [ ] Color-code summary sentences by grounding strength
 
 ### Data Scope
-- [ ] Start with CS papers from S2ORC (familiar domain)
-- [ ] Expand to biomedical papers if successful
-- [ ] Test on user-uploaded papers for generalization
+- [ ] Start with small CS subset (1,000-5,000 papers)
+- [ ] Scale to larger subset (10,000+) if pipeline is stable
 
-### UI/UX Exploration
-- [ ] Sentence-level highlighting with confidence gradients
-- [ ] Side-by-side view: summary ↔ evidence
+### UI/UX Exploration (Future Potential)
+- [ ] Allow user to query specific topics within a paper
+- [ ] Side-by-side view: summary ↔ evidence with section context
 - [ ] Evidence quality indicators (entailment score display)
-- [ ] Export functionality (summary + citations)
+- [ ] Paper browsing/filtering interface
 
 ---
 
@@ -346,20 +664,20 @@ Penalize summaries that only cite the introduction or conclusion.
    Lewis, M., et al. (2020). ACL 2020.  
    https://arxiv.org/abs/1910.13461
 
-3. **Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)**  
-   Raffel, C., et al. (2020). JMLR.  
-   https://arxiv.org/abs/1910.10683
-
-4. **Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks**  
+3. **Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks**  
    Reimers, N. & Gurevych, I. (2019). EMNLP 2019.  
    https://arxiv.org/abs/1908.10084
 
-5. **TextRank: Bringing Order into Texts**  
+4. **TextRank: Bringing Order into Texts**  
    Mihalcea, R. & Tarau, P. (2004). EMNLP 2004.  
    https://aclanthology.org/W04-3252/
 
-6. **BM25: The Probabilistic Relevance Framework**  
+5. **BM25: The Probabilistic Relevance Framework**  
    Robertson, S. & Zaragoza, H. (2009). Foundations and Trends in IR.
+
+6. **FAISS: A Library for Efficient Similarity Search**  
+   Douze, M., et al. (2024). Meta AI.  
+   https://github.com/facebookresearch/faiss
 
 7. **Evaluating Factual Consistency in Abstractive Summarization**  
    Kryscinski, W., et al. (2020). EMNLP 2020.  
@@ -373,20 +691,45 @@ Penalize summaries that only cite the introduction or conclusion.
    Ajith, A., et al. (2024). arXiv:2411.14199.  
    https://arxiv.org/abs/2411.14199
 
-10. **GROBID: A Machine Learning Software for Extracting Information from Scholarly Documents**  
-    Lopez, P. (2009). https://github.com/kermitt2/grobid
-
 ---
 
-## Next Steps
+## Next Steps (Aligned with Milestones)
 
-1. **Week 4:** Set up development environment; download S2ORC CS subset; implement basic preprocessing pipeline
-2. **Week 5:** Implement TextRank baseline; integrate BART/T5; generate initial summaries
-3. **Week 6:** Implement BM25 and Sentence-BERT retrieval; link summaries to evidence
-4. **Week 7:** Build Streamlit UI with interactive grounding display
-5. **Week 8:** Implement NLI-based evaluation; run systematic experiments
-6. **Week 9:** Add PDF upload capability; conduct error analysis
-7. **Week 10:** Finalize UI; write report; prepare demo
+### Weeks 4-5: Data & Summarization Foundation
+| Task | Owner | Module |
+|------|-------|--------|
+| Request S2ORC access, download CS subset | Richard | Data Pipeline |
+| Write JSON parser and text cleaner | Richard | Data Pipeline |
+| Implement sliding window chunking logic | Richard | Data Pipeline |
+| Set up TextRank baseline | Lawrence | Summarization |
+| Set up BART summarizer with truncation handling | Lawrence | Summarization |
+| Initial summary comparison (coherence, informativeness) | Lawrence | Summarization |
+
+### Week 6: Retrieval Implementation
+| Task | Owner | Module |
+|------|-------|--------|
+| Build BM25 index over chunks | Maggie | Retrieval |
+| Build FAISS index (Sentence-BERT embeddings) | Maggie | Retrieval |
+| Implement retrieval query interface | Maggie | Retrieval |
+| Connect summarization → retrieval pipeline | All | Integration |
+
+### Weeks 7-8: UI & Evaluation
+| Task | Owner | Module |
+|------|-------|--------|
+| Build Streamlit paper selection UI | Maggie | UI |
+| Build summary + evidence display | Maggie | UI |
+| Implement NLI-based grounding checker | Richard | Evaluation |
+| Run evaluation on test subset | Richard | Evaluation |
+| Compare baseline vs. advanced models | Lawrence | Evaluation |
+
+### Weeks 9-10: Polish & Report
+| Task | Owner | Module |
+|------|-------|--------|
+| Error analysis and debugging | All | - |
+| UI polish and refinements | Maggie | UI |
+| Final evaluation runs | Richard | Evaluation |
+| Write project report | Lawrence | - |
+| Prepare demo | All | - |
 
 ---
 
