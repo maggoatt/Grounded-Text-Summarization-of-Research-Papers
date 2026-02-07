@@ -1,2 +1,4 @@
 .env
 .venv
+paper.jsonl
+paper_cleaned.jsonl
