@@ -1,7 +1,7 @@
 
 import json
 
-notebook_path = '/Users/younjewan/Documents/Grounded-Text-Summarization-of-Research-Papers/Data_Pipeline.ipynb'
+notebook_path = './Data_Pipeline.ipynb'
 
 with open(notebook_path, 'r', encoding='utf-8') as f:
     notebook_data = json.load(f)

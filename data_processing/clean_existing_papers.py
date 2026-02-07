@@ -1,4 +1,5 @@
 import json
+import os
 
 def clean_paper(paper):
     """Remove unnecessary fields from paper to save space."""
@@ -101,4 +102,12 @@ def clean_jsonl_file(input_file, output_file):
 
 
 if __name__ == "__main__":
-    clean_jsonl_file("papers.jsonl", "papers_cleaned.jsonl")
+    # fix paths to data/ directory (relative to project root)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    data_dir = os.path.join(project_root, "data")
+
+    input_file = os.path.join(data_dir, "cs_papers.jsonl")
+    output_file = os.path.join(data_dir, "papers_cleaned.jsonl")
+
+    clean_jsonl_file(input_file, output_file)

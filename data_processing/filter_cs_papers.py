@@ -6,7 +6,7 @@ import urllib.request
 from dotenv import load_dotenv
 
 load_dotenv()
-api_key = os.getenv("S2_API_Key")
+api_key = os.getenv("S2ORC_API_KEY")
 
 headers = {"x-api-key": api_key}
 
@@ -130,7 +130,15 @@ def write_papers_to_jsonl(papers, output_file):
 
 
 def main():
+    # Resolve output path to data/ directory (relative to project root)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    data_dir = os.path.join(project_root, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    output_file = os.path.join(data_dir, "cs_papers.jsonl")
+
     # Fetch the latest release
+    print(headers)
     response_latest_release = requests.get(
         'https://api.semanticscholar.org/datasets/v1/release/latest',
         headers=headers
@@ -209,7 +217,7 @@ def main():
                             if is_cs_paper(title, text, CS_KEYWORDS):
                                 print(f"\n✓ MATCH #{document_count + 1}: {title[:100]}")
 
-                                write_papers_to_jsonl([paper], "cs_papers.jsonl")
+                                write_papers_to_jsonl([paper], output_file)
                                 document_count += 1
                                 written_this_url += 1
 
@@ -231,7 +239,7 @@ def main():
     print(f"Papers WITH content: {papers_with_content}")
     print(f"Papers WITHOUT content (null): {papers_without_content}")
     print(f"CS papers found and saved: {document_count}")
-    print(f"Output file: cs_papers.jsonl")
+    print(f"Output file: {output_file}")
     print(f"{'='*80}")
 
 
