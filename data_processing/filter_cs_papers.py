@@ -138,7 +138,7 @@ def main():
     output_file = os.path.join(data_dir, "cs_papers.jsonl")
 
     # Fetch the latest release
-    print(headers)
+    # print(headers)
     response_latest_release = requests.get(
         'https://api.semanticscholar.org/datasets/v1/release/latest',
         headers=headers
