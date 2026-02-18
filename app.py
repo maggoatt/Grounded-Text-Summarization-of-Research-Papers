@@ -104,19 +104,21 @@ with left:
         <div class="container">
             <h4><b>{chosen['title']}</b></h4>
             <div>Author(s): {authors_str}</div>
-            <div>Subject: {chosen['subject']}</div>
-            <div>Year: {chosen['year']}</div>
             <br/>
             <div>{preview}</div>
         </div>
         """,
         unsafe_allow_html=True
     )
+    # <div>Subject: {chosen['subject']}</div>
+    # <div>Year: {chosen['year']}</div>
 
 if "summary_sentences" not in st.session_state:
     st.session_state.summary_sentences = None
 if "chosen_sentence" not in st.session_state:
     st.session_state.chosen_sentence = None
+if "full_summary_text" not in st.session_state:
+    st.session_state.full_summary_text = None
 
 with right:
     st.subheader("Summarization")
@@ -127,14 +129,17 @@ with right:
         if model == "TextRank":
             with st.spinner("Summarizing with TextRank..."):
                 summary_text = sum.generate_summary_textrank(paper)
+            st.session_state.full_summary_text = summary_text
             st.session_state.summary_sentences = split_into_sentences(summary_text)
         elif model == "Sentence Bartholmeow":
             tokenizer, bart_model = get_bart()
             with st.spinner("Summarizing with BART..."):
                 summary_text = sum.generate_summary(tokenizer, bart_model, paper)
+            st.session_state.full_summary_text = summary_text
             st.session_state.summary_sentences = split_into_sentences(summary_text)
         else:
             st.session_state.summary_sentences = ["(Unknown model.)"]
+            st.session_state.full_summary_text = None
 
         if st.session_state.summary_sentences:
             st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
@@ -144,6 +149,10 @@ with right:
             st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
             st.session_state.sentence_radio = st.session_state.chosen_sentence
 
+    # Always show full summary when we have one (persists when user picks sentences)
+    if st.session_state.full_summary_text:
+        with st.container(border=True):
+            st.write(st.session_state.full_summary_text)
 
     if st.session_state.summary_sentences is None:
         st.markdown(
