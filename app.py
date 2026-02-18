@@ -103,7 +103,7 @@ with left:
         f"""
         <div class="container">
             <h4><b>{chosen['title']}</b></h4>
-            <div>Author(s): {chosen['authors']}</div>
+            <div>Author(s): {authors_str}</div>
             <div>Subject: {chosen['subject']}</div>
             <div>Year: {chosen['year']}</div>
             <br/>
@@ -124,22 +124,23 @@ with right:
     model = st.selectbox("Summarization model", ["TextRank", "Sentence Bartholmeow"])
 
     if st.button("Generate Summary", type="primary"):
-        if model == "Sentence Bartholmeow":
+        if model == "TextRank":
+            with st.spinner("Summarizing with TextRank..."):
+                summary_text = sum.generate_summary_textrank(paper)
+            st.session_state.summary_sentences = split_into_sentences(summary_text)
+        elif model == "Sentence Bartholmeow":
             tokenizer, bart_model = get_bart()
             with st.spinner("Summarizing with BART..."):
                 summary_text = sum.generate_summary(tokenizer, bart_model, paper)
-
             st.session_state.summary_sentences = split_into_sentences(summary_text)
-            if st.session_state.summary_sentences:
-                st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
-                st.session_state.sentence_radio = st.session_state.chosen_sentence
-            else:
-                st.session_state.summary_sentences = ["(No summary produced.)"]
-                st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
-                st.session_state.sentence_radio = st.session_state.chosen_sentence
-
         else:
-            st.session_state.summary_sentences = ["TextRank not wired yet."]
+            st.session_state.summary_sentences = ["(Unknown model.)"]
+
+        if st.session_state.summary_sentences:
+            st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
+            st.session_state.sentence_radio = st.session_state.chosen_sentence
+        else:
+            st.session_state.summary_sentences = ["(No summary produced.)"]
             st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
             st.session_state.sentence_radio = st.session_state.chosen_sentence
 

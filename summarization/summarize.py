@@ -8,9 +8,44 @@ import json
 
 # BART
 
-
 model_name = "facebook/bart-large-cnn" # (1)
 max_token_count = 1024 # BART's actual positional encoding limit
+
+
+def extract_body_text_and_section_map(paper):
+    # get list of sentences and their section titles from paper fir textrank
+    body_text = []
+    section_map = {}
+    for section in paper["sections"]:
+        section_title = section["section_title"]
+        sentences = [
+            s.strip()
+            for s in section["text"].replace("?", ".").replace("!", ".").split(".")
+        ]
+        for sentence in sentences:
+            if sentence:
+                section_map[len(body_text)] = section_title
+                body_text.append(sentence)
+    return body_text, section_map
+
+
+def generate_summary_textrank(paper, k=5):
+    # TextRank 
+    body_text, section_map = extract_body_text_and_section_map(paper)
+    if not body_text:
+        return ""
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(body_text)
+    similarity_mtx = cosine_similarity(X)
+    graph = nx.from_numpy_array(similarity_mtx)
+    scores = nx.pagerank(graph)
+    ranked = sorted(
+        ((scores[i], s, section_map[i]) for i, s in enumerate(body_text)),
+        reverse=True,
+    )
+    summary = ". ".join([s for _, s, _ in ranked[:k]]) + "."
+    return summary
+
 
 def setup():
     import torch
@@ -50,7 +85,7 @@ def reduce_summaries(texts, tokenizer, bart_model, round_num=1):
     for i, text in enumerate(texts):
         tc = get_token_count(tokenizer, text)
         summary = summarize(text, bart_model, tokenizer)
-        print(f"  chunk {i+1}/{len(texts)}: {tc} tokens -> {get_token_count(summary)} tokens")
+        print(f"  chunk {i+1}/{len(texts)}: {tc} tokens -> {get_token_count(tokenizer, summary)} tokens")
         chunk_summaries.append(summary)
     
     # combine all summaries into one text
@@ -116,8 +151,8 @@ def generate_summary(tokenizer, bart_model, paper):
         
         if combined_tokens <= max_token_count:
             # already fits — concatenate and use as final summary
-            print(f"  fits within {max_token_count} tokens, concatenating summaries")
-            summary_text = combined
+            print(f"  fits within {max_token_count} tokens, summarize once then return")
+            summary_text = summarize(combined, bart_model, tokenizer)
         else:
             # need more reduction rounds
             print(f"  still > {max_token_count} tokens, entering reduction loop...\n")
