@@ -1,4 +1,8 @@
 import streamlit as st
+from pathlib import Path
+import json
+import summarization.summarize as sum
+import re
 
 
 st.set_page_config(page_title="Grounded Text Summarization of Research Papers", layout="wide")
@@ -9,31 +13,60 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# fake data
+@st.cache_resource
+def get_bart():
+    return sum.setup()
 
-PAPERS = [
-    {
-        "title": "Lawrence is so awesome",
-        "authors": "Law",
-        "year": 2005,
-        "subject": "Computer Science",
-        "preview": "Wow law was born and changed the world and everything was so cool"
-    },
-    {
-        "title": "CRISPR Screening in Cancer Research",
-        "authors": "C. Researcher, D. Scientist",
-        "year": 2022,
-        "subject": "Biology",
-        "preview": "We perform genome-wide CRISPR screens to identify essential pathways in tumor proliferation. Results highlight key regulators in..."
-    },
-    {
-        "title": "Attention Mechanisms in Vision Transformers",
-        "authors": "E. Student, F. Prof",
-        "year": 2021,
-        "subject": "Computer Science",
-        "preview": "Vision Transformers rely on self-attention to model global context. We analyze attention maps and find that..."
-    },
-]
+papers_dir = Path("data")
+
+@st.cache_data
+def create_index(papers_dir):
+    """ Loads all the papers title and ids for the dropdown """
+    paper_index = {}
+    for file in sorted(papers_dir.glob("*.json")):
+        paper_id = file.stem
+        paper = json.loads(file.read_text(encoding="utf-8"))
+        title = paper.get("title")
+        paper_index[paper_id] = {
+            "title": paper.get("title", paper_id),
+            "authors": paper.get("authors", []),
+            "year": paper.get("year", None),
+            "subject": paper.get("subject", None),
+            "path": str(file)
+        }
+    return paper_index
+
+def generate_preview(paper: dict, max_chars: int = 800, max_sections: int = 2):
+    sections = paper.get("sections")
+
+    chars_used = 0
+    text_list = []
+    if not sections:
+        return "No sections found"
+    
+    for section in sections:
+        text = section.get("text")
+        text = " ".join(text.split())
+
+        chars_left = max_chars - chars_used
+        if (chars_left <= 0):
+            break
+        if len(text) > chars_left:
+            text = text[:chars_left] + "..."
+        text_list.append(text)
+        chars_used += len(text)
+    return "\n\n".join(text_list)
+
+def load_single_paper(path: str) -> dict:
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+paper_index = create_index(papers_dir)
+
+def split_into_sentences(text: str):
+    # simple sentence split (good enough for UI; you can improve later)
+    sents = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+    return sents
+
 
 left, right = st.columns([1, 2], gap="large")
 
@@ -50,29 +83,31 @@ st.markdown("""
 with left:
     st.subheader("Research Paper Selection")
 
-    titles = [paper["title"] for paper in PAPERS]
+    paper_ids = list(paper_index.keys())
 
-    chosen_title = st.selectbox(
+    chosen_id = st.selectbox(
         "Choose a Research Paper",
-        titles
+        paper_ids,
+        format_func=lambda paper_id: paper_index[paper_id]["title"],
+        key="chosen_paper_id"
     )
 
-    chosen = None
-    # this is fine for now, but prolly build an index when all papers added
-    for paper in PAPERS:
-        if paper["title"] == chosen_title:
-            chosen = paper
-            break
+    chosen = paper_index[chosen_id]
+    paper = load_single_paper(chosen["path"])
+
+    preview = generate_preview(paper, max_chars=800, max_sections=2)
+    authors = chosen["authors"]
+    authors_str = ", ".join(authors)
 
     st.markdown(
         f"""
         <div class="container">
-            <div><b>{chosen['title']}</b></div>
-            <div>{chosen['authors']}</div>
-            <div>{chosen['subject']}</div>
-            <div>{chosen['year']}</div>
+            <h4><b>{chosen['title']}</b></h4>
+            <div>Author(s): {chosen['authors']}</div>
+            <div>Subject: {chosen['subject']}</div>
+            <div>Year: {chosen['year']}</div>
             <br/>
-            <div>{chosen['preview']}</div>
+            <div>{preview}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -89,13 +124,24 @@ with right:
     model = st.selectbox("Summarization model", ["TextRank", "Sentence Bartholmeow"])
 
     if st.button("Generate Summary", type="primary"):
-        st.session_state.summary_sentences = [
-            "The paper evaluates hallucination using a NIL-based method.",
-            "Results show improved factual consistency with the proposed approach.",
-            "The method generalizes across multiple benchmarks."
-        ]
-        st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
-        st.session_state.sentence_radio = st.session_state.chosen_sentence
+        if model == "Sentence Bartholmeow":
+            tokenizer, bart_model = get_bart()
+            with st.spinner("Summarizing with BART..."):
+                summary_text = sum.generate_summary(tokenizer, bart_model, paper)
+
+            st.session_state.summary_sentences = split_into_sentences(summary_text)
+            if st.session_state.summary_sentences:
+                st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
+                st.session_state.sentence_radio = st.session_state.chosen_sentence
+            else:
+                st.session_state.summary_sentences = ["(No summary produced.)"]
+                st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
+                st.session_state.sentence_radio = st.session_state.chosen_sentence
+
+        else:
+            st.session_state.summary_sentences = ["TextRank not wired yet."]
+            st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
+            st.session_state.sentence_radio = st.session_state.chosen_sentence
 
 
     if st.session_state.summary_sentences is None:
