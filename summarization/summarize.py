@@ -7,14 +7,51 @@ import networkx as nx
 import json
 
 # BART
+import torch
+from transformers import AutoTokenizer, BartForConditionalGeneration
 
 
 model_name = "facebook/bart-large-cnn" # (1)
 max_token_count = 1024 # BART's actual positional encoding limit
 
+def extract_body_text_and_section_map(paper):
+    # get list of sentences and their section titles from paper fir textrank
+    body_text = []
+    section_map = {}
+    for section in paper["sections"]:
+        section_title = section["section_title"]
+        sentences = [
+            s.strip()
+            for s in section["text"].replace("?", ".").replace("!", ".").split(".")
+        ]
+        for sentence in sentences:
+            if sentence:
+                section_map[len(body_text)] = section_title
+                body_text.append(sentence)
+    return body_text, section_map
+
+
+def generate_summary_textrank(paper, k=3):
+    # TextRank 
+    body_text, section_map = extract_body_text_and_section_map(paper)
+    if not body_text:
+        return ""
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(body_text)
+    similarity_mtx = cosine_similarity(X)
+    graph = nx.from_numpy_array(similarity_mtx)
+    scores = nx.pagerank(graph)
+    ranked = sorted(
+        ((scores[i], s, section_map[i]) for i, s in enumerate(body_text)),
+        reverse=True,
+    )
+    # normalize: no newlines in summary sentences
+    sentences = [s.replace("\n", " ").strip() for _, s, _ in ranked[:k]]
+    summary = ". ".join(sentences) + "."
+    return summary
+
+
 def setup():
-    import torch
-    from transformers import AutoTokenizer, BartForConditionalGeneration
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     bart_model = BartForConditionalGeneration.from_pretrained(model_name)
     return tokenizer, bart_model
@@ -22,15 +59,15 @@ def setup():
 def get_token_count(tokenizer, text):
     return len(tokenizer.encode(text, truncation=False))
 
-def summarize(text, bart_model, tokenizer, max_new_tokens=300, min_new_tokens=20):
+def summarize(text, bart_model, tokenizer, max_new_tokens=500, min_new_tokens=40):
     """Summarize a single chunk of text using BART (input auto-truncated to 1024 tokens)."""
     inputs = tokenizer(text, return_tensors="pt", max_length=max_token_count, truncation=True)
     summary_ids = bart_model.generate(
         inputs["input_ids"],
         max_new_tokens=max_new_tokens,
         min_new_tokens=min_new_tokens,
-        num_beams=4,
-        length_penalty=2.0,
+        num_beams=6,
+        length_penalty=0.001, # preference for longer vs shorter outputs
         forced_bos_token_id=0
     )
     return tokenizer.decode(summary_ids[0], skip_special_tokens=True)
@@ -50,7 +87,7 @@ def reduce_summaries(texts, tokenizer, bart_model, round_num=1):
     for i, text in enumerate(texts):
         tc = get_token_count(tokenizer, text)
         summary = summarize(text, bart_model, tokenizer)
-        print(f"  chunk {i+1}/{len(texts)}: {tc} tokens -> {get_token_count(summary)} tokens")
+        print(f"  chunk {i+1}/{len(texts)}: {tc} tokens -> {get_token_count(tokenizer, summary)} tokens")
         chunk_summaries.append(summary)
     
     # combine all summaries into one text
@@ -116,8 +153,17 @@ def generate_summary(tokenizer, bart_model, paper):
         
         if combined_tokens <= max_token_count:
             # already fits — concatenate and use as final summary
-            print(f"  fits within {max_token_count} tokens, concatenating summaries")
-            summary_text = combined
+            print(f"combined tokens less than limit, summarize once then return...\n")
+            inputs = tokenizer(combined, return_tensors="pt", max_length=max_token_count, truncation=True)
+            summary_ids = bart_model.generate(
+                inputs["input_ids"],
+                max_new_tokens=400,
+                min_new_tokens=200,
+                num_beams=6,
+                length_penalty=0.6, # preference for longer vs shorter outputs
+                forced_bos_token_id=0
+            )
+            summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
         else:
             # need more reduction rounds
             print(f"  still > {max_token_count} tokens, entering reduction loop...\n")
@@ -143,7 +189,3 @@ def generate_summary(tokenizer, bart_model, paper):
         summaries = [summary_text]
 
     return summary_text
-    print(f"\n{'='*80}")
-    print("FINAL SUMMARY:")
-    print(f"{'='*80}")
-    print(summary_text)
