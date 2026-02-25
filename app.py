@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import summarization.summarize as sum
 import re
+import bm_retrieval as bm_ret
+import faiss_retrieval as faiss_ret
 
 
 st.set_page_config(page_title="Grounded Text Summarization of Research Papers", layout="wide")
@@ -93,6 +95,14 @@ with left:
     chosen = paper_index[chosen_id]
     paper = load_single_paper(chosen["path"])
 
+    if "bm25" not in st.session_state or st.session_state.get("bm25_paper_id") != chosen_id:
+        st.session_state.bm25, st.session_state.section_info = bm_ret.build_bm25(paper)
+        st.session_state.bm25_paper_id = chosen_id
+
+    if "faiss_index" not in st.session_state or st.session_state.get("faiss_paper_id") != chosen_id:
+        st.session_state.faiss_index, st.session_state.faiss_metadata = faiss_ret.load_paper_embeddings(chosen_id)
+        st.session_state.faiss_paper_id = chosen_id
+
     preview = generate_preview(paper, max_chars=800, max_sections=2)
     authors = chosen["authors"]
     authors_str = ", ".join(authors)
@@ -168,8 +178,38 @@ with right:
                 label_visibility="collapsed"
             )
             st.session_state.chosen_sentence = chosen
+            st.subheader("Evidence Retrieval")
+
+            model = st.selectbox("Retrieval model", ["BestMatch25", "all-mini"])
+
+            if st.session_state.chosen_sentence:
+                st.divider()
+                st.write("**Evidence from paper:**")
+
+                if model == "BestMatch25":
+                    results = bm_ret.find_evidence(
+                        st.session_state.chosen_sentence,
+                        st.session_state.bm25,
+                        st.session_state.section_info,
+                        top_k=3
+                    )
+                    for i, r in enumerate(results):
+                        with st.expander(f"#{i+1} — From Section '{r['section_title']}' (Score: {r['score']:.2f})"):
+                            st.write(r['snippet'] + "...")
+
+                elif model == "all-mini":
+                    results = faiss_ret.find_evidence_faiss(
+                        st.session_state.chosen_sentence,
+                        st.session_state.faiss_index,
+                        st.session_state.faiss_metadata,
+                        top_k=3
+                    )
+                    for i, r in enumerate(results):
+                        with st.expander(f"#{i+1} — (Score: {r['score']:.2f})"):
+                            st.write(r['chunk'])
             st.write("**Selected:**", chosen)
 
             st.write("**Metrics (placeholder):**")
             st.write("- Confidence: 0.82")
             st.write("- Hallucination risk: Low")
+        
