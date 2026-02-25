@@ -59,7 +59,7 @@ def setup():
 def get_token_count(tokenizer, text):
     return len(tokenizer.encode(text, truncation=False))
 
-def summarize(text, bart_model, tokenizer, max_new_tokens=500, min_new_tokens=40):
+def summarize(text, bart_model, tokenizer, max_new_tokens=500, min_new_tokens=100):
     """Summarize a single chunk of text using BART (input auto-truncated to 1024 tokens)."""
     inputs = tokenizer(text, return_tensors="pt", max_length=max_token_count, truncation=True)
     summary_ids = bart_model.generate(
@@ -96,11 +96,11 @@ def reduce_summaries(texts, tokenizer, bart_model, round_num=1):
     print(f"  combined result: {combined_tokens} tokens")
     
     if combined_tokens <= max_token_count:
-        # fits within limit — concatenate and return as-is
+        # fits within limit, concatenate and return as-is
         print(f"  fits within {max_token_count} tokens, concatenating summaries")
         return combined
     else:
-        # still too long — group summaries into 1024-token chunks and recurse
+        # still too long, group summaries into 1024-token chunks and recurse
         print(f"  still > {max_token_count} tokens, splitting again...\n")
         groups = []
         current_group = []
@@ -152,7 +152,6 @@ def generate_summary(tokenizer, bart_model, paper):
         print(f"\ncombined section summaries: {combined_tokens} tokens")
         
         if combined_tokens <= max_token_count:
-            # already fits — concatenate and use as final summary
             print(f"combined tokens less than limit, summarize once then return...\n")
             inputs = tokenizer(combined, return_tensors="pt", max_length=max_token_count, truncation=True)
             summary_ids = bart_model.generate(

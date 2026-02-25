@@ -1,6 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import json
+import csv
 import summarization.summarize as sum
 import re
 import bm_retrieval as bm_ret
@@ -18,6 +19,7 @@ st.markdown(
 
 papers_dir = Path("data")
 summaries_dir = Path("summaries")
+metrics_dir = Path("metrics")
 
 @st.cache_data
 def create_index(papers_dir):
@@ -66,6 +68,46 @@ def split_into_sentences(text: str):
     # simple sentence split (good enough for UI; you can improve later)
     sents = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
     return sents
+
+
+def load_metrics_for_model(paper_id: str, model_display_name: str):
+    # load precomputed metrics for the given paper and model from metrics dir
+    metrics_path = metrics_dir / f"{paper_id}_metrics.tsv"
+    if not metrics_path.exists():
+        return None
+
+    model_key = "textrank" if model_display_name == "TextRank" else "bart"
+
+    with metrics_path.open("r", encoding="utf-8") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            if row.get("model") != model_key:
+                continue
+
+            # parse floats safely
+            def to_float(value):
+                try:
+                    return float(value)
+                except (TypeError, ValueError):
+                    return None
+
+            readability = {
+                "Flesch Reading Ease": to_float(row.get("flesch_reading_ease")),
+                "Flesch-Kincaid Grade": to_float(row.get("flesch_kincaid_grade")),
+            }
+            grammar = {
+                "total_errors": int(row.get("total_errors")) if row.get("total_errors") not in (None, "", "None") else 0,
+                "error_rate": to_float(row.get("error_rate")) or 0.0,
+            }
+            perplexity = to_float(row.get("perplexity"))
+
+            return {
+                "readability": readability,
+                "grammar": grammar,
+                "perplexity": perplexity,
+            }
+
+    return None
 
 
 left, right = st.columns([1, 2], gap="large")
@@ -131,7 +173,7 @@ if "full_summary_text" not in st.session_state:
 with right:
     st.subheader("Summarization")
 
-    model = st.selectbox("Summarization model", ["TextRank", "Sentence Bartholmeow"])
+    model = st.selectbox("Summarization model", ["TextRank", "Facebook BART"])
 
     if st.button("Generate Summary", type="primary"):
         if model == "TextRank":
@@ -180,11 +222,11 @@ with right:
             st.session_state.chosen_sentence = chosen
             st.subheader("Evidence Retrieval")
 
-            model = st.selectbox("Retrieval model", ["BestMatch25", "all-mini"])
+            model = st.selectbox("Retrieval model", ["BestMatch25", "all-MiniLM-L6-v2"])
 
             if st.session_state.chosen_sentence:
                 st.divider()
-                st.write("**Evidence from paper:**")
+                st.subheader("**Evidence from paper:**")
 
                 if model == "BestMatch25":
                     results = bm_ret.find_evidence(
@@ -197,7 +239,7 @@ with right:
                         with st.expander(f"#{i+1} — From Section '{r['section_title']}' (Score: {r['score']:.2f})"):
                             st.write(r['snippet'] + "...")
 
-                elif model == "all-mini":
+                elif model == "all-MiniLM-L6-v2":
                     results = faiss_ret.find_evidence_faiss(
                         st.session_state.chosen_sentence,
                         st.session_state.faiss_index,
@@ -209,7 +251,31 @@ with right:
                             st.write(r['chunk'])
             st.write("**Selected:**", chosen)
 
-            st.write("**Metrics (placeholder):**")
-            st.write("- Confidence: 0.82")
-            st.write("- Hallucination risk: Low")
-        
+
+            st.subheader("Metrics")
+            st.write("**Metrics:**")
+            metric_values = load_metrics_for_model(chosen_id, model)
+
+            if not metric_values:
+                st.write("Metrics will be available after a summary is generated.")
+            else:
+                readability = metric_values.get("readability")
+                grammar = metric_values.get("grammar")
+                perplexity = metric_values.get("perplexity")
+
+                if readability:
+                    # simplified, user-facing subset of readability metrics
+                    fre = readability.get("Flesch Reading Ease")
+                    fk = readability.get("Flesch-Kincaid Grade")
+                    if fre is not None:
+                        st.write(f"- Flesch Reading Ease: {fre:.1f} (higher = easier to read; typical news articles are around 60–70).")
+                    if fk is not None:
+                        st.write(f"- Flesch-Kincaid Grade: {fk:.1f} (approximate U.S. school grade level needed to understand the summary).")
+
+                if grammar:
+                    total_errors = grammar.get("total_errors", 0)
+                    error_rate = grammar.get("error_rate", 0.0) * 100
+                    st.write(f"- Grammar/style issues: {total_errors} total ({error_rate:.1f} per 100 words; lower = fewer problems).")
+
+                if perplexity is not None:
+                    st.write(f"- Fluency (GPT-2 perplexity): {perplexity:.1f} (lower = text is more predictable and natural to a language model).")
