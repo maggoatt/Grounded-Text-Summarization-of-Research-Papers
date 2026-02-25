@@ -13,11 +13,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-@st.cache_resource
-def get_bart():
-    return sum.setup()
 
 papers_dir = Path("data")
+summaries_dir = Path("summaries")
 
 @st.cache_data
 def create_index(papers_dir):
@@ -127,23 +125,14 @@ with right:
 
     if st.button("Generate Summary", type="primary"):
         if model == "TextRank":
-            with st.spinner("Summarizing with TextRank..."):
-                summary_text = sum.generate_summary_textrank(paper)
-            st.session_state.full_summary_text = summary_text
-            st.session_state.summary_sentences = split_into_sentences(summary_text)
-        elif model == "Sentence Bartholmeow":
-            tokenizer, bart_model = get_bart()
-            with st.spinner("Summarizing with BART..."):
-                summary_text = sum.generate_summary(tokenizer, bart_model, paper)
-            st.session_state.full_summary_text = summary_text
-            st.session_state.summary_sentences = split_into_sentences(summary_text)
+            summary_path = summaries_dir / f"{chosen_id}_textrank_summary.txt"
         else:
-            st.session_state.summary_sentences = ["(Unknown model.)"]
-            st.session_state.full_summary_text = None
+            summary_path = summaries_dir / f"{chosen_id}_bart_summary.txt"
 
-        if st.session_state.summary_sentences:
-            st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
-            st.session_state.sentence_radio = st.session_state.chosen_sentence
+        if summary_path.exists():
+            summary_text = summary_path.read_text(encoding="utf-8")
+            st.session_state.full_summary_text = summary_text
+            st.session_state.summary_sentences = split_into_sentences(summary_text)
         else:
             st.session_state.summary_sentences = ["(No summary produced.)"]
             st.session_state.chosen_sentence = st.session_state.summary_sentences[0]
