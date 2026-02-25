@@ -188,4 +188,8 @@ def generate_summary(tokenizer, bart_model, paper):
         summary_text = summarize(full_body_text, bart_model, tokenizer)
         summaries = [summary_text]
 
-    return summary_text
+    return summary_text 
+    print(f"\n{'='*80}")
+    print("FINAL SUMMARY:")
+    print(f"{'='*80}")
+    print(summary_text)
