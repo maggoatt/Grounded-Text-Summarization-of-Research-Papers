@@ -11,12 +11,12 @@ api_key = os.getenv("S2ORC_API_KEY")
 headers = {"x-api-key": api_key}
 
 CS_KEYWORDS = [
-    "computer science", "machine learning", "deep learning", "neural network",
-    "artificial intelligence", "nlp", "natural language processing",
-    "computer vision", "reinforcement learning",
-    "distributed systems", "database", "databases", "operating system",
-    "compiler", "algorithms", "data structures", "software engineering",
-    "security", "cryptography", "networking", "systems", "hci"
+    "machine learning", "deep learning", "neural network", "transformer",
+    "natural language processing", "nlp", "computer vision", "llm",
+    "large language model", "reinforcement learning", "convolutional",
+    "bert", "gpt", "diffusion model", "graph neural", "federated learning",
+    "object detection", "image classification", "text classification",
+    "question answering", "named entity", "sentiment analysis"
 ]
 
 def extract_title_and_text(paper):
@@ -71,8 +71,8 @@ def is_cs_paper(title, text, keywords):
         return True
 
     # Fallback: check first 5000 chars of text
-    text_sample = text[:5000].lower()
-    return any(k.lower() in text_sample for k in keywords)
+    # text_sample = text[:5000].lower()
+    # return any(k.lower() in text_sample for k in keywords)
 
 
 def clean_paper(paper):
