@@ -1,0 +1,9 @@
+{
+  "Motivation and Contributions.": [
+    "Our key contributions are:\n\n\u2022 Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.",
+    "Our key contributions are:\n\n\u2022 Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence."
+  ],
+  "Impact Statement": [
+    "In this appendix, we provide a mathematical proof that minimizing the Focal Calibration Loss L \u03b3,\u03bb FCL mitigates overconfidence (OC) and underconfidence (UC) in the predicted probabilities of a classifier."
+  ]
+}

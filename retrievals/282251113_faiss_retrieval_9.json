@@ -1,0 +1,11 @@
+{
+  "Drift Sliding Window": [
+    "\u2022 We introduce ConvBCJRFormer, a cross-attending transformer architecture that extends BCJRFormer to decode convolutional codes as an initial step toward transformerbased joint inner and outer decoding of linear codeword transmissions over the IDS channel."
+  ],
+  "F. End-to-End Transformer Decoding": [
+    "We demonstrate that an end-to-end transformer pipelineusing BCJRFormer as the inner decoder and ECCT as the outer decoder -outperforms pipelines that use either the BCJR algorithm or Belief Propagation as decoders."
+  ],
+  "Ins.": [
+    "We then discuss the transformer architecture and the original formulation of the ECCT decoder for binary-input symmetric-output channels."
+  ]
+}

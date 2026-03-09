@@ -1,0 +1,11 @@
+{
+  "FIGURE": [
+    "., ).The forward Euler network resulted in a test accuracy of % and the leapfrog network resulted in a test accuracy of .%.As expected, the leapfrog trajectory is smoother and contains rotational dynamics.The colors are linearly separable at the last layer, indicating good classification performance."
+  ],
+  ". MNIST classification": [
+    "., ).The forward Euler network resulted in a test accuracy of % and the leapfrog network resulted in a test accuracy of .%.As expected, the leapfrog trajectory is smoother and contains rotational dynamics.The colors are linearly separable at the last layer, indicating good classification performance."
+  ],
+  ". Discretizing Hamiltonians with leapfrog integration": [
+    "The dynamics in Figure 4 show the topological benefits of leapfrog integration.The data points exhibit smoother, rotational dynamics to reach the desired linearly-separable final configuration.In comparison, forward Euler propagation significantly changes topology during forward propagation.Such topological changes may yield ill-posed learning problems and poor network generalization."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "303": [
+    "The MPC controller moves the vehicle constantly along the reference path while the MPC algorithm searches for an empty parking spot.",
+    "Based on this mathematical model, an MPC controller combined with RL for vehicle movement and obstacle avoidance in section 3."
+  ],
+  "Augmented agent design": [
+    "This paper presents a successful controller design that combines the MPC model predictive control and RL method RL-PPO."
+  ]
+}

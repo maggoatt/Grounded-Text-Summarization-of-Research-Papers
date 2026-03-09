@@ -1,0 +1,11 @@
+{
+  "Inner Outer": [
+    "The BCJR algorithm can also decode convolutional inner codes over the IDS channel by considering all combinations of convolutional and drift states [13]."
+  ],
+  "Drift Sliding Window": [
+    "We demonstrate that this decoder, named ConvBCJRFormer, achieves error rates only slightly worse than BCJR decoding while offering a generalizable mechanism to incorporate linear code information."
+  ],
+  "E. Complexity": [
+    "Finally, we show that ConvBCJRFormer can jointly synchronize and decode convolutional codes with only minor tradeoffs compared to the BCJR algorithm."
+  ]
+}

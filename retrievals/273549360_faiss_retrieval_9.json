@@ -1,0 +1,11 @@
+{
+  "Impact Statement": [
+    "Appendix Formally, the ECE can be approximated by grouping predictions into M bins and calculating the average confidence and accuracy for each bin:\n\nwhere N is the total number of samples, M is the number of bins, B m is the set of indices of samples whose predicted probability falls into the m-th bin, |B m | is the number of samples in bin B m , acc(B m ) is the accuracy of the samples in bin B m , and conf(B m ) is the average confidence of the samples in bin B m defined in Eq."
+  ],
+  "BALANCE BETWEEN \u03b3 AND \u03bb": [
+    "The experiment shows that \u03bb = 0.5 provides the best calibration performance across all ECE metrics before and after temperature scaling."
+  ],
+  "Overconfidence (OC) and Underconfidence (UC)": [
+    "Traditional binning-based metrics, such as Expected Calibration Error (ECE), can be sensitive to bin sizes."
+  ]
+}

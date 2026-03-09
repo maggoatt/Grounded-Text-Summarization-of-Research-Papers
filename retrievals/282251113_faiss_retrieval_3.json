@@ -1,0 +1,11 @@
+{
+  "E. Transformer and ECCT": [
+    "The ECCT was proposed for decoding transmissions over a binary-input symmetric-output channel, a type of memoryfree channels that introduces substitution errors independently of the binary input symbol [7]."
+  ],
+  "Ins.": [
+    "We then discuss the transformer architecture and the original formulation of the ECCT decoder for binary-input symmetric-output channels."
+  ],
+  "Drift Sliding Window": [
+    "The authors show that their ECCT decoder outperforms both Belief Propagation and other neural decoders on binary-input symmetric-output channels."
+  ]
+}

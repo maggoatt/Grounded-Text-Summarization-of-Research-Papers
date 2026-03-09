@@ -1,0 +1,11 @@
+{
+  ". MNIST dimensionality reduction": [
+    "The MNIST dataset (LeCun et al., 2010) is composed of 28 \u00d7 28 grayscale images of handwritten digits.We train on 50, 000 images and reserve 10, 000 for validation.We report test accuracy on 10, 000 images not used for training nor validation.For NNs, we vectorize images and store as columns, resulting in a matrix of size 28 2 \u00d7 b where b is the number of images.For t-NNs, we store the images as lateral slices, resulting in a tensor of size 28 \u00d7 b \u00d7 28."
+  ],
+  "CIFAR-": [
+    "The CIFAR10 dataset (Krizhevsky and Hinton, 2009) is composed of 32 \u00d7 32 \u00d7 3 RGB natural images belonging to ten classes.We train on 40, 000 images and reserve 10, 000 for validation.We report test accuracy on 10, 000 images not used for training nor validation.For NNs, we vectorize images and store as columns, resulting in a matrix of size (3 \u2022 32 2 ) \u00d7 b where b is the number of images.For t-NNs, we store the images as lateral slices  and stack the color channels vertically, resulting in a tensor of size (3 \u2022 32) \u00d7 b \u00d7 32.We train for 500 epochs using Adam with a batch size of 32.We use a learning rate of 10 \u22123 that decays after every 100 epochs by a factor of 0.9.We use the PyTorch defaults for the other optimizer hyperparameters.For the t-cross entropy loss, we use a squared \u2113 2 -norm and normalize by the number of entries in the tube."
+  ],
+  "FIGURE": [
+    "Loss and accuracy convergence for MNIST with four di erent two-layer neural networks.To see the di erences clearly, we omit the initial accuracy, which was close to % for each network.The t-NN with cross entropy loss (orange diamonds ) produces the best training (darker, solid) and validation (lighter, dashed) accuracy.The t-NN with t-loss (green squares ) performs second best with in terms of accuracy, demonstrating the benefits of tensor operator layers.Despite having the greatest number of weights, the NN with square weights (purple \u00d7's) performs worst in terms of accuracy."
+  ]
+}

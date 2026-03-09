@@ -1,0 +1,11 @@
+{
+  "APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER": [
+    "We explore the symbol-wise error rate distribution of BCJRFormer by comparing it to the BCJR algorithm for transmissions of these two codewords in the quaternary domain."
+  ],
+  "C. BCJRFormer for Quaternary Marker Codewords": [
+    "For a more detailed analysis of the symbol-wise differences between the two decoders, see Appendix D. Next, we evaluate BCJRFormer for jointly decoding M noisy copies of a codeword."
+  ],
+  "IV. METHOD": [
+    "We focus on constructing an appropriate input representation that achieves near-BCJR performance and scales to jointly decode multiple noisy copies of the same codeword."
+  ]
+}

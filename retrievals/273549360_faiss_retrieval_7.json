@@ -1,0 +1,9 @@
+{
+  "Unknown": [
+    "1 (in the main text), FCL produces clearer and more precise anomaly-localization maps compared to baseline methods."
+  ],
+  "Dataset Model": [
+    "Thus, FCL not only enhances model calibration but also refines anomaly localization, offering substantial benefits for applications in medical imaging where accurate and confident diagnoses are of utmost importance.",
+    "Overall, FCL consistently enhances both calibration quality and interpretability in CheXNet."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "F. End-to-End Transformer Decoding": [
+    "In the high probability domain, the pipeline using the iterative BCJR inner decoder slightly outperforms the pipeline using BCJRFormer."
+  ],
+  "E. ECCT for Outer Decoding": [
+    "We demonstrate that an end-to-end transformer pipelineusing BCJRFormer as the inner decoder and ECCT as the outer decoder -outperforms pipelines that use either the BCJR algorithm or Belief Propagation as decoders."
+  ],
+  "Drift Sliding Window": [
+    "\u2022 By combining BCJRFormer as the inner decoder with ECCT as the outer decoder (see Figure 4), we propose a transformer-based pipeline for end-to-end decoding of concatenated codewords over the insertion, deletion, and substitution (IDS) channel that outperforms approaches based on BCJR or Belief Propagation decoders."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Recall, Reasoning, and Modular Subspaces": [
+    "3 Dataset Construction To investigate the neural mechanisms underlying recall versus reasoning in large language models (LLMs), we constructed a controlled dataset that isolates these two cognitive functions."
+  ],
+  "Introduction": [
+    "To investigate these hypotheses, we construct controlled recall-reasoning task pairs that isolate differences in computation rather than superficial input content."
+  ],
+  "MLP Neuron Task-Specificity (Hypothesis H3)": [
+    "As shown in Figure 8, recall-preferring neurons were highly active during recall tasks and minimally responsive during reasoning tasks, whereas reasoning-preferring neurons displayed the inverse profile."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Attention Head Specialization Across Tasks": [
+    "Effect Sizes -The distribution of effect sizes among specialized heads was substantial, ranging from 2.8 to 13.8 with a mean of 6.83."
+  ],
+  "Specialization Type": [
+    "Figure 5 highlights the top 15 specialized heads ranked by average effect size, including recallspecialized heads such as L2H5, L7H1, and L6H9, and reasoning-specialized heads such as L26H5, L27H8, and L21H10."
+  ],
+  "H1: Specific layers specialize for recall vs reasoning (layer specialization)": [
+    "Heads were classified as consistently specialized if they demonstrated significant differential activation between recall and reasoning tasks in at least three of the five metrics while meeting the strict thresholds."
+  ]
+}

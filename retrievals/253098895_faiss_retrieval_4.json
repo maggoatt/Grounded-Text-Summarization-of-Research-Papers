@@ -1,0 +1,11 @@
+{
+  "Model": [
+    "Here SPABERT performs the best for the 1:125K maps (30-CA) (Tab."
+  ],
+  "Ethical Consideration": [
+    "Replacing the backbone of SPABERT with a multi-lingual model and training SPABERT with diverse regions could mitigate the bias."
+  ],
+  "Spatial Context and Ablation Study": [
+    "Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "I. INTRODUCTION": [
+    "However, writing, storing, and reading DNA are error-prone processes that produce multiple noisy reads of the same sequence [1]."
+  ],
+  "D. BCJRFormer for Joint Inner Decoding": [
+    "In DNA data storage, the number of received sequences (denoted as M k ) varies for each transmitted sequence, which makes training models for fixed cluster sizes inefficient."
+  ],
+  "Drift Sliding Window": [
+    "In DNA data storage, multiple noisy reads of the same sequence are often clustered and then aligned to yield a candidate sequence for error correction [9]- [12]."
+  ]
+}

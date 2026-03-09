@@ -1,0 +1,11 @@
+{
+  "presents a comparison of heatmaps generated with each loss function applied to": [
+    "In contrast, focal loss demonstrates more concentrated regions of activation."
+  ],
+  "A.8. Proof that the Focal Calibration Loss is Strictly Proper": [
+    "Focal Loss Relative with Entropy Regularised KL Divergence\n\nThis section we illustrate why focal loss tends to favor accurate yet less confident solutions."
+  ],
+  "Unknown": [
+    "In prior theoretical analyses (Mukhoti et al., 2020a;Charoenphakdee et al., 2021), focal loss can be related to the KL divergence from \u03b7(x) to p(x), giving a bound of form:\n\nwhere H[\u2022] is the entropy function and \u03b3 the focal \"focusing\" parameter."
+  ]
+}

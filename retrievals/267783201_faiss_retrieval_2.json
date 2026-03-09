@@ -1,0 +1,11 @@
+{
+  "Unknown": [
+    "S4) (Materials and Methods).3D cell segmentation can be challenging especially when working with live images.In such cases, one may have to resort to 2.5D cell segmentation.We present a MorphoGraphX method for associating 2.5D surface cells with 3D nuclei."
+  ],
+  "4A-H) (see Materials and Methods": [
+    "MorphoGraphX achieves this link by projecting 3D segmented nuclei stacks onto the 2.5D segmented cell mesh (Fig."
+  ],
+  "Mapping cell labels to nuclei labels in MorphoGraphX": [
+    "3D cell and nuclei meshes were generated from segmented stacks using the Marching cubes 3D process with a cube size of 0.5 \u03bcm for fine details.Cell-type labeling assigns parent (tissue) labels to the cell IDs.Cell-type labeling was done as described in (Vijayan et al., 2021).The cell and nuclear volumes were obtained using the \"Mesh/Heat Map/Analysis/Cell Analysis 3D\" process in MorphoGraphX.Initially, the cells in the 3D cell mesh (Mesh 1) have their unique cell IDs and the nuclei in the 3D nuclear mesh (Mesh 2) have their unique nuclei IDs.Both the IDs are mapped using the MorphoGraphX process \"Mesh/Nucleus/ Label Nuclei\".In detail, this process identifies the cells in which nuclei are located.It is run on the active 3D cell mesh in MorphoGraphX mesh 1, while the 3D nuclei mesh is loaded in the MorphoGraphX Mesh 2."
+  ]
+}

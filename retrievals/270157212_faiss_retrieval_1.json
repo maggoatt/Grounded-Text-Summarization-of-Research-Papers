@@ -1,0 +1,11 @@
+{
+  "Introduction": [
+    "With the explosion of computing resources, including cloud-based storage and accessible advanced hardware, learning from large-scale, multiway data has become possible.Two distinct fields have emerged as the gold standards for handling multidimensional data: tensor analysis for featurization and compression and deep learning for high-dimensional function approximation.Both deep learning and tensor methods have achieved strong performance in image and video recognition (Vasilescu and Terzopoulos, 2002;Krizhevsky et al., 2012), medical imaging analysis (Omberg et al., 2007;Ronneberger et al., 2015), spatiotemporal weather analysis (Chattopadhyay et al., 2020;Li et al., 2020), and more.This work focuses on leveraging advantages of tensor methods to enhance deep learning design."
+  ],
+  "Numerical results": [
+    "We present two image classification problems to compare tensor linear layers and stable tensor neural networks to comparable matrix versions.Overall, the results show that t-NN trained with tubal loss functions generalize better to unseen data than equivalent matrix networks, and can do so with 20-30 times fewer network weights."
+  ],
+  "Related work": [
+    "Tensor methods for compression high dimensional data and operators grew in popularity concurrently with the development of structured operators for neural networks.Many popular tensor frameworks are designed to featurize multiway arrays (Tucker, 1966;Carroll and Chang, 1970;Harshman, 1970;de Lathauwer et al., 2000;Kolda and Bader, 2009) or to approximate a given high-dimensional operator (Oseledets, 2011;Cichocki et al., 2016).Because the weights and features of deep neural networks are notoriously high-dimensional, tensorized approaches have gained traction.In Novikov et al."
+  ]
+}

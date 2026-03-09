@@ -1,0 +1,11 @@
+{
+  "Attention Head Specialization Across Tasks": [
+    "Specialization Results -Out of 784 total heads (28 layers \u00d7 28 heads), 583 were identified as consistently specialized under these strict criteria."
+  ],
+  "Specialization Type": [
+    "Even under strict statistical criteria, more than 70% of heads (583/784) were consistently specialized."
+  ],
+  "Layer-Wise Attention Behavior in Recall vs. Reasoning": [
+    "These findings provide strong evidence for the Layer Specialization Hypothesis."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Introduction": [
+    "Nevertheless, focal loss is not a proper scoring rule, and training with it can yield underconfident or overconfident estimators-unreliable for class-posterior probability estimation."
+  ],
+  "Motivation and Contributions.": [
+    "Nevertheless, focal loss is not a proper scoring rule, and training with it can yield underconfident or overconfident estimators-unreliable for class-posterior probability estimation."
+  ],
+  "Post-Processing Gap": [
+    "(Charoenphakdee et al., 2021) proved that focal loss is classification-calibrated, it is not strictly proper."
+  ]
+}

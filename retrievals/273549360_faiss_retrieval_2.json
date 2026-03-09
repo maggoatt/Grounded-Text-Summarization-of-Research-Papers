@@ -1,0 +1,9 @@
+{
+  "Motivation and Contributions.": [
+    "\u2022 Theoretical Guarantees: We prove that minimizing FCL yields superior probability and classification calibration compared to Focal Loss alone, effectively reducing the post-processing gap."
+  ],
+  "A.8. Proof that the Focal Calibration Loss is Strictly Proper": [
+    "Case 2: \u03bb = 0 When \u03bb = 0, the FCL reduces to the focal loss:\n\nThe focal loss is not strictly proper because:\n\n(a) Multiple Minimizers: Consider any p where pj = 1 and pk = 0 for k \u0338 = j.",
+    "The calibration loss is strictly positive:\n\nThe focal loss for the true class j satisfies:\n\nThus, the total loss is:\n\nConclusion for \u03bb > 0: Since the loss L \u03b3,\u03bb FCL attains its unique global minimum of zero when p = y, it is strictly proper when \u03bb > 0."
+  ]
+}

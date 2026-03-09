@@ -1,0 +1,11 @@
+{
+  "POST-PROCESSING GAP REDUCTION": [
+    "Improving the calibration of deep neural networks (DNNs) is critical for reliable uncertainty estimation."
+  ],
+  "Conclusions": [
+    "Ensuring accurate and trustworthy confidence scores in deep neural networks is vital for deploying them in high-stakes domains such as healthcare, autonomous driving, and finance."
+  ],
+  "Related Work": [
+    "These limitations underscore the need for robust calibration methods to enhance reliability in domains such as autonomous driving (Feng et al., 2021) and medical imaging (Mehrtash et al., 2020)."
+  ]
+}

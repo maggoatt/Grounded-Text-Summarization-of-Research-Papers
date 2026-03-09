@@ -1,0 +1,9 @@
+{
+  "Several lemmas": [
+    "For each f \u2208 L 2 (C, e \u2212\u03d5 ), there exists a entire weak solution u \u2208 L 2 (C, e \u2212\u03d5 ) solving the equation\n\nwhere c is a constant."
+  ],
+  "Introduction": [
+    "In this paper, using H\u00f6rmander L 2 method [1] for Cauchy-Riemann equations from complex analysis, we study the right inverse of the differential operator \u2202 k + a, which is densely defined and closed, in a Hilbert space by proving the following result on the existence of (entire) weak solutions of the equation \u2202 k u+au = f in the weighted Hilbert space L 2 (C, e \u2212|z| 2 ).",
+    "For each\n\n, there exists a weak solution u \u2208 L 2 (C, e \u2212\u03d5 ) solving the equation\n\nThe organization of the paper is as follows."
+  ]
+}

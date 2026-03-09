@@ -1,0 +1,11 @@
+{
+  "B. ECCT as Outer Decoder": [
+    "We propose ConvBCJRFormer, an extension of BCJR-Former that decodes transmissions of a zero-terminated binary convolutional (n c , 1, m) codeword over the IDS channel."
+  ],
+  "G. ConvBCJRFormer for Convolutional Decoding": [
+    "In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder."
+  ],
+  "Ins.": [
+    "We first introduce our channel model and describe concatenated coding schemes, with a focus on the BCJR algorithm that is used to derive the input for both BCJRFormer and ConvBCJRFormer."
+  ]
+}

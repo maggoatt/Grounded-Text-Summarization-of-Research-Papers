@@ -1,0 +1,11 @@
+{
+  "Introduction": [
+    "However, while Focal Loss (Lin et al., 2017) effectively addresses class imbalance, it often leads to overly confident predictions (Charoenphakdee et al., 2021)."
+  ],
+  "Unknown": [
+    "Importantly, no step in the focal-loss training algorithm relies on direct knowledge of \u03b7(x); the model is trained on empirical data using a focal-loss objective, while \u03b7(x) remains a theoretical concept."
+  ],
+  "Conclusions": [
+    "In conclusion, traditional Focal Loss has been instrumental in reducing misclassification rates by focusing on hardto-classify samples; however, it often falls short in providing well-calibrated predictions."
+  ]
+}

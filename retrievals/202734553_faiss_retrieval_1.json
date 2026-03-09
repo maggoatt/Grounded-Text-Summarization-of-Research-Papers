@@ -1,0 +1,7 @@
+{
+  "Introduction": [
+    "In this paper, using H\u00f6rmander L 2 method [1] for Cauchy-Riemann equations from complex analysis, we study the right inverse of the differential operator \u2202 k + a, which is densely defined and closed, in a Hilbert space by proving the following result on the existence of (entire) weak solutions of the equation \u2202 k u+au = f in the weighted Hilbert space L 2 (C, e \u2212|z| 2 ).",
+    "Here, we consider the weighted Hilbert space\n\nwhere \u03d5 is a nonnegative function on C. We denote the weighted inner product for f, g \u2208 L 2 (C, e \u2212\u03d5 ) by f, g \u03d5 = C f ge \u2212\u03d5 d\u03c3, and the weighted norm\n\nIn the following, let \u03d5 be a smooth and nonnegative function on C. For \u2200\u03c6 \u2208 C \u221e 0 (C), we first define the following formal adjoint of \u2202 k with respect to the weighted inner product in\n\nWe integrate as follows by the definition of the weak partial derivative.",
+    "In Section 2, we will prove several key lemmas based on functional analysis in terms of H\u00f6rmander L 2 method, while the proof of Theorem 1.1 and 1.2 will be given in Section 3."
+  ]
+}

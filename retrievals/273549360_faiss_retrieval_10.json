@@ -1,0 +1,9 @@
+{
+  "Dataset Model": [
+    "This gives the post-processed version of the focal calibration loss (FCL) as:\n\nwhere L focal is the focal loss, L calib is the calibration loss, and \u03bb \u2265 0 is a weighting parameter controlling the calibration term.",
+    "Consistent with Section 5.3.1, FCL achieves superior calibration metrics while delivering finer visual explanations-bridging the gap between purely numerical evaluations and real-world clinical needs."
+  ],
+  "CALIBRATION ERROR": [
+    "These results underscore the efficacy of FCL in enhancing model calibration, outperforming other methods like Brier Loss, MMCE, and Label Smoothing, Focal Loss in both pre-and post-temperature scaling scenarios."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "I. INTRODUCTION": [
+    "DNA data storage is an emerging storage medium that encodes binary data into DNA sequences for high-density, long-term storage."
+  ],
+  "D. BCJRFormer for Joint Inner Decoding": [
+    "In DNA data storage, the number of received sequences (denoted as M k ) varies for each transmitted sequence, which makes training models for fixed cluster sizes inefficient."
+  ],
+  "II. RELATED WORK": [
+    "The article [10] proposes DNAformer, an end-to-end retrieval solution for DNA data storage that also uses a transformer-based architecture to reconstruct data from multiple noisy reads."
+  ]
+}

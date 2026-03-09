@@ -1,0 +1,11 @@
+{
+  "Mechanistic Interpretability and Circuits": [
+    "Behavioral evidence suggests that earlier layers contribute more to recall while deeper layers perform multi-step reasoning Elhage et al."
+  ],
+  "Introduction": [
+    "By establishing which components activate during genuine reasoning versus memorized retrieval, we aim to provide a mechanistic yardstick for separating these two cognitive processes."
+  ],
+  "Layer-Wise Attention Behavior in Recall vs. Reasoning": [
+    "Figures 2 and 3 illustrate the dominance and broader distribution of recall-specialized layers compared to the more localized reasoning-specialized layers."
+  ]
+}

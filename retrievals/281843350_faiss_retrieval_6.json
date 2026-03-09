@@ -1,0 +1,11 @@
+{
+  "Specialization Type": [
+    "Figure 6 further demonstrates that specialized heads are distributed across all layers of the network, with certain layers (e.g., 0-4) exhibiting higher concentrations."
+  ],
+  "Attention Head Specialization Across Tasks": [
+    "Figure 6 further demonstrates that specialized heads are distributed across all layers of the network, with certain layers (e.g., 0-4) exhibiting higher concentrations."
+  ],
+  "Layer-Wise Attention Behavior in Recall vs. Reasoning": [
+    "These findings provide strong evidence for the Layer Specialization Hypothesis."
+  ]
+}
