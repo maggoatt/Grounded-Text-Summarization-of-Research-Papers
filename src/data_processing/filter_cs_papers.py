@@ -1,3 +1,5 @@
+# connects to S2ORC corpus, extracts TARGET_PAPERS number of CS-related papers via matching keywords in title
+# author: richard youn, modified by lawrence zhou and maggie zhang
 import os
 import requests
 import json

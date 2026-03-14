@@ -1,3 +1,5 @@
+# keeps relevant info from each paper (metadata, biliographies, sections, text), saving all to a .jsonl file
+# author: richard youn, modified lightly by maggie zhang
 import json
 import os
 

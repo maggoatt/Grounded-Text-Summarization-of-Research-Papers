@@ -4,7 +4,7 @@
 - Turns offset and paragraph into section_title and text key:value pairs
 - Save each paper as its own JSON file in data/ dir.
 """
-
+# author: maggie zhang
 import json
 import os
 
