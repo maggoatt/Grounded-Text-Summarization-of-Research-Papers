@@ -1,3 +1,6 @@
+# helper functions for generating + saving summaries for the UI, takes code from notebook
+# author: maggie zhang
+
 # imports
 
 # TextRank

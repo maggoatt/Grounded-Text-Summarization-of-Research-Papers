@@ -1,3 +1,6 @@
+# generates and saves metrics (readability, perplexity, etc.) for evaluating TextRank and BART summaries for UI use
+# authors: lawrence zhou and maggie zhang
+
 from pathlib import Path
 import json
 import csv
@@ -5,9 +8,9 @@ import csv
 from summarization import metrics as m
 
 
-data_dir = Path("data")
-summaries_dir = Path("summaries")
-metrics_dir = Path("metrics")
+data_dir = Path("../../../data")
+summaries_dir = Path("../../../summaries")
+metrics_dir = Path("../../../metrics")
 
 metrics_dir.mkdir(exist_ok=True)
 

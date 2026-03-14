@@ -1,17 +1,19 @@
-# generate_retrievals.py
+# saves all resulting retrievals for all papers to be used in UI and for metric evaluations
+# author: lawrence zhou
+
 import json, re
 import numpy as np
 import faiss
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
-from bm_retrieval import tokenize
+from .bm_retrieval import tokenize
 from nltk.tokenize import sent_tokenize
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-embeddings_dir = Path("../paper_embeddings")
-summaries_dir = Path("../summaries")
-data_dir = Path("../data")
-output_dir = Path("../retrievals")
+embeddings_dir = Path("../../../paper_embeddings")
+summaries_dir = Path("../../../summaries")
+data_dir = Path("../../../data")
+output_dir = Path("../../../retrievals")
 output_dir.mkdir(exist_ok=True)
 
 PAPER_IDS = [

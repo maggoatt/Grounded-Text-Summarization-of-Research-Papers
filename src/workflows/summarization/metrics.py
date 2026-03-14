@@ -1,4 +1,5 @@
-# metrics for evaluating generated summaries
+# helper functions for generating metrics for compute_metrics.py to use 
+# author: maggie zhang
 
 import textstat
 import language_tool_python

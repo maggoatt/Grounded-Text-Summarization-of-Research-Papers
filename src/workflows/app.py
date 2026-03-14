@@ -1,12 +1,20 @@
+# working implementation of interactive UI + connection between all workflows, pulls pre-generated summaries, retrievals, and metrics for viewing
+# author: lawrence zhou, modified by maggie zhang
+
 import streamlit as st
 from pathlib import Path
 import json
 import csv
 import summarization.summarize as sum
 import re
-import bm_retrieval as bm_ret
-import faiss_retrieval as faiss_ret
+import retrieval.bm_retrieval as bm_ret
+import retrieval.faiss_retrieval as faiss_ret
 
+# Resolve paths relative to project root (works regardless of cwd)
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+papers_dir = _PROJECT_ROOT / "data"
+summaries_dir = _PROJECT_ROOT / "summaries"
+metrics_dir = _PROJECT_ROOT / "metrics"
 
 st.set_page_config(page_title="Grounded Text Summarization of Research Papers", layout="wide")
 
@@ -15,11 +23,6 @@ st.markdown(
     "<h1 style='text-align: center;'> Grounded Text Summarization of Research Papers </h1>",
     unsafe_allow_html=True
 )
-
-
-papers_dir = Path("data")
-summaries_dir = Path("summaries")
-metrics_dir = Path("metrics")
 
 @st.cache_data
 def create_index(papers_dir):

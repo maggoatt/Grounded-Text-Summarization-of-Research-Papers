@@ -1,18 +1,23 @@
+# loads previously saved embeddings and finds top evidence matches (sentences and section titles) for summaries
+# author: lawrence zhou
+
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 import json
 from pathlib import Path
-from bm_retrieval import find_best_chunk, tokenize
+from .bm_retrieval import find_best_chunk, tokenize
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-embeddings_dir="../paper_embeddings"
+# Resolve path relative to project root (retrieval -> workflows -> src -> project root)
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+embeddings_dir = _PROJECT_ROOT / "paper_embeddings"
 
 def load_paper_embeddings(paper_id):
     # basically the creation of optimized index for searching
-    embeddings = np.load(f"{embeddings_dir}/{paper_id}_embeddings.npy").astype("float32")
-    with open(f"{embeddings_dir}/{paper_id}_metadata.json") as f:
+    embeddings = np.load(embeddings_dir / f"{paper_id}_embeddings.npy").astype("float32")
+    with open(embeddings_dir / f"{paper_id}_metadata.json") as f:
         metadata = json.load(f)
     
     faiss.normalize_L2(embeddings)

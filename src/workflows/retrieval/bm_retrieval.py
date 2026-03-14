@@ -1,3 +1,6 @@
+# helper function implementation of BM25
+# author: lawrence zhou
+
 from rank_bm25 import BM25Okapi
 import json, re
 import nltk
