@@ -1,0 +1,27 @@
+3, the post-processing gap for the FCL pGap D (L γ,λ FCL )is defined as:
+
+Step 1: Expanding the Post-Processing Gap for FCL Substituting the definition of the focal calibration loss, we obtain:
+
+Step 2: Special Case when λ = 0 When λ = 0, the focal calibration loss simplifies to the focal loss, as the calibration term is removed. This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term. The calibration loss is strictly positive:
+
+The focal loss for the true class j satisfies:
+
+Thus, the total loss is:
+
+Conclusion for λ > 0: Since the loss L γ,λ FCL attains its unique global minimum of zero when p = y, it is strictly proper when λ > 0. Step 3: Combining Steps 1 and 2 From inequalities ( 22) and ( 30), we obtain:
+
+Step 4: Minimizing the Calibration Loss Reduces the Norm The calibration loss for a single data point is:
+
+Since y is a one-hot encoding sampled from the distribution η(x), we have:
+
+The term
+
+) is independent of p(x) and represents the intrinsic uncertainty of the true distribution. At p = y, the calibration loss is:
+
+Assuming y is a one-hot vector with y j = 1 for the true class j, the focal loss becomes:
+
+Thus, the total loss is:
+
+(b) When p ̸ = y.

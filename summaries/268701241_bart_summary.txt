@@ -1,0 +1,1 @@
+The article is expressed in five parts. The first part introduces the study of automatic parking vehicle control. The next part, an MPC controller combined with RL for vehicle movement and obstacle avoidance. Finally, the paper makes conclusions about the main features of the automatic parking solution.

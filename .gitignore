@@ -1,7 +1,2 @@
 .env
 .venv
-
-data/
-summaries/
-paper_embeddings/
-metrics/
