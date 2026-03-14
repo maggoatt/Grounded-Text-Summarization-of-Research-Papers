@@ -1,0 +1,120 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Following Definition 2.3, the post-processing gap for the FCL pGap D (L γ,λ FCL )is defined as:
+
+Step 1: Expanding the Post-Processing Gap for FCL Substituting the definition of the focal calibration loss, we obtain:
+
+Step 2: Special Case when λ = 0 When λ = 0, the focal calibration loss simplifies to the focal loss, as the calibration term is removed.
+
+Best Entailment: 0.9866302013397217
+Best Section: Dataset Model
+Best Sentence: Following Definition 2.3, the post-processing gap for the FCL pGap D (L γ,λ FCL )is defined as:
+
+Step 1: Expanding the Post-Processing Gap for FCL Substituting the definition of the focal calibration loss, we obtain:
+
+Step 2: Special Case when λ = 0 When λ = 0, the focal calibration loss simplifies to the focal loss, as the calibration term is removed.
+
+Worst: 
+
+Title: Motivation and Contributions.
+Sentence: Our key contributions are:
+
+• Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.
+Score: 0.9973773956298828
+
+Title: Calibration Error
+Sentence: Let H be the class of all 1-Lipschitz functions ϕ : [0, 1] → [−1, 1].
+Score: 0.520812451839447
+
+Title: Focal Calibration Loss
+Sentence: We address these calibration issues by proposing the Focal Calibration Loss (FCL), which appends a proper loss term to focal loss.
+Score: 0.9918117523193359
+
+Title: Reduction of Post-Processing Gap
+Sentence: We finally show that FCL reduces the post-processing gap (Blasiok et al., 2024) relative to focal loss alone.
+Score: 0.9858049750328064
+
+Title: Reduction of Post-Processing Gap
+Sentence: For any predictor f : X → [0, 1] and any distribution D over X × {0, 1}, the L γ,λ FCL yields a smaller (or equal) post-processing gap than focal loss alone:
+
+This implies that by incorporating ∥p − y∥ 2 2 into training, the model's raw outputs require less recalibration after the fact.
+Score: 0.6754606366157532
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: NLL decreases initially as λ increases from 0 to 0.5 but shows fluctuations and a slight increase beyond λ = 1.5.
+Score: 0.7003453969955444
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: In contrast, the FCL model shows minimal change in calibration error after temperature scaling closing with 1.0, confirming that FCL reduces the post-processing gap.
+Score: 0.7062368392944336
+
+Title: A.1. Evaluation Metrics
+Sentence: Step 3: Combining Steps 1 and 2 From inequalities ( 22) and ( 30), we obtain:
+
+Step 4: Minimizing the Calibration Loss Reduces the Norm The calibration loss for a single data point is:
+
+Since y is a one-hot encoding sampled from the distribution η(x), we have:
+
+The term
+
+) is independent of p(x) and represents the intrinsic uncertainty of the true distribution.
+Score: 0.8719465732574463
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: • Focal Loss Term: The term − K i=1 η i (1 − q i ) γ log q i is convex in q i for q i ∈ (0, 1).
+Score: 0.6733543872833252
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Since η i ≥ 0, and a non-negative weighted sum of convex functions is convex, the focal loss term is convex.
+Score: 0.5187035799026489
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Step 3: Setting Up the Lagrangian To find the minimizer, we set up the Lagrangian function incorporating the equality constraint:
+
+We do not need to include inequality constraints q i > 0 explicitly because q i ∈ (0, 1) due to the logarithm and the domain of q.
+Score: 0.88881516456604
+
+Title: Primal Feasibility:
+Sentence: Step 8: Handling the case when η i = 0 or η i = 1 1.
+Score: 0.504227340221405
+
+Title: Primal Feasibility:
+Sentence: The calibration loss term is λ(q i − 0) 2 = λq 2 i , minimized when q i = 0.
+Score: 0.926565945148468
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Step 1: Define the Focal Calibration Loss (FCL) The Focal Calibration Loss for a single sample x with true label y ∈ {1, 2, .
+Score: 0.959738552570343
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Case 1: λ > 0 Let y ∈ ∆ K be the true probability vector, and p ∈ ∆ K be the predicted probability vector.
+Score: 0.573271632194519
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Conclusion for λ = 0: Since the minimum of L γ,0 FCL is not uniquely achieved at p = y, the loss is not strictly proper when λ = 0.
+Score: 0.9247356057167053
+
+Title: Dataset Model
+Sentence: This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term.
+Score: 0.9931461811065674
+
+Title: Dataset Model
+Sentence: Thus, the post-processing gap for FCL reduces to the post-processing gap for FL:
+
+Step 3: General Case when λ > 0 When λ > 0, the calibration term influences the post-processing gap by helping to reduce the calibration error.
+Score: 0.8593367338180542
+
+Title: Dataset Model
+Sentence: This reduction in the post-processing gap brings the prediction closer to the true label, reducing the pGap.
+Score: 0.9927238821983337
+
+Title: Dataset Model
+Sentence: Additionally, the term −η(p ik ) 2 is still negative but smaller in magnitude, ensuring that the gap is reduced.
+Score: 0.8139109015464783
+
+Title: Dataset Model
+Sentence: Since E (x,y)∼D K k=1 2(y ik − pik )η(p ik ) − η(p ik ) 2 ensures that pGap is not increased, maintaining or reducing the gap, as depicted in Fig.
+Score: 0.7915704846382141
+

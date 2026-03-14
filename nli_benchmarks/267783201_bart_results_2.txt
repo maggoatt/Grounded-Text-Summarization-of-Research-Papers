@@ -1,0 +1,94 @@
+BART x NLI RESULTS
+
+Sentence: We present a MorphoGraphX method for associating 2.5D surface cells with 3D nuclei.
+
+Section Title: Introduction
+Retrieved Sentence: Over the years, and partly through the application of artificial intelligence, powerful open-source software packages have been developed for 3D cell segmentation of confocal microscopy images (Barbier de Reuille et al., 2015;Eschweiler et al., 2019;Fernandez et al., 2010;Schmidt et al., 2014;Sommer et al., 2011;Stegmaier et al., 2016).Machine learning based software, including CellPose, PlantSeg and StarDist, represents a recent advance in this area, providing improved 3D segmentation of tissues at cellular resolution (Eschweiler et al., 2019;Stringer et al., 2021;Weigert et al., 2020;Wolny et al., 2020).The output of such pipelines can then be quantitatively analyzed in image analysis software like MorphoGraphX (Barbier de Reuille et al., 2015;Strauss et al., 2022).The advances in these computational resources have enabled the generation of a number of digital 3D models of a variety of plant organs, which have allowed single-cell analysis in 3D and have been instrumental in gaining fundamental insights into various processes in plants, including embryo, root, and ovule development (Bassel et al., 2014;Fridman et al., 2021;Graeff et al., 2021;Hernandez-Lagana et al., 2021;Lora et al., 2017;Montenegro-Johnson et al., 2015;Ouedraogo et al., 2023;Pasternak et al., 2017;Schmidt et al., 2014;Vijayan et al., 2021;Yoshida et al., 2014).
+Entailment Score: 0.0006792086060158908
+Neutral Score: 0.9977572560310364
+Contradiction Score: 0.001563551020808518
+
+Section Title: Discussion
+Retrieved Sentence: We used PlantSeg (Wolny et al., 2020), Cellpose (Stringer et al., 2021) and StarDist (Schmidt et al., 2018;Weigert et al., 2020) as three strong baselines for 3D nuclear segmentation and performed a comparative analysis of the performance of the models obtained from each platform.Cellpose was the only tool that provided a pre-trained model which could perform the initial segmentation.However, in the presence of ground truth, it was demonstrated to be less stable, with more variability in the results depending on the training/test split of the data.Re-trained PlantSeg and StarDist both demonstrated excellent, stable performance.The advantage of PlantSeg is its ability to also perform cell segmentation from membrane staining and the general absence of explicit star-convexity prior which can be harmful for segmentation of irregular nuclei.However, in very noisy conditions StarDist is preferred as the shape prior helps it overcome the low SNR.It also needs to be noted that our ground truth annotations are produced through iterative improvement using a StarDist model, so the resulting shapes might be biased towards being more regular and star-convex.
+Entailment Score: 0.00027358601801097393
+Neutral Score: 0.961649477481842
+Contradiction Score: 0.03807695955038071
+
+Section Title: Model training and score quantification
+Retrieved Sentence: For quantitative evaluation of the models, we trained five different models during both "initial" and "gold" training of each of the PlantSeg, StarDist, and Cellpose neural networks.Cross-validation with one datasets kept out for testing was used (Fig dataset and so on.Therefore, the trained models from the initial and gold training include 15 (3 X 5) initial models and 30 (6 X 5) gold models (Table 5).
+Entailment Score: 0.002690355060622096
+Neutral Score: 0.8213058710098267
+Contradiction Score: 0.17600372433662415
+
+Section Title: Unknown
+Retrieved Sentence: S4) (Materials and Methods).3D cell segmentation can be challenging especially when working with live images.In such cases, one may have to resort to 2.5D cell segmentation.We present a MorphoGraphX method for associating 2.5D surface cells with 3D nuclei.
+Entailment Score: 0.9917902946472168
+Neutral Score: 0.007742633111774921
+Contradiction Score: 0.00046704584383405745
+
+Section Title: 4A-H) (see Materials and Methods
+Retrieved Sentence: MorphoGraphX achieves this link by projecting 3D segmented nuclei stacks onto the 2.5D segmented cell mesh (Fig.
+Entailment Score: 0.9960063099861145
+Neutral Score: 0.003850305452942848
+Contradiction Score: 0.00014343719522003084
+
+Section Title: Mapping cell labels to nuclei labels in MorphoGraphX
+Retrieved Sentence: 3D cell and nuclei meshes were generated from segmented stacks using the Marching cubes 3D process with a cube size of 0.5 μm for fine details.Cell-type labeling assigns parent (tissue) labels to the cell IDs.Cell-type labeling was done as described in (Vijayan et al., 2021).The cell and nuclear volumes were obtained using the "Mesh/Heat Map/Analysis/Cell Analysis 3D" process in MorphoGraphX.Initially, the cells in the 3D cell mesh (Mesh 1) have their unique cell IDs and the nuclei in the 3D nuclear mesh (Mesh 2) have their unique nuclei IDs.Both the IDs are mapped using the MorphoGraphX process "Mesh/Nucleus/ Label Nuclei".In detail, this process identifies the cells in which nuclei are located.It is run on the active 3D cell mesh in MorphoGraphX mesh 1, while the 3D nuclei mesh is loaded in the MorphoGraphX Mesh 2.
+Entailment Score: 0.1045340970158577
+Neutral Score: 0.8797794580459595
+Contradiction Score: 0.01568647101521492
+
+Section Title: Mapping cell labels to nuclei labels in MorphoGraphX
+Retrieved Sentence: 3D cell and nuclei meshes were generated from segmented stacks using the Marching cubes 3D process with a cube size of 0.5 μm for fine details.Cell-type labeling assigns parent (tissue) labels to the cell IDs.Cell-type labeling was done as described in (Vijayan et al., 2021).The cell and nuclear volumes were obtained using the "Mesh/Heat Map/Analysis/Cell Analysis 3D" process in MorphoGraphX.Initially, the cells in the 3D cell mesh (Mesh 1) have their unique cell IDs and the nuclei in the 3D nuclear mesh (Mesh 2) have their unique nuclei IDs.Both the IDs are mapped using the MorphoGraphX process "Mesh/Nucleus/ Label Nuclei".In detail, this process identifies the cells in which nuclei are located.It is run on the active 3D cell mesh in MorphoGraphX mesh 1, while the 3D nuclei mesh is loaded in the MorphoGraphX Mesh 2.
+Entailment Score: 0.1045340970158577
+Neutral Score: 0.8797794580459595
+Contradiction Score: 0.01568647101521492
+
+Section Title: MorphoGraphX as a platform for mapping 3D nuclei to whole organ cell atlas with single cell and tissue resolution
+Retrieved Sentence: ).The 3D cell meshes can then be assigned tissue labels via manual or semi-automated cell-type labeling (Strauss et al., 2022) (Fig.
+Entailment Score: 0.000837841012980789
+Neutral Score: 0.031170597299933434
+Contradiction Score: 0.9679915308952332
+
+Section Title: Introduction
+Retrieved Sentence: Over the years, and partly through the application of artificial intelligence, powerful open-source software packages have been developed for 3D cell segmentation of confocal microscopy images (Barbier de Reuille et al., 2015;Eschweiler et al., 2019;Fernandez et al., 2010;Schmidt et al., 2014;Sommer et al., 2011;Stegmaier et al., 2016).Machine learning based software, including CellPose, PlantSeg and StarDist, represents a recent advance in this area, providing improved 3D segmentation of tissues at cellular resolution (Eschweiler et al., 2019;Stringer et al., 2021;Weigert et al., 2020;Wolny et al., 2020).The output of such pipelines can then be quantitatively analyzed in image analysis software like MorphoGraphX (Barbier de Reuille et al., 2015;Strauss et al., 2022).The advances in these computational resources have enabled the generation of a number of digital 3D models of a variety of plant organs, which have allowed single-cell analysis in 3D and have been instrumental in gaining fundamental insights into various processes in plants, including embryo, root, and ovule development (Bassel et al., 2014;Fridman et al., 2021;Graeff et al., 2021;Hernandez-Lagana et al., 2021;Lora et al., 2017;Montenegro-Johnson et al., 2015;Ouedraogo et al., 2023;Pasternak et al., 2017;Schmidt et al., 2014;Vijayan et al., 2021;Yoshida et al., 2014).
+Entailment Score: 0.0006792086060158908
+Neutral Score: 0.9977572560310364
+Contradiction Score: 0.001563551020808518
+
+Section Title: Mapping cell labels to nuclei labels in MorphoGraphX
+Retrieved Sentence: 3D cell and nuclei meshes were generated from segmented stacks using the Marching cubes 3D process with a cube size of 0.5 μm for fine details.Cell-type labeling assigns parent (tissue) labels to the cell IDs.Cell-type labeling was done as described in (Vijayan et al., 2021).The cell and nuclear volumes were obtained using the "Mesh/Heat Map/Analysis/Cell Analysis 3D" process in MorphoGraphX.Initially, the cells in the 3D cell mesh (Mesh 1) have their unique cell IDs and the nuclei in the 3D nuclear mesh (Mesh 2) have their unique nuclei IDs.Both the IDs are mapped using the MorphoGraphX process "Mesh/Nucleus/ Label Nuclei".In detail, this process identifies the cells in which nuclei are located.It is run on the active 3D cell mesh in MorphoGraphX mesh 1, while the 3D nuclei mesh is loaded in the MorphoGraphX Mesh 2.
+Entailment Score: 0.1045340970158577
+Neutral Score: 0.8797794580459595
+Contradiction Score: 0.01568647101521492
+
+Section Title: 4A-H) (see Materials and Methods
+Retrieved Sentence: MorphoGraphX achieves this link by projecting 3D segmented nuclei stacks onto the 2.5D segmented cell mesh (Fig.
+Entailment Score: 0.9960063099861145
+Neutral Score: 0.003850305452942848
+Contradiction Score: 0.00014343719522003084
+
+Section Title: Discussion
+Retrieved Sentence: An important feature of MorphoGraphX is the projection of secondary signals onto the cell surfaces, which enables the quantification of nuclei, cell wall or cytoplasmic signal intensities based on the cellular segmentation (Barbier de Reuille et al., 2015;Montenegro-Johnson et al., 2015).What up to now was missing, however, was the integration of the size and shape of the nuclei into the cellular framework.We present an extension to MorphoGraphX that includes the ability to assign individual nuclei to their corresponding 3D cells in digital 3D organs.To this end, we have developed a number of processes that are part of the latest versions of MorphoGraphX from version 2.0.2.This improvement allows the analysis of various relationships between the nucleus and the cell it is located in, in 3D, including determination of the Euclidean distance between cell and nuclear centroids, mapping 2.5D cells to underlying 3D nuclei, or identification of more than one nucleus in a cell.For example, quantification of the Euclidean distance between cell centroids and nuclear centroids was instrumental in developing the notion that positioning the plane of cell division in cells of the early Arabidopsis embryo does not depend on the precise position of the nucleus (Vaddepalli et al., 2021).
+Entailment Score: 0.9960979223251343
+Neutral Score: 0.0035434209275990725
+Contradiction Score: 0.0003586485399864614
+
+Section Title: Mapping cell labels to nuclei labels in MorphoGraphX
+Retrieved Sentence: The process assigns cell IDs as "parents" annotation to the nuclei labels, thereby linking cells IDs to nuclei IDs.On the 3D nuclei mesh (active), the "Mesh/Lineage tracking/Save parents" process was used to save the nuclei IDs and their corresponding parent cell IDs in a csv file, followed by the "Mesh/Lineage tracking/Copy parents to labels" process to rewrite the nuclei labels IDs to that of cells.These processes in combination with "Mesh/Heat map" and "Mesh/Heat map/Operators/Export heat to Attr Map" processes were used to generate csv files containing cell IDs, their corresponding nuclei IDs, parent (tissue) labels, and cell and nuclei geometric attributes.
+Entailment Score: 0.002545652212575078
+Neutral Score: 0.976428747177124
+Contradiction Score: 0.021025555208325386
+
+Section Title: Mapping cell labels to nuclei labels in MorphoGraphX
+Retrieved Sentence: 3D cell and nuclei meshes were generated from segmented stacks using the Marching cubes 3D process with a cube size of 0.5 μm for fine details.Cell-type labeling assigns parent (tissue) labels to the cell IDs.Cell-type labeling was done as described in (Vijayan et al., 2021).The cell and nuclear volumes were obtained using the "Mesh/Heat Map/Analysis/Cell Analysis 3D" process in MorphoGraphX.Initially, the cells in the 3D cell mesh (Mesh 1) have their unique cell IDs and the nuclei in the 3D nuclear mesh (Mesh 2) have their unique nuclei IDs.Both the IDs are mapped using the MorphoGraphX process "Mesh/Nucleus/ Label Nuclei".In detail, this process identifies the cells in which nuclei are located.It is run on the active 3D cell mesh in MorphoGraphX mesh 1, while the 3D nuclei mesh is loaded in the MorphoGraphX Mesh 2.
+Entailment Score: 0.1045340970158577
+Neutral Score: 0.8797794580459595
+Contradiction Score: 0.01568647101521492
+
+Section Title: MorphoGraphX as a platform for mapping 3D nuclei to whole organ cell atlas with single cell and tissue resolution
+Retrieved Sentence: S3H).We reasoned that it should be possible to combine 3D cell segmentation and 3D nuclear segmentation of the imaged 3D stack.3D cell segmentation assigns cells their cell IDs and 3D nuclear segmentation assigns nuclei their nuclei IDs; however, they are not directly linked.In MorphoGraphX, these 3D cell and nuclei segmentation images are converted to 3D meshes representing individual objects.To address the issue of linking nuclei and corresponding cell IDs, we developed a novel process in MorphoGraphX that automatically annotates and links nuclei IDs with their corresponding cell IDs (Fig.
+Entailment Score: 0.2863669991493225
+Neutral Score: 0.7038965225219727
+Contradiction Score: 0.00973648950457573
+

@@ -1,0 +1,30 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: For the Layer Specialization Hypothesis (H1), we observed significant and robust differences in activation patterns between recall and reasoning tasks across many layers.
+
+Best Entailment: 0.9610175490379333
+Best Section: Conclusion
+Best Sentence: While causal validation through ablation was inconclusive, the statistical evidence provides robust correlational support that some heads preferentially encode recall-related signals while others specialize in reasoning computations.
+
+Worst: 
+
+Title: Primary Hypothesis and Sub-Hypotheses
+Sentence: • H2: Attention heads show differential activation patterns between task types.
+Score: 0.9816110134124756
+
+Title: Cross-Validation
+Sentence: A neuron was considered consistently task-specific if it maintained the same task preference (recall vs. reasoning) in at least 80% of the folds.
+Score: 0.9955223798751831
+
+Title: MLP Neuron Task-Specificity (Hypothesis H3)
+Sentence: The MLP Neuron Task-Specificity Hypothesis (H3) posits that individual MLP neurons exhibit differentiated activation patterns depending on whether the task involves recall or reasoning.
+Score: 0.9790786504745483
+
+Title: MLP Neuron Task-Specificity (Hypothesis H3)
+Sentence: Consistency was perfect: all 50 neurons (100%) retained their task-preference classification (recall or reasoning) across all folds.
+Score: 0.9734618663787842
+
+Title: Conclusion
+Sentence: Extending further, the MLP Neuron Task-Specificity Hypothesis (H3) showed that nearly one-third of the 530,432 neurons analyzed exhibited significant task-specific activation.
+Score: 0.8722881078720093
+

@@ -1,0 +1,34 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: ., n.
+
+Combining Definition 3.1 and Definition 3.2, we define our tensor operation, the ⋆ M -product, as follows:
+
+, and an invertible n × n matrix M, the ⋆ M -product outputs an m 1 × m 2 × n tensor of the following form:
+
+where X ≡ X × 3 M.
+
+We say that A and B live in the spatial domain and A and B live in the transform domain.We perform the facewise product in the transform domain, then return to the spatial domain by applying M −1 along the tubes.If M is the identity matrix, the ⋆ M -product is exactly facewise product.If M were the discrete Fourier transformation matrix (DFT), we obtain the t-product (Kilmer and Martin, 2011).In this case, the frontal slices of A correspond to different frequencies in the Fourier domain and are therefore decoupled.
+
+Best Entailment: 0.9966176152229309
+Best Section: . Tensor preliminaries
+Best Sentence: ., n.
+
+Combining Definition 3.1 and Definition 3.2, we define our tensor operation, the ⋆ M -product, as follows:
+
+, and an invertible n × n matrix M, the ⋆ M -product outputs an m 1 × m 2 × n tensor of the following form:
+
+where X ≡ X × 3 M.
+
+We say that A and B live in the spatial domain and A and B live in the transform domain.We perform the facewise product in the transform domain, then return to the spatial domain by applying M −1 along the tubes.If M is the identity matrix, the ⋆ M -product is exactly facewise product.If M were the discrete Fourier transformation matrix (DFT), we obtain the t-product (Kilmer and Martin, 2011).In this case, the frontal slices of A correspond to different frequencies in the Fourier domain and are therefore decoupled.
+
+Worst: 
+
+Title: Related work
+Sentence: As we eluded to in the previous paragraph, in this work, we take a notably different perspective on tensors.We consider tensors as multiway operators and process our layers under this tensor operation.This provides a linear algebraic structure that enables us to extend desirable neural network structure to high dimensions with ease.Because of our strong algebraic foundation, we are able to express forward and backward propagation simply; in comparison, other tensor frameworks require heavy indexing notation.We share and achieve the same goal as other tensor approaches of reducing the number of network weights.
+Score: 0.9947307109832764
+
+Title: . Well-posed learning problem criterion
+Sentence: ., n.In short, if the eigenvalues of each frontal slice in the transform domain have a real part close to zero, the t-NN learning problem will be well-posed, save one more requirement.
+Score: 0.7073842287063599
+

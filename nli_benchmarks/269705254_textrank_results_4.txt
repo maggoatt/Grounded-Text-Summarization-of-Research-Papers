@@ -1,0 +1,62 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: In this description of the normative love plot, the user is predicted to wish to be 'understood' in a relation of love with the object.
+
+Best Entailment: 0.9956616759300232
+Best Section: A lover's discourse
+Best Sentence: Tracing the tropic interactions of the male/female courting process, in one fragment the lover is predicted to understand himself through his love object.
+
+Worst: 
+
+Title: Introduction
+Sentence: In her famous proposal of cyborg feminism, Donna Haraway points to the artifice of gender by suggesting that a move towards the cyborgian may disrupt the 'natural matrix of unity' made to seem true (1991, p. 157).
+Score: 0.9987640380859375
+
+Title: Intelligence and intelligibility
+Sentence: Biometrics such as phrenology used physical referents to determine a being's perceived capacity to understand reason with reference to colonized populations, governing entry into the symbolic order of humanness into the 19 th century (Leaney, 2006;O'Neill, 2022).
+Score: 0.9889945387840271
+
+Title: Intelligence and intelligibility
+Sentence: Psychometric IQ-testing rendered some as dysgenic (and therefore in need of sterilization) according to degrees of perceived mental competence: 'idiots' (preverbal), 'imbeciles' (illiterate), and 'morons' (called 'highfunctioning') (Reddy, 2008, p. 670).
+Score: 0.999087929725647
+
+Title: Intelligence and intelligibility
+Sentence: Though psychometric IQ testing and standardized testing have remained the dominant mode of measuring intelligence since the 1950s, the Stanford-Binet IQ test is not an assessment of any range of cognitive activity.
+Score: 0.9995763897895813
+
+Title: Intelligence and intelligibility
+Sentence: Given these origins of the behavioural model of 'intelligence', the apparent willingness to ascribe humanness, sentience, and victimhood to even relatively simplistic gendered AI becomes more understandable.
+Score: 0.7620095610618591
+
+Title: Woman-as-wife
+Sentence: Gynaecology in this period conjectured that Woman-as-Wife would produce defective offspring if she were negatively impressed upon by violence, rape, or the over-exertion of hysteria.
+Score: 0.9930170774459839
+
+Title: Woman-as-wife
+Sentence: Hence, Woman-as-Wife is ubiquitously and strategically represented as a victim of any series of attackers, in a manner often insultingly divorced from the realities of sexual violence.
+Score: 0.9869816899299622
+
+Title: Woman-as-wife
+Sentence: These captives included women and children precisely because outrage associated with the rebels' violence, whether real or imaginary, was not about violence against women but violence against 'women who belong to English men' (Sharpe, 2015, p.230): an irredeemable sin against the future of white Britishness itself.
+Score: 0.9711747169494629
+
+Title: Woman-as-wife
+Sentence: Attending to this history, that of the Morant Bay uprising in Jamaica, the development of rape laws, the lynching of Black men in the Americas, and the contemporary weaponization of white femininity for border control, Alison Phipps argues that the category of Woman is a 'racial calculus' reliant upon injury to bourgeois, white femininity (2021, p. 87).
+Score: 0.6658452153205872
+
+Title: Woman-as-wife
+Sentence: In essence, then, the intelligible gendering of Woman-as-Wife is always-already marked by capacity to be affected by violence, allowing this genre of humanness to emulate what Nils Christie calls the 'Ideal Victim' in reference to sex trafficking discourse (1986, p. 14).
+Score: 0.9919703006744385
+
+Title: Woman-as-wife
+Sentence: The soiling of the doll, in addition, was unmistakably described by Santos through the language of sexual violence as a 'molest[ation]' (in Waugh, 2017, n.p.).
+Score: 0.9165318608283997
+
+Title: Woman-as-wife
+Sentence: Like actions which perpetuate violence against the Womanas-Wife genre of humanness, the actions of these attendees were imagined to be forms of terrorizing an innocent, ideal victim, who should be protected.
+Score: 0.9997588992118835
+
+Title: Woman-as-wife
+Sentence: This is a fundamental misdirection of care, constituting a further act of violence against living beings who are not assigned humanness, those who are not positioned as loveable to coloniality, and those whose suffering is not made legible to a popular imaginary.
+Score: 0.8712112903594971
+

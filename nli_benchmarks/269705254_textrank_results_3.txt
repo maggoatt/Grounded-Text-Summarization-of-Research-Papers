@@ -1,0 +1,102 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Woman-as-Wife is a genre of humanness marked by its vulnerability, being forged as Man's object to be protected 'in the name of love' (Ahmed, 2004, p. 124), but always in a manner which in fact protects the expansion of the nation state, capitalism, and the white race.
+
+Best Entailment: 0.9690930247306824
+Best Section: Woman-as-wife
+Best Sentence: Woman-as-Wife is a genre of humanness marked by its vulnerability, being forged as Man's object to be protected 'in the name of love' (Ahmed, 2004, p. 124), but always in a manner which in fact protects the expansion of the nation state, capitalism, and the white race.
+
+Worst: 
+
+Title: Introduction
+Sentence: Anne Balsamo proposes that attention to digital technology can demonstrate 'the way in which the body is produced, inscribed, replicated, and often disciplined ' (1996, p. 2-3).
+Score: 0.9752477407455444
+
+Title: Introduction
+Sentence: Judy Wajcman similarly makes the case that all technological devices are shaped by gender relations (2004, p. vii).
+Score: 0.7754796147346497
+
+Title: Introduction
+Sentence: In her famous proposal of cyborg feminism, Donna Haraway points to the artifice of gender by suggesting that a move towards the cyborgian may disrupt the 'natural matrix of unity' made to seem true (1991, p. 157).
+Score: 0.9947460889816284
+
+Title: Intelligence and intelligibility
+Sentence: Though psychometric IQ testing and standardized testing have remained the dominant mode of measuring intelligence since the 1950s, the Stanford-Binet IQ test is not an assessment of any range of cognitive activity.
+Score: 0.661525309085846
+
+Title: Intelligence and intelligibility
+Sentence: It is a measure of a test subject's capacity to perform in a manner that is linguistically legible and productive: to converse, to write, and to be economically useful as 'high-functioning' (see Puar, 2012).
+Score: 0.9555830955505371
+
+Title: Intelligence and intelligibility
+Sentence: Furthermore, they specify that intelligible gendering 'institute[s] and maintain[s] relations of coherence and continuity among sex, gender, sexual practice, and desire ' (1999/1990, p. 23).
+Score: 0.9978244304656982
+
+Title: A lover's discourse
+Sentence: Like the man in Turing's sex-based imitation game, who answers according to what he thinks the judge thinks an archetypal woman would say, this successful chat-script NLP orders symbols in accordance with what Wiezenbaum thinks the user/judge thinks an archetypal male, Rogerian psychotherapist would say.
+Score: 0.9826608300209045
+
+Title: A lover's discourse
+Sentence: Barthes collects a significant number of texts, mostly from Western sources, producing what he calls an 'image repertoire' or 'thesaurus' of expected features in exchanges of love (2018, p.4-6).
+Score: 0.7913385629653931
+
+Title: A lover's discourse
+Sentence: In Barthes account, broken into fragments, each section is titled by a speech-act performed by the lover (or the user, for our purposes), who is 'the one who speaks' (2018, p.9).
+Score: 0.5492919087409973
+
+Title: A lover's discourse
+Sentence: Before this request can be answered, however, the lover's discourse turns to a question of 'consciousness itself', as Barthes quotes communications from another friend suggesting that 'consciousness' is bound to 'prophetic love ' (2018, p.60-61).
+Score: 0.7524051666259766
+
+Title: Woman-as-wife
+Sentence: The gendering of an object as female in relation with the normative user, whose desires are predicted through algorithmic thinking, inevitably invokes the lover's discourse because of the role of heteronormative structures in determining the value of the colonially-produced genre of humanness I call Woman-as-Wife.
+Score: 0.9918573498725891
+
+Title: Woman-as-wife
+Sentence: In addition, Kim H. Hall identifies how gendered narratives from the 1550s onwards began to dominantly represent a white, female genre of humanness as 'the repository of the symbolic boundaries of the nation', particularly in the colonies and in the context of growing global trade (1995, p. 9, p.3).
+Score: 0.9969205856323242
+
+Title: Woman-as-wife
+Sentence: In its 19 th century origins alongside Man(2), Woman-as-Wife presents as something akin to 'the Victorian angel in the house' literary trope of ideal, upper-class domestic servitude and motherhood described by Sandra Gilbert and Susan Gubar (2020, p.26).
+Score: 0.7330004572868347
+
+Title: Woman-as-wife
+Sentence: Jenny Sharpe recounts how, for instance, official British reporting on native insurgency in the wake of the 1857 First Indian War of Independence falsely implicated sexual violence against 'the English Lady' to facilitate colonial forces' response of torturing, mutilating, and lynching captives (Sharpe, 2015, p.225).
+Score: 0.9466231465339661
+
+Title: Woman-as-wife
+Sentence: These captives included women and children precisely because outrage associated with the rebels' violence, whether real or imaginary, was not about violence against women but violence against 'women who belong to English men' (Sharpe, 2015, p.230): an irredeemable sin against the future of white Britishness itself.
+Score: 0.9613232016563416
+
+Title: Woman-as-wife
+Sentence: Following Sergi Santos' presentation of his sex doll, Samantha, at the 2017 Arts Electronica Festival in Linz, Austria, reports circulated describing the doll as left 'filthy' and 'broken' by poor treatment (Waugh, 2017, n.p.).
+Score: 0.5410909652709961
+
+Title: Woman-as-wife
+Sentence: The reports were accompanied by a picture of a clearlydistressed Santos cradling the doll, and quotes from him explaining how its 'breasts, arms, and legs' were 'mounted' by attendees who 'heavily soiled' the device (in Waugh, 2017, n.p.).
+Score: 0.8121223449707031
+
+Title: Woman-as-wife
+Sentence: The soiling of the doll, in addition, was unmistakably described by Santos through the language of sexual violence as a 'molest[ation]' (in Waugh, 2017, n.p.).
+Score: 0.659534215927124
+
+Title: Notes
+Sentence: Mikey Siegel, Cynthia Breazeal and Michael I. Norton propose gender affects how users interact with robotics, finding users more likely to donate money to robots of the opposite gender (2009, p. 2563).
+Score: 0.9721122980117798
+
+Title: Notes
+Sentence: Jahna Otterbacher and Michael Talias find that gender design impacts upon participants' perception of the robot's 'agency ' (2017, p. 214).
+Score: 0.9772171378135681
+
+Title: Notes
+Sentence: David J. Gunkel proposes an application of Levinasian philosophy's 'social relation' ethic to the problem of whether robots ought to have rights (2018, p. 10).
+Score: 0.5511412024497986
+
+Title: Notes
+Sentence: He argues in favour of a 'moral status' that is 'decided and conferred not on the basis of substantive characteristics or internal properties that have been identified in advance of social interactions but according to empirically observable, extrinsic relationships ' (2018, p. 165).
+Score: 0.8054478168487549
+
+Title: Notes
+Sentence: Similarly, Mark Coeckelbergh argues that a robot's 'rights' should be determined by the 'virtue' of its relation to a user (2021, p. 32).
+Score: 0.7008345723152161
+

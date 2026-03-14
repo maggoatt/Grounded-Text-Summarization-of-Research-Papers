@@ -1,0 +1,460 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: 4: Joint decoding of concatenated codes using BCJRFormer as the inner decoder and ECCT as the outer decoder.
+
+Best Entailment: 0.9945462942123413
+Best Section: Drift Sliding Window
+Best Sentence: • By combining BCJRFormer as the inner decoder with ECCT as the outer decoder (see Figure 4), we propose a transformer-based pipeline for end-to-end decoding of concatenated codewords over the insertion, deletion, and substitution (IDS) channel that outperforms approaches based on BCJR or Belief Propagation decoders.
+
+Worst: 
+
+Title: I. INTRODUCTION
+Sentence: Errors can be categorized into two categories: (1) substitutions and erasures, and (2) insertions and deletions.
+Score: 0.9980745315551758
+
+Title: IDS Channel
+Sentence: x in r 2 r 3 r 4 r 5 code is a linear block code, such as a low-density parity-check (LDPC) code [4] or a polar code [5], and is decoded using Belief Propagation.
+Score: 0.9921265840530396
+
+Title: IDS Channel
+Sentence: Belief Propagation achieves maximum a posteriori decoding when the code's Tanner graph has no cycles [6].
+Score: 0.8595679402351379
+
+Title: Drift Sliding Window
+Sentence: To further reduce bit error rates, we replace the outer Belief Propagation algorithm with the Error Correcting Code Transformer (ECCT) proposed in [7].
+Score: 0.9933083057403564
+
+Title: Drift Sliding Window
+Sentence: This approach reduces bit error rates and improves the efficiency of decoding for correcting insertion, deletion, and substitution errors compared to traditional Belief Propagation and BCJR decoding.
+Score: 0.5522459149360657
+
+Title: Drift Sliding Window
+Sentence: Separating inner and outer decoding is necessary because incorporating the state-space of general linear codes into the BCJR algorithm is computationally infeasible.
+Score: 0.9995558857917786
+
+Title: Drift Sliding Window
+Sentence: As an initial step toward joint inner and outer decoding of more general linear code classes, we extend BCJRFormer to convolutional codes by using a cross-attention mechanism that incorporates their state structure.
+Score: 0.5324537754058838
+
+Title: Drift Sliding Window
+Sentence: • We introduce ConvBCJRFormer, a cross-attending transformer architecture that extends BCJRFormer to decode convolutional codes as an initial step toward transformerbased joint inner and outer decoding of linear codeword transmissions over the IDS channel.
+Score: 0.7407220602035522
+
+Title: II. RELATED WORK
+Sentence: In DNA data storage, multiple noisy reads of the same sequence are often clustered and then aligned to yield a candidate sequence for error correction [9]- [12].
+Score: 0.6460800170898438
+
+Title: II. RELATED WORK
+Sentence: Because the BCJR algorithm becomes infeasible for larger cluster sizes due to its exponential complexity, the article [13] analyzes decoding convolutional codes by applying the BCJR algorithm to each read independently and then multiplying the resulting a posteriori probabilities.
+Score: 0.9911172389984131
+
+Title: II. RELATED WORK
+Sentence: The paper [14] builds on this approach by proposing Trellis BMA -an algorithm that combines separate trellis calculations with bitwise majority alignment.
+Score: 0.9936656355857849
+
+Title: II. RELATED WORK
+Sentence: The article [10] proposes DNAformer, an end-to-end retrieval solution for DNA data storage that also uses a transformer-based architecture to reconstruct data from multiple noisy reads.
+Score: 0.9962354302406311
+
+Title: II. RELATED WORK
+Sentence: A recent paper [11] formulates the problem of reconstructing an uncoded DNA sequence from multiple noisy copies as a next token prediction task and evaluates decoderonly transformers for this purpose.
+Score: 0.9040300846099854
+
+Title: Ins.
+Sentence: 2: State transitions for a codeword symbol x i transmitted through the IDS channel.
+Score: 0.9970828890800476
+
+Title: Ins.
+Sentence: Several neural decoders have been proposed to replace iterative decoding algorithms -such as BCJR or Belief Propagation -across various channel models [15]- [20].
+Score: 0.619175374507904
+
+Title: Ins.
+Sentence: They use one BiGRU network for inner decoding of marker codes and a second BiGRU network for outer decoding of codewords encoded with an LDPC code or a convolutional code to correct deletion and substitution errors.
+Score: 0.999471127986908
+
+Title: Ins.
+Sentence: The authors of the paper [7] propose using the attention mechanism in transformer networks to embed linear code information directly into the model architecture.
+Score: 0.9601104855537415
+
+Title: Ins.
+Sentence: CrossMPT is also transformer-based and uses two masked cross-attention modules to handle channel noise and syndrome, imitating the check and variable node updates of the Belief Propagation algorithm.
+Score: 0.9919776916503906
+
+Title: Ins.
+Sentence: We employ a similar cross-attention mechanism to decode inner convolutional codes; however, we derive the mask from the code's generator matrix rather than from the parity-check matrix, which is used in CrossMPT's approach.
+Score: 0.9731324315071106
+
+Title: A. Channel Model
+Sentence: The IDS channel is represented as a state machine, as we show in Figure 2.
+Score: 0.8958892822265625
+
+Title: A. Channel Model
+Sentence: Each symbol x i in a sequence x ∈ F n q enters the state machine independently.
+Score: 0.9935763478279114
+
+Title: A. Channel Model
+Sentence: With transmission probability p T = 1 − p I − p D , the symbol is transmitted.
+Score: 0.9582383036613464
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: This outer codeword is then encoded by the inner encoder to produce the inner codeword x in ∈ F nin q .
+Score: 0.9538699388504028
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: The outer code is typically a linear block code.
+Score: 0.9983047246932983
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: Multiplying the message m by the generator matrix produces the codeword x out = mG.
+Score: 0.7993195056915283
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: The parity-check matrix H ∈ F (nout−k)×nout q is defined so that Hx out = 0 holds for every codeword.
+Score: 0.8661845326423645
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: The parity-check matrix can be represented by a Tanner graph, a bipartite graph in which the rows of the parity-check matrix serve as check nodes and the columns as variable nodes [6].
+Score: 0.988542914390564
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: A check node and a variable node are connected by a weighted edge if the corresponding entry of the parity-check matrix is non-zero, with the edge weight given by that entry.
+Score: 0.7698910236358643
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: The Belief Propagation algorithm operates on the Tanner graph by iteratively passing soft information between check and variable nodes to reconstruct the original message.
+Score: 0.9792087078094482
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: Belief Propagation yields maximum a posteriori predictions of the codeword if the Tanner graph is cycle-free.
+Score: 0.8568181395530701
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: In this work, we focus on LDPC outer codes [25].
+Score: 0.9992751479148865
+
+Title: B. Concatenated Schemes and Linear Codes
+Sentence: LDPC codes are a class of linear codes designed for efficient decoding via message passing.
+Score: 0.9987342953681946
+
+Title: C. Convolutional Codes
+Sentence: For example, we denote a pair of generator polynomials as [5,7] 8 , where each digit represents the binary coefficients of a polynomial in octal form.
+Score: 0.9658161997795105
+
+Title: C. Convolutional Codes
+Sentence: At time i, the encoder uses a sliding window of m+1 inputs -the current input and the m preceding inputs -to produce n c output symbols.
+Score: 0.9883974194526672
+
+Title: C. Convolutional Codes
+Sentence: This process can be viewed as a Markov chain: the encoder's state is given by the contents of its memory, so transitions from time i to time i + 1 depend only on the current state and the new input.
+Score: 0.9478713274002075
+
+Title: C. Convolutional Codes
+Sentence: Consequently, given an outer codeword with length n out , the inner codeword has length n in = nc kc (n out +m).
+Score: 0.9839653968811035
+
+Title: C. Convolutional Codes
+Sentence: After encoding, we add a pseudorandom offset o ∈ F nin 2 to the convolutional codeword.
+Score: 0.7427932620048523
+
+Title: D. Inner Code Construction and BCJR
+Sentence: Inner marker codes insert a fixed marker sequence s m ∈ F nm q at a fixed interval N m between the symbols of the outer codeword.
+Score: 0.9507855772972107
+
+Title: D. Inner Code Construction and BCJR
+Sentence: The resulting inner codeword has length n in = n out + n m ⌊ nout Nm ⌋.
+Score: 0.9329110980033875
+
+Title: D. Inner Code Construction and BCJR
+Sentence: The BCJR algorithm is a forward-backward method that leverages the IDS channel's Markov property to compute these probabilities.
+Score: 0.9754790663719177
+
+Title: E. Transformer and ECCT
+Sentence: The transformer architecture uses attention to capture dependencies across the input sequence [29].
+Score: 0.7826684713363647
+
+Title: E. Transformer and ECCT
+Sentence: An attention layer is defined as
+
+where the query Q, key K, and value V matrices are learned from the input tokens.
+Score: 0.9960952401161194
+
+Title: E. Transformer and ECCT
+Sentence: Each attention layer consists of n h attention heads.
+Score: 0.9903821349143982
+
+Title: E. Transformer and ECCT
+Sentence: A transformer stacks multiple sequential layers.
+Score: 0.9969955682754517
+
+Title: E. Transformer and ECCT
+Sentence: Each layer comprises an attention block followed by a feed-forward block.
+Score: 0.7810047268867493
+
+Title: E. Transformer and ECCT
+Sentence: The model's input is constructed to be independent of the transmitted codeword.
+Score: 0.9919174313545227
+
+Title: E. Transformer and ECCT
+Sentence: Let r bpsk ∈ [−1, 1] nout denote the received sequence corresponding to this binary phase-shift keying-modulated codeword.
+Score: 0.9515007734298706
+
+Title: E. Transformer and ECCT
+Sentence: Here, we define the syndrome of a sequence as syn(x) = Hx ∈ F nout−k 2 , the bipolar mapping as ϕ(x) = 1 − 2x, and the binarization as bin(x) = 0.5(1 − sign(x)).
+Score: 0.9932199120521545
+
+Title: A. BCJRFormer
+Sentence: Our proposed BCJRFormer model, illustrated in Figure 1, is a decoder-only transformer.
+Score: 0.9934509992599487
+
+Title: A. BCJRFormer
+Sentence: 1) Single Copy: For 1 ≤ i ≤ n in , we define input tokens Y i ∈ R δ×q , over an alphabet of size q and a sliding window with size δ = d max − d min + 1, where d min and d max serve as the lower and upper bounds on the drift of all received sequences.
+Score: 0.8486922979354858
+
+Title: A. BCJRFormer
+Sentence: 2) Multiple Sequence Alignment: The input representation extends naturally to handle multiple noisy copies of a transmitted codeword.
+Score: 0.9788081645965576
+
+Title: A. BCJRFormer
+Sentence: Let M denote the number of transmissions.
+Score: 0.9985961318016052
+
+Title: A. BCJRFormer
+Sentence: We compute ŷin ∈ R nin as
+
+since we found that simple averaging performs as well as a linear layer (see Appendix A).
+Score: 0.8833259344100952
+
+Title: B. ECCT as Outer Decoder
+Sentence: The inner decoder introduces noise that depends on the specific input codeword.
+Score: 0.9755443334579468
+
+Title: B. ECCT as Outer Decoder
+Sentence: As a result, outer decoding over the IDS channel is influenced by the codeword, unlike decoding over a binary-input symmetric-output channel where the noise is the same regardless of the input.
+Score: 0.9916125535964966
+
+Title: C. ConvBCJRFormer
+Sentence: We propose ConvBCJRFormer, an extension of BCJR-Former that decodes transmissions of a zero-terminated binary convolutional (n c , 1, m) codeword over the IDS channel.
+Score: 0.9324175119400024
+
+Title: C. ConvBCJRFormer
+Sentence: We denote the input message length by n out and define the codeword length as n in = n c (n out + m).
+Score: 0.959145724773407
+
+Title: C. ConvBCJRFormer
+Sentence: 1) Input Construction: For inner marker codes, each symbol is encoded independently.
+Score: 0.8570383191108704
+
+Title: C. ConvBCJRFormer
+Sentence: 5: Embedding, architecture, and loss calculation for ConvBCJRFormer.
+Score: 0.9944911003112793
+
+Title: C. ConvBCJRFormer
+Sentence: The symbol-wise input used in BCJRFormer does not capture the state dependency.
+Score: 0.6971209645271301
+
+Title: C. ConvBCJRFormer
+Sentence: , r nci+dj ],
+
+under the simplifying assumption that each transmitted symbol is independently substituted with probability p S and that there are no insertions or deletions.
+Score: 0.9946033358573914
+
+Title: C. ConvBCJRFormer
+Sentence: 2) Architecture: For input codeword positions i, the encoded symbols x in nc(i−1)+1 , x in nc(i−1)+2 , .
+Score: 0.8287037014961243
+
+Title: C. ConvBCJRFormer
+Sentence: , x in nci are all generated by the same input symbol x out i and the same convolutional state.
+Score: 0.8213526606559753
+
+Title: C. ConvBCJRFormer
+Sentence: We first embed the token representations Y symb and Y state separately.
+Score: 0.9981926083564758
+
+Title: C. ConvBCJRFormer
+Sentence: We treat the synchronized symbol representation as an abstract representation of the codeword and the synchronized state representation as an abstract representation of the input message, which we aim to recover.
+Score: 0.9448792934417725
+
+Title: C. ConvBCJRFormer
+Sentence: First Cross-Attention Layer: The codeword representation attends to the message representation.
+Score: 0.9825182557106018
+
+Title: C. ConvBCJRFormer
+Sentence: Here, we derive the query matrix from the codeword representation and use the key and value matrices from the message representation.
+Score: 0.8875138759613037
+
+Title: C. ConvBCJRFormer
+Sentence: Thus, the generator matrix incorporates information about the encoding process into the attention module.
+Score: 0.9723180532455444
+
+Title: C. ConvBCJRFormer
+Sentence: In this layer, the message representation acts as the query and the symbol representation serves as the key and value.
+Score: 0.9582957625389099
+
+Title: C. ConvBCJRFormer
+Sentence: This design ensures that each token in the message representation attends only to those tokens in the codeword representation corresponding to symbols generated by the state that contains the message symbol.
+Score: 0.9959084987640381
+
+Title: C. ConvBCJRFormer
+Sentence: We then apply a sigmoid function σ to produce the prediction probabilities xin for the inner codeword x in , xout for the outer codeword x out , and 0m for the final memory state.
+Score: 0.9099745750427246
+
+Title: D. Training
+Sentence: We train all models on the binary alphabet using the binary cross-entropy loss:
+
+which measures the difference between the model predictions x and the target sequence x (i.e., the inner or outer sequence to be decoded).
+Score: 0.8436325788497925
+
+Title: D. Training
+Sentence: For BCJRFormer, each generated sequence is first encoded using an LDPC outer code and combined with an inner marker code.
+Score: 0.9943209886550903
+
+Title: D. Training
+Sentence: We then simulate M transmissions over the IDS channel.
+Score: 0.8284144997596741
+
+Title: D. Training
+Sentence: This noise is defined as
+
+and the decoder is trained by minimizing the loss BCE(ẑ, bin(z)), where ẑ is the ECCT's prediction.
+Score: 0.7555157542228699
+
+Title: D. Training
+Sentence: The final predicted outer codeword is then obtained by
+
+For the convolutional decoder ConvBCJRFormer, we encode each generated sequence m ∈ F k 2 using a convolutional code.
+Score: 0.977242648601532
+
+Title: A. Setup
+Sentence: We train at a batch size of 256 for 160,000 iterations without dropout, and we use a cosine decay learning rate schedule that starts at 2.5e−4 and decays to 2.5e−5 after a warmup of 20,000 iterations.
+Score: 0.9743059873580933
+
+Title: A. Setup
+Sentence: When we use Belief Propagation for outer decoding, we run 50 iterations to ensure convergence.
+Score: 0.9200800657272339
+
+Title: B. BCJRFormer for Single Marker Codewords
+Sentence: We compare BCJRFormer and the BCJR algorithm for inner decoding of single binary sequences using a short (96, 48) LDPC code [32] and a longer (204, 102) LDPC code [33].
+Score: 0.9045991897583008
+
+Title: B. BCJRFormer for Single Marker Codewords
+Sentence: For the short code, we insert the marker sequence s m = 001 every N m = 6 bits, and for the longer code, every N m = 7 bits.
+Score: 0.9476089477539062
+
+Title: C. BCJRFormer for Quaternary Marker Codewords
+Sentence: We use an outer (64, 32) quaternary protograph LDPC code, as proposed in the paper [13].
+Score: 0.9799454212188721
+
+Title: C. BCJRFormer for Quaternary Marker Codewords
+Sentence: For more details on the construction and the corresponding protograph, see Appendix G.
+
+We insert the marker sequence s m = 32 every N m = 6 symbols, resulting in an inner codeword length of n in = 84.
+Score: 0.5533637404441833
+
+Title: C. BCJRFormer for Quaternary Marker Codewords
+Sentence: We vary the insertion and deletion probabilities (with p I = p D ) and fix the channel's substitution probability at p S = 0.012.
+Score: 0.6439112424850464
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: We train separate inner decoders for different values of M and for varying deletion and insertion probabilities p D = p I with substitution probability p S = 0.012, and we compare their error rates with those of the BCJR algorithm.
+Score: 0.9974271655082703
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: To handle varying M k , we pad the concatenated inputwhich originally has dimensions n in M k × δ × q -with a dedicated token so that it has dimensions n in M max × δ × q, and we mask the M max − M k padded columns in both the attention mechanism (3) and the mean aggregation (5).
+Score: 0.9688595533370972
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: We train dynamic models across a range of deletion and insertion probabilities (p I = p D ) with substitution probability p S by sampling M k uniformly at random from the range [M min , M max ].
+Score: 0.5725170969963074
+
+Title: E. ECCT for Outer Decoding
+Sentence: We compare the ECCT decoder with the Belief Propagation decoder using the short (96, 48) LDPC code from Section V-B.
+Score: 0.824737012386322
+
+Title: E. ECCT for Outer Decoding
+Sentence: Figure 10 shows that the ECCT decoder outperforms Belief Propagation decoding across most channel configurations.
+Score: 0.826686680316925
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: We hypothesize that a major benefit of neural decoders is their ability to incorporate outer code information during synchronization which is computationally infeasible within the BCJR algorithm when applied to general linear codes [8].
+Score: 0.9795658588409424
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: In a first step toward incorporating linear code information, we consider the joint synchronization and decoding of linear convolutional codes.
+Score: 0.9874811768531799
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: We encode a LDPC (96, 48) outer codeword using a rate-1/2 zero-terminated [5,7] 8 convolutional code, as introduced in Section IV-C.
+Score: 0.9921947717666626
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: We fix the IDS channel's substitution rate at p S = 0.012 and train the models over a range of equal insertion and deletion rates (p I = p D ).
+Score: 0.8105983734130859
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder.
+Score: 0.9397249817848206
+
+Title: VI. CONCLUSION
+Sentence: Our study is currently limited to randomly generated sequences.
+Score: 0.9995383024215698
+
+Title: VI. CONCLUSION
+Sentence: However, the marker positions of Layer 1 (Subfigure 13a) show very strong attention to the final sequence token.
+Score: 0.8045636415481567
+
+Title: VI. CONCLUSION
+Sentence: In deeper layers (Subfigures 13b and 13c), we observe very local attention that is directed toward nearby marker tokens.
+Score: 0.993532657623291
+
+Title: APPENDIX B ABLATION: MULTIPLE SEQUENCE AGGREGATION
+Sentence: To reduce the dimension to the inner code size n in , we propose mean aggregation (see Equation (5)).
+Score: 0.9745001196861267
+
+Title: APPENDIX B ABLATION: MULTIPLE SEQUENCE AGGREGATION
+Sentence: An alternative is to use a single linear layer.
+Score: 0.9973734617233276
+
+Title: APPENDIX B ABLATION: MULTIPLE SEQUENCE AGGREGATION
+Sentence: We use the shorter code construction described in Section V-B and set p I = p D = 0.01 and p S = 0.012.
+Score: 0.9807147979736328
+
+Title: APPENDIX C ABLATION: SEQUENCE EMBEDDING
+Sentence: We use the same code construction as in Section V-B, namely a (96, 48) LDPC code concatenated with markers s m = 001 inserted every N m = 6 bits.
+Score: 0.9947506785392761
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: A run is defined as a block of consecutive symbols in a sequence (for example, the sequence 002111 has three runs).
+Score: 0.6682390570640564
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: A maximum likelihood decoder can distinguish between two received sequences if their corresponding error balls do not intersect.
+Score: 0.8757405281066895
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: We concatenate each sequence of length 64 with markers s m = 32 inserted every N m = 6 symbols, and transmit them via an IDS channel with p I = p D = 0.01 and p S = 0.012.
+Score: 0.9969327449798584
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: Figure 16 shows (left column) the symbol error rates for BCJRFormer and the BCJR algorithm, as well as the difference between the error rate of BCJR and that of BCJRFormer (right column).
+Score: 0.7007465362548828
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: For binary marker codes, we consider an alternative construction in which the input is summed.
+Score: 0.711011528968811
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: In this construction, we define Y v i ∈ R δ as Y v i,j = ξ∈{0,1} P (x in i = ξ)F (ξ, r i+dj ).
+Score: 0.9961748123168945
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: For marker symbols with the value ξ m , we have Y v i,j = F (ξ m , r i+dj ).
+Score: 0.735702395439148
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: Figure 17  with the proposed input and with the aggregated input.
+Score: 0.9826371073722839
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: When combined with a very low probability of synchronization errors, this results in the model having insufficient error representation to learn how to synchronize general sequences effectively.
+Score: 0.9301468133926392
+

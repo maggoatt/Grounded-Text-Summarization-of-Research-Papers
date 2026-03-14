@@ -1,0 +1,18 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: We compare the symbol error rate of the trained models with that of the BCJR algorithm.
+
+Best Entailment: 0.9948023557662964
+Best Section: C. BCJRFormer for Quaternary Marker Codewords
+Best Sentence: We compare the symbol error rate of the trained models with that of the BCJR algorithm.
+
+Worst: 
+
+Title: Drift Sliding Window
+Sentence: This approach reduces bit error rates and improves the efficiency of decoding for correcting insertion, deletion, and substitution errors compared to traditional Belief Propagation and BCJR decoding.
+Score: 0.9696694016456604
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: We evaluate the impact of our proposed masking of ConvBCJRFormer's cross-attention mechanism using the generator matrix G. In Figure 18, we compare the training convergence of models from Experiment V-G with equivalent models trained without masking.
+Score: 0.8245669603347778
+

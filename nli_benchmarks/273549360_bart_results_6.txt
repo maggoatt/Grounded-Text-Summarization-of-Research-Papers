@@ -1,0 +1,208 @@
+BART x NLI RESULTS
+
+Sentence: Focal loss provides the most well-defined and precise activation areas.
+
+Section Title: Introduction
+Retrieved Sentence: Nevertheless, focal loss is not a proper scoring rule, and training with it can yield underconfident or overconfident estimators-unreliable for class-posterior probability estimation.
+Entailment Score: 3.109096724074334e-05
+Neutral Score: 0.003714326536282897
+Contradiction Score: 0.996254563331604
+
+Section Title: Motivation and Contributions.
+Retrieved Sentence: Nevertheless, focal loss is not a proper scoring rule, and training with it can yield underconfident or overconfident estimators-unreliable for class-posterior probability estimation.
+Entailment Score: 3.109096724074334e-05
+Neutral Score: 0.003714326536282897
+Contradiction Score: 0.996254563331604
+
+Section Title: Post-Processing Gap
+Retrieved Sentence: (Charoenphakdee et al., 2021) proved that focal loss is classification-calibrated, it is not strictly proper.
+Entailment Score: 0.00014362329966388643
+Neutral Score: 0.9983843564987183
+Contradiction Score: 0.0014720642939209938
+
+Section Title: Motivation and Contributions.
+Retrieved Sentence: • Theoretical Guarantees: We prove that minimizing FCL yields superior probability and classification calibration compared to Focal Loss alone, effectively reducing the post-processing gap.
+Entailment Score: 0.00016512589354533702
+Neutral Score: 0.9992485642433167
+Contradiction Score: 0.0005863342084921896
+
+Section Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Retrieved Sentence: Case 2: λ = 0 When λ = 0, the FCL reduces to the focal loss:
+
+The focal loss is not strictly proper because:
+
+(a) Multiple Minimizers: Consider any p where pj = 1 and pk = 0 for k ̸ = j.
+Entailment Score: 0.0001448985276510939
+Neutral Score: 0.9269899129867554
+Contradiction Score: 0.07286515086889267
+
+Section Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Retrieved Sentence: The calibration loss is strictly positive:
+
+The focal loss for the true class j satisfies:
+
+Thus, the total loss is:
+
+Conclusion for λ > 0: Since the loss L γ,λ FCL attains its unique global minimum of zero when p = y, it is strictly proper when λ > 0.
+Entailment Score: 0.0001280436263186857
+Neutral Score: 0.9974236488342285
+Contradiction Score: 0.0024482926819473505
+
+Section Title: Experimental Results
+Retrieved Sentence: We evaluate the effectiveness of our proposed method on both image and text classification tasks.
+Entailment Score: 0.0004350226081442088
+Neutral Score: 0.19225439429283142
+Contradiction Score: 0.8073106408119202
+
+Section Title: Strictly Proper
+Retrieved Sentence: We evaluate the effectiveness of our proposed method on both image and text classification tasks.
+Entailment Score: 0.0004350226081442088
+Neutral Score: 0.19225439429283142
+Contradiction Score: 0.8073106408119202
+
+Section Title: ■
+Retrieved Sentence: 1) BINARY CLASSIFICATION:
+
+Let p be the true probability of the event Y = 1.
+Entailment Score: 0.0012812379281967878
+Neutral Score: 0.9415717720985413
+Contradiction Score: 0.057146940380334854
+
+Section Title: Introduction
+Retrieved Sentence: However, while Focal Loss (Lin et al., 2017) effectively addresses class imbalance, it often leads to overly confident predictions (Charoenphakdee et al., 2021).
+Entailment Score: 0.0001562457619002089
+Neutral Score: 0.9993589520454407
+Contradiction Score: 0.00048480986151844263
+
+Section Title: Unknown
+Retrieved Sentence: Importantly, no step in the focal-loss training algorithm relies on direct knowledge of η(x); the model is trained on empirical data using a focal-loss objective, while η(x) remains a theoretical concept.
+Entailment Score: 0.0005306389066390693
+Neutral Score: 0.9991274476051331
+Contradiction Score: 0.00034195921034552157
+
+Section Title: Conclusions
+Retrieved Sentence: In conclusion, traditional Focal Loss has been instrumental in reducing misclassification rates by focusing on hardto-classify samples; however, it often falls short in providing well-calibrated predictions.
+Entailment Score: 3.5871715226676315e-05
+Neutral Score: 0.0019039673497900367
+Contradiction Score: 0.9980601668357849
+
+Section Title: POST-PROCESSING GAP REDUCTION
+Retrieved Sentence: Improving the calibration of deep neural networks (DNNs) is critical for reliable uncertainty estimation.
+Entailment Score: 0.0014159262645989656
+Neutral Score: 0.9129927754402161
+Contradiction Score: 0.08559129387140274
+
+Section Title: Conclusions
+Retrieved Sentence: Ensuring accurate and trustworthy confidence scores in deep neural networks is vital for deploying them in high-stakes domains such as healthcare, autonomous driving, and finance.
+Entailment Score: 0.000545474118553102
+Neutral Score: 0.9780032634735107
+Contradiction Score: 0.021451205015182495
+
+Section Title: Related Work
+Retrieved Sentence: These limitations underscore the need for robust calibration methods to enhance reliability in domains such as autonomous driving (Feng et al., 2021) and medical imaging (Mehrtash et al., 2020).
+Entailment Score: 0.0002809072029776871
+Neutral Score: 0.0019070273265242577
+Contradiction Score: 0.997812032699585
+
+Section Title: presents a comparison of heatmaps generated with each loss function applied to
+Retrieved Sentence: In contrast, focal loss demonstrates more concentrated regions of activation.
+Entailment Score: 0.004137346986681223
+Neutral Score: 0.9955755472183228
+Contradiction Score: 0.0002871688921004534
+
+Section Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Retrieved Sentence: Focal Loss Relative with Entropy Regularised KL Divergence
+
+This section we illustrate why focal loss tends to favor accurate yet less confident solutions.
+Entailment Score: 6.900698645040393e-05
+Neutral Score: 0.001890087383799255
+Contradiction Score: 0.9980409741401672
+
+Section Title: Unknown
+Retrieved Sentence: In prior theoretical analyses (Mukhoti et al., 2020a;Charoenphakdee et al., 2021), focal loss can be related to the KL divergence from η(x) to p(x), giving a bound of form:
+
+where H[•] is the entropy function and γ the focal "focusing" parameter.
+Entailment Score: 9.02454848983325e-05
+Neutral Score: 0.9974492192268372
+Contradiction Score: 0.002460493240505457
+
+Section Title: Unknown
+Retrieved Sentence: 1 (in the main text), FCL produces clearer and more precise anomaly-localization maps compared to baseline methods.
+Entailment Score: 0.0042206961661577225
+Neutral Score: 0.8569661974906921
+Contradiction Score: 0.13881313800811768
+
+Section Title: Dataset Model
+Retrieved Sentence: Thus, FCL not only enhances model calibration but also refines anomaly localization, offering substantial benefits for applications in medical imaging where accurate and confident diagnoses are of utmost importance.
+Entailment Score: 4.940227518090978e-05
+Neutral Score: 0.004112416412681341
+Contradiction Score: 0.9958381652832031
+
+Section Title: Dataset Model
+Retrieved Sentence: Overall, FCL consistently enhances both calibration quality and interpretability in CheXNet.
+Entailment Score: 0.00020994787337258458
+Neutral Score: 0.9956421852111816
+Contradiction Score: 0.004147897940129042
+
+Section Title: Motivation and Contributions.
+Retrieved Sentence: Our key contributions are:
+
+• Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.
+Entailment Score: 7.317731069633737e-05
+Neutral Score: 0.9987056255340576
+Contradiction Score: 0.0012211372377350926
+
+Section Title: Motivation and Contributions.
+Retrieved Sentence: Our key contributions are:
+
+• Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.
+Entailment Score: 7.317731069633737e-05
+Neutral Score: 0.9987056255340576
+Contradiction Score: 0.0012211372377350926
+
+Section Title: Impact Statement
+Retrieved Sentence: In this appendix, we provide a mathematical proof that minimizing the Focal Calibration Loss L γ,λ FCL mitigates overconfidence (OC) and underconfidence (UC) in the predicted probabilities of a classifier.
+Entailment Score: 0.0001513042370788753
+Neutral Score: 0.8228105902671814
+Contradiction Score: 0.17703811824321747
+
+Section Title: Impact Statement
+Retrieved Sentence: Appendix Formally, the ECE can be approximated by grouping predictions into M bins and calculating the average confidence and accuracy for each bin:
+
+where N is the total number of samples, M is the number of bins, B m is the set of indices of samples whose predicted probability falls into the m-th bin, |B m | is the number of samples in bin B m , acc(B m ) is the accuracy of the samples in bin B m , and conf(B m ) is the average confidence of the samples in bin B m defined in Eq.
+Entailment Score: 0.0015523240435868502
+Neutral Score: 0.0028019724413752556
+Contradiction Score: 0.9956457018852234
+
+Section Title: BALANCE BETWEEN γ AND λ
+Retrieved Sentence: The experiment shows that λ = 0.5 provides the best calibration performance across all ECE metrics before and after temperature scaling.
+Entailment Score: 0.0010084818350151181
+Neutral Score: 0.9405828714370728
+Contradiction Score: 0.05840867757797241
+
+Section Title: Overconfidence (OC) and Underconfidence (UC)
+Retrieved Sentence: Traditional binning-based metrics, such as Expected Calibration Error (ECE), can be sensitive to bin sizes.
+Entailment Score: 0.0020289106760174036
+Neutral Score: 0.7085428237915039
+Contradiction Score: 0.2894282639026642
+
+Section Title: Dataset Model
+Retrieved Sentence: This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term.
+Entailment Score: 9.360384137835354e-05
+Neutral Score: 0.9994189739227295
+Contradiction Score: 0.0004874375299550593
+
+Section Title: Dataset Model
+Retrieved Sentence: Consistent with Section 5.3.1, FCL achieves superior calibration metrics while delivering finer visual explanations-bridging the gap between purely numerical evaluations and real-world clinical needs.
+Entailment Score: 0.0003528288216330111
+Neutral Score: 0.3542315363883972
+Contradiction Score: 0.6454156041145325
+
+Section Title: CALIBRATION ERROR
+Retrieved Sentence: These results underscore the efficacy of FCL in enhancing model calibration, outperforming other methods like Brier Loss, MMCE, and Label Smoothing, Focal Loss in both pre-and post-temperature scaling scenarios.
+Entailment Score: 6.491608655778691e-05
+Neutral Score: 0.9987894892692566
+Contradiction Score: 0.0011455639032647014
+

@@ -1,0 +1,36 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The response of the x and y positions and the tilt angle of the vehicle are shown in Figure 7.
+
+Best Entailment: 0.9842385649681091
+Best Section: Augmented agent design
+Best Sentence: The response of the x and y positions and the tilt angle of the vehicle are shown in Figure 7.
+
+Worst: 
+
+Title: MPC CONTROLLER DESIGN AND RL-PPO ADVANCED LEARNING 3.1. MPC model predictive controller
+Sentence: The model structure used in the MPC controller is shown in Figure 2.
+Score: 0.5478421449661255
+
+Title: MPC CONTROLLER DESIGN AND RL-PPO ADVANCED LEARNING 3.1. MPC model predictive controller
+Sentence: Where:   =  0 −1 ,   ,   ,   is a parameter of   ;   ,   ,   is a parameter of  0 −1   ; (), (), () are the measured and unmeasured input noises.
+Score: 0.9872604608535767
+
+Title: Output noise model
+Sentence: The output noise model is determined by the (7):
+
+0 ( + 1) =  0  0 ( + 1) +  0  0 ( + 1) (7)  0 () =  0  0 () +  0  0 ()
+
+In there:  0 ,  0 ,  0 ,  0 are constant state matrices;  0 () is the vector of the measured output noise when  0 ≥ 0;   () is the vector of the output noise   can't measure;  0 is the vector of input noise whose mean value is 0, when  0 ≥ 1.
+Score: 0.9435465335845947
+
+Title: Measured noise pattern
+Sentence: The measured noise pattern is determined by the (7):
+
+Where:   ,   ,  0 are constant state matrices;   () is the vector of the measured noise when   ≥ 0 ;   () is the output noise vector   ;   () is the input noise vector whose mean value is 0, when   ≥ 1.
+Score: 0.9436677694320679
+
+Title: Reinforcement learning
+Sentence: The structural principle of the reinforcement learning strategy is depicted in Figure 3.
+Score: 0.9578507542610168
+

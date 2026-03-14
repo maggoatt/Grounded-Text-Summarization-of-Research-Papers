@@ -1,0 +1,70 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: • By combining BCJRFormer as the inner decoder with ECCT as the outer decoder (see Figure 4), we propose a transformer-based pipeline for end-to-end decoding of concatenated codewords over the insertion, deletion, and substitution (IDS) channel that outperforms approaches based on BCJR or Belief Propagation decoders.
+
+Best Entailment: 0.983847439289093
+Best Section: Drift Sliding Window
+Best Sentence: • By combining BCJRFormer as the inner decoder with ECCT as the outer decoder (see Figure 4), we propose a transformer-based pipeline for end-to-end decoding of concatenated codewords over the insertion, deletion, and substitution (IDS) channel that outperforms approaches based on BCJR or Belief Propagation decoders.
+
+Worst: 
+
+Title: I. INTRODUCTION
+Sentence: Under the assumption of perfect channel state information, the BCJR algorithm achieves maximum a posteriori decoding.
+Score: 0.6714276671409607
+
+Title: Drift Sliding Window
+Sentence: By adapting the input to ECCT, we propose a twostep decoding approach for LDPC codes concatenated with a marker code.
+Score: 0.9983962178230286
+
+Title: Ins.
+Sentence: They use one BiGRU network for inner decoding of marker codes and a second BiGRU network for outer decoding of codewords encoded with an LDPC code or a convolutional code to correct deletion and substitution errors.
+Score: 0.9979543685913086
+
+Title: IV. METHOD
+Sentence: In this section, we introduce BCJRFormer, a neural decoder for efficiently decoding multiple noisy copies of inner codewords encoded with marker codes.
+Score: 0.9963764548301697
+
+Title: A. BCJRFormer
+Sentence: Our proposed BCJRFormer model, illustrated in Figure 1, is a decoder-only transformer.
+Score: 0.6205692291259766
+
+Title: A. BCJRFormer
+Sentence: We compute ŷin ∈ R nin as
+
+since we found that simple averaging performs as well as a linear layer (see Appendix A).
+Score: 0.7587124109268188
+
+Title: D. Training
+Sentence: The final predicted outer codeword is then obtained by
+
+For the convolutional decoder ConvBCJRFormer, we encode each generated sequence m ∈ F k 2 using a convolutional code.
+Score: 0.8726374506950378
+
+Title: B. BCJRFormer for Single Marker Codewords
+Sentence: The bit error rate results in Figure 6 show that BCJRFormer closely matches the performance of the BCJR algorithm for both code lengths across all insertion and deletion rates.
+Score: 0.9978381991386414
+
+Title: C. BCJRFormer for Quaternary Marker Codewords
+Sentence: We also demonstrate that BCJRFormer performs well for non-binary codes.
+Score: 0.9917764663696289
+
+Title: C. BCJRFormer for Quaternary Marker Codewords
+Sentence: Figure 7 shows that BCJRFormer remains competitive across all channel configurations.
+Score: 0.9985232949256897
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: We demonstrate that a single BCJRFormer model can decode sequences when the number of copies varies between M min and M max .
+Score: 0.9323256015777588
+
+Title: G. ConvBCJRFormer for Convolutional Decoding
+Sentence: In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder.
+Score: 0.737048327922821
+
+Title: APPENDIX C ABLATION: SEQUENCE EMBEDDING
+Sentence: We use the same code construction as in Section V-B, namely a (96, 48) LDPC code concatenated with markers s m = 001 inserted every N m = 6 bits.
+Score: 0.8928716778755188
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: For p I = p D ≥ 0.015, the aggregated input performs equally well to the proposed one.
+Score: 0.9390974044799805
+

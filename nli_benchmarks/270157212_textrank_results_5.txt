@@ -1,0 +1,11 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Here, Z is the latent space that is smaller than the data space; in terms of dimension, we say dim(Z) < dim(Y).Note that the mean squared error (MSE) tubal loss is the same as the MSE loss function when using an orthogonal transformation matrix, as we have done in our experiments.We describe the NN and t-NN autoencoder architectures used in Figure 5 and report results in Figure 6.We observe that the t-NN outperforms the NN autoencoders with similar numbers of weights with an order of magnitude smaller training and validation loss and test error as well as qualitative improvements of the approximations.The neural network autoencoder with the same feature space dimensions, NN(560,280), performs best in terms of the loss and error metrics, but requires over 20 times more network weights than the t-NN autoencoder.The t-NN layers are able capture spatial correlations more effectively using multilinear operations, resulting in quality approximations with significantly fewer weights.
+
+Best Entailment: 0.9978742599487305
+Best Section: . MNIST dimensionality reduction
+Best Sentence: Here, Z is the latent space that is smaller than the data space; in terms of dimension, we say dim(Z) < dim(Y).Note that the mean squared error (MSE) tubal loss is the same as the MSE loss function when using an orthogonal transformation matrix, as we have done in our experiments.We describe the NN and t-NN autoencoder architectures used in Figure 5 and report results in Figure 6.We observe that the t-NN outperforms the NN autoencoders with similar numbers of weights with an order of magnitude smaller training and validation loss and test error as well as qualitative improvements of the approximations.The neural network autoencoder with the same feature space dimensions, NN(560,280), performs best in terms of the loss and error metrics, but requires over 20 times more network weights than the t-NN autoencoder.The t-NN layers are able capture spatial correlations more effectively using multilinear operations, resulting in quality approximations with significantly fewer weights.
+
+Worst: 
+
+None

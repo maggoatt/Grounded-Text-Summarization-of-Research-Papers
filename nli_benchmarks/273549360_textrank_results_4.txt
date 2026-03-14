@@ -1,0 +1,1624 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The calibration loss is strictly positive:
+
+The focal loss for the true class j satisfies:
+
+Thus, the total loss is:
+
+Conclusion for λ > 0: Since the loss L γ,λ FCL attains its unique global minimum of zero when p = y, it is strictly proper when λ > 0.
+
+Best Entailment: 0.996924102306366
+Best Section: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Best Sentence: The calibration loss is strictly positive:
+
+The focal loss for the true class j satisfies:
+
+Thus, the total loss is:
+
+Conclusion for λ > 0: Since the loss L γ,λ FCL attains its unique global minimum of zero when p = y, it is strictly proper when λ > 0.
+
+Worst: 
+
+Title: Introduction
+Sentence: By aligning predicted probabilities with the true likelihood of events, well-calibrated predictors reduce the discrepancy between a model's confidence and actual results, fostering user trust and minimizing the need for post-processing calibration methods (e.g., temperature scaling (Guo et al., 2017) or isotonic regression (Niculescu-Mizil & Caruana, 2005)).
+Score: 0.9978241920471191
+
+Title: Introduction
+Sentence: However, while Focal Loss (Lin et al., 2017) effectively addresses class imbalance, it often leads to overly confident predictions (Charoenphakdee et al., 2021).
+Score: 0.9963001608848572
+
+Title: Motivation and Contributions.
+Sentence: Nevertheless, focal loss is not a proper scoring rule, and training with it can yield underconfident or overconfident estimators-unreliable for class-posterior probability estimation.
+Score: 0.9983905553817749
+
+Title: Motivation and Contributions.
+Sentence: Our key contributions are:
+
+• Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.
+Score: 0.997407853603363
+
+Title: Motivation and Contributions.
+Sentence: • Theoretical Guarantees: We prove that minimizing FCL yields superior probability and classification calibration compared to Focal Loss alone, effectively reducing the post-processing gap.
+Score: 0.9945882558822632
+
+Title: Motivation and Contributions.
+Sentence: • Empirical Validation: Through extensive experiments on both in-distribution and out-of-distribution image and NLP datasets, we demonstrate that FCL significantly enhances model calibration and classification performance by using the smooth calibration error further ensures calibration assessment.
+Score: 0.9984704852104187
+
+Title: Motivation and Contributions.
+Sentence: We also show that FCL improves anomaly localization, recognition, and robustness in Chest X-ray imaging applications.
+Score: 0.9923715591430664
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: .
+Score: 0.9710713028907776
+
+Title: Problem Formulation
+Sentence: , K} the label space of K classes.
+Score: 0.9914928078651428
+
+Title: Problem Formulation
+Sentence: 1 We observe a dataset D = {(x i , y i )} n i=1 drawn i.i.d.
+Score: 0.9889324903488159
+
+Title: Problem Formulation
+Sentence: from an unknown distribution with density p(x, y) on X × Y.
+Score: 0.9841638207435608
+
+Title: Problem Formulation
+Sentence: We seek a classifier f : X → Y that minimizes the classification risk (Charoenphakdee et al., 2021): R ℓ (f ) = E (x,y)∼p(x,y) ℓ f (x), y ,
+
+where ℓ(•, •) is the zero-one loss, ℓ(f (x), y) = 1 [f (x)̸ =y] .
+Score: 0.9884445667266846
+
+Title: Problem Formulation
+Sentence: Although the true class-posterior probability vector η(x) = η 1 (x), .
+Score: 0.9501118659973145
+
+Title: Problem Formulation
+Sentence: , η K (x) ⊤ , where η k (x) = P y = k | x , would allow direct identification of the Bayes-optimal classifier:
+
+in practice we do not observe η(x) but only empirical samples (x i , y i ).
+Score: 0.9953886270523071
+
+Title: Problem Formulation
+Sentence: Hence, η(x) is purely theoretical and not assumed to be known.
+Score: 0.993606686592102
+
+Title: Empirical Surrogate Risk
+Sentence: Minimizing R ℓ (f ) in Eq.
+Score: 0.8889195919036865
+
+Title: Empirical Surrogate Risk
+Sentence: ( 1) directly is intractable because the zero-one loss is non-convex and non-differentiable (Bartlett et al., 2006;Zhang, 2004).
+Score: 0.9957072138786316
+
+Title: Empirical Surrogate Risk
+Sentence: Instead, one typically adopts a differentiable surrogate loss.
+Score: 0.9652339816093445
+
+Title: Empirical Surrogate Risk
+Sentence: Let f (x) = p(x) = p1 (x), .
+Score: 0.9494730830192566
+
+Title: Empirical Surrogate Risk
+Sentence: , pK (x)
+
+where
+
+A common practice is to train a neural network with a softmax layer to 1 Vectors are in bold (e.g., x), scalars are in regular font (e.g., x), and the i-th element of a vector x is xi.
+Score: 0.9866461753845215
+
+Title: Empirical Surrogate Risk
+Sentence: The indicator function is 1 [•] , and x ⊤ denotes the transpose of x. output these probabilities, then define its prediction as: f * (x) = arg max y∈Y py (x).
+Score: 0.9777323007583618
+
+Title: Empirical Surrogate Risk
+Sentence: (3)
+
+The empirical surrogate risk is (Vapnik et al., 1998):
+
+where e yi ∈ {0, 1} K is the one-hot encoding of y i .
+Score: 0.9908498525619507
+
+Title: Empirical Surrogate Risk
+Sentence: By choosing a suitable surrogate ℓ, we obtain a differentiable training objective that, in theory, aligns with minimizing the zero-one loss (Bartlett et al., 2006;Vapnik et al., 1998).
+Score: 0.9967637062072754
+
+Title: Overconfidence (OC) and Underconfidence (UC)
+Sentence: Definition 2.1 (Overconfidence and Underconfidence).
+Score: 0.9621071219444275
+
+Title: Overconfidence (OC) and Underconfidence (UC)
+Sentence: The model f is said to be OC/UC at x ∈ X if the highest predicted probability exceeds/less than the highest true probability:
+Score: 0.7160638570785522
+
+Title: Calibration Error
+Sentence: Calibration assesses whether the predicted probabilities align with empirical frequencies.
+Score: 0.9975759387016296
+
+Title: Calibration Error
+Sentence: Traditional binning-based metrics, such as Expected Calibration Error (ECE), can be sensitive to bin sizes.
+Score: 0.9954264760017395
+
+Title: Calibration Error
+Sentence: Therefore, an alternative is the Smooth Calibration Error (smCE) (Blasiok et al., 2024):
+
+Definition 2.2 (Smooth Calibration Error (smCE)2 ).
+Score: 0.995398223400116
+
+Title: Calibration Error
+Sentence: Let H be the class of all 1-Lipschitz functions ϕ : [0, 1] → [−1, 1].
+Score: 0.9925827980041504
+
+Title: Calibration Error
+Sentence: For p(x) = (p 1 (x), .
+Score: 0.9757633209228516
+
+Title: Calibration Error
+Sentence: , pK (x)) and one-hot y = (y 1 , .
+Score: 0.9930047392845154
+
+Title: Calibration Error
+Sentence: , y K ), the smooth Calibration Error is defined as:
+
+(7)
+Score: 0.9945651292800903
+
+Title: Focal Loss Bound
+Sentence: A popular surrogate is the focal loss (Lin et al., 2017), which addresses class imbalance by downweighting easy examples.
+Score: 0.9946255087852478
+
+Title: Focal Loss Bound
+Sentence: In prior theoretical analyses (Mukhoti et al., 2020a;Charoenphakdee et al., 2021), focal loss can be related to the KL divergence from η(x) to p(x), giving a bound of form:
+
+where H[•] is the entropy function and γ the focal "focusing" parameter.
+Score: 0.9778745770454407
+
+Title: Focal Loss Bound
+Sentence: In this bound, η(x) appears only in a theoretical sense to illustrate how focal loss penalizes higher-entropy predictions more strongly as γ increases.
+Score: 0.9899040460586548
+
+Title: Focal Loss Bound
+Sentence: Importantly, no step in the focal-loss training algorithm relies on direct knowledge of η(x); the model is trained on empirical data using a focal-loss objective, while η(x) remains a theoretical concept.
+Score: 0.5413947701454163
+
+Title: Post-Processing Gap
+Sentence: Finally, the post-processing gap quantifies how much a smooth recalibration function κ(•) could improve a classifier's calibration under a given loss.
+Score: 0.9949734210968018
+
+Title: Post-Processing Gap
+Sentence: Formally:
+
+For a chosen calibration loss L and predictor f , pGap D (f ) is defined as:
+
+Reconciling Theory and Practice.
+Score: 0.9872263073921204
+
+Title: Post-Processing Gap
+Sentence: Although η(x) appears in theoretical statements (e.g.Eqs.
+Score: 0.9692891240119934
+
+Title: Post-Processing Gap
+Sentence: ( 8) and ( 1)), it is not assumed to be known or used in training.
+Score: 0.9904614090919495
+
+Title: Post-Processing Gap
+Sentence: Its primary role is in analysis: establishing properties like Bayes optimality, bounding calibration error, or characterizing over-/underconfidence.
+Score: 0.9963010549545288
+
+Title: Post-Processing Gap
+Sentence: The actual training and evaluation rely exclusively on {(x i , y i )}.
+Score: 0.9896388053894043
+
+Title: Post-Processing Gap
+Sentence: Consequently, there is no contradiction between the theoretical need for η(x) in proofs and the final empirical solution (e.g.
+Score: 0.9243246912956238
+
+Title: Post-Processing Gap
+Sentence: the surrogate risk minimization) that depends only on observable data.
+Score: 0.9899924397468567
+
+Title: Focal Calibration Loss
+Sentence: Our observations in Fig.
+Score: 0.6489057540893555
+
+Title: Focal Calibration Loss
+Sentence: 2 suggest that focal loss often yields higher-entropy predictions, leading to underconfident outputs even when the true probability η k (x) is near 0 or 1 (i.e., for "easy" samples).
+Score: 0.9948345422744751
+
+Title: Focal Calibration Loss
+Sentence: Such underconfidence undermines calibration reliability.
+Score: 0.9940019249916077
+
+Title: Focal Calibration Loss
+Sentence: Although Charoenphakdee et al.
+Score: 0.9843621253967285
+
+Title: Focal Calibration Loss
+Sentence: (Charoenphakdee et al., 2021) proved that focal loss is classification-calibrated, it is not strictly proper.
+Score: 0.9992469549179077
+
+Title: Focal Calibration Loss
+Sentence: We address these calibration issues by proposing the Focal Calibration Loss (FCL), which appends a proper loss term to focal loss.
+Score: 0.9811868667602539
+
+Title: Focal Calibration Loss
+Sentence: true label.
+Score: 0.9820811152458191
+
+Title: Focal Calibration Loss
+Sentence: We define the Focal Calibration Loss as
+
+where γ ≥ 0 and λ ≥ 0 control the focal "focusing" and calibration trade-off, respectively.
+Score: 0.9878145456314087
+
+Title: Focal Calibration Loss
+Sentence: By contrast, η(x) in certain theoretical derivations is the true conditional probability distribution P (y | x), which is unknown in real-world datasets.
+Score: 0.9865496754646301
+
+Title: Focal Calibration Loss
+Sentence: Eq.
+Score: 0.9118571281433105
+
+Title: Focal Calibration Loss
+Sentence: Why FCL Helps.
+Score: 0.9373357892036438
+
+Title: Focal Calibration Loss
+Sentence: Adding the squared-error calibration term λ ∥p i − y i ∥ 2 2 directly rewards probability estimates that approach the one-hot label, thereby nudging predictions toward lower calibration error.
+Score: 0.996242880821228
+
+Title: Focal Calibration Loss
+Sentence: Even though one-hot labels are a crude proxy for η(x), this step ensures that, over many samples, the model's output distribution more closely aligns with empirical label frequencies.
+Score: 0.9948464632034302
+
+Title: Theoretical Evidence
+Sentence: 4.1.
+Score: 0.9753236770629883
+
+Title: Theoretical Evidence
+Sentence: Mitigating OC/UC Beyond Focal Loss Theorem 4.1 (Reducing Over-/Underconfidence).
+Score: 0.9960197806358337
+
+Title: Theoretical Evidence
+Sentence: Let f be a classifier trained by minimizing L γ,λ FCL with λ > 0.
+Score: 0.9929157495498657
+
+Title: Theoretical Evidence
+Sentence: Suppose η(x) is the (unknown) true conditional probability vector.
+Score: 0.9820260405540466
+
+Title: Theoretical Evidence
+Sentence: Then for any x ∈ X ,
+
+Although η(x) is not directly accessible, this theorem shows that, if the model predictions p(x) approach η(x) in ℓ 2distance, the gap between their respective maximum components shrinks.
+Score: 0.9848315715789795
+
+Title: Theoretical Evidence
+Sentence: As a result, reducing ∥p(x) − η(x)∥ 2 (which is encouraged by L calib ) inherently bounds over-/underconfidence.
+Score: 0.9957922697067261
+
+Title: Theoretical Evidence
+Sentence: Formal details in Appendix A.2 and A.3.
+Score: 0.9870936274528503
+
+Title: L γ,λ
+Sentence: FCL is Classification-Calibrated Next, we show that minimizing the focal calibration risk R L γ,λ FCL achieves the Bayes-optimal classification boundary (Zhang, 2004).
+Score: 0.9954034090042114
+
+Title: L γ,λ
+Sentence: Although calibration term in Eq.
+Score: 0.9879823923110962
+
+Title: L γ,λ
+Sentence: ( 12) does not necessarily recover the exact posterior η(x), we prove it preserves the ranking of classes required for classification consistency (Bartlett et al., 2006;Tewari & Bartlett, 2007).
+Score: 0.9804102778434753
+
+Title: L γ,λ
+Sentence: Definition 4.2 (Pointwise Conditional Risk).
+Score: 0.9930570125579834
+
+Title: L γ,λ
+Sentence: Let L : ∆ K × ∆ K → R be a surrogate loss, and let e y ∈ {0, 1} K be the one-hot label for class y.
+Score: 0.9718743562698364
+
+Title: L γ,λ
+Sentence: For an input x ∈ X with true classposterior η(x) = [η 1 (x), .
+Score: 0.9804534912109375
+
+Title: L γ,λ
+Sentence: , η K (x)] ⊤ , and a predicted distribution q(x) ∈ ∆ K , the pointwise conditional risk is
+
+Definition 4.3 (Classification-Calibrated (Bartlett et al., 2006;Tewari & Bartlett, 2007)).
+Score: 0.9957844614982605
+
+Title: L γ,λ
+Sentence: A loss L is said to be classification-calibrated if its minimizer preserves the same arg max ordering as the true posterior.
+Score: 0.9922298789024353
+
+Title: L γ,λ
+Sentence: Formally, let
+
+Then L is classification-calibrated if, for every x, arg max y q * y (x) = arg max y η y (x) .
+Score: 0.995595395565033
+
+Title: L γ,λ
+Sentence: Intuitively, if a surrogate loss is classification-calibrated, minimizing its pointwise risk yields a decision rule (via arg max) that matches the Bayes rule, hence achieving Bayes-optimal classification (Zhang, 2004).
+Score: 0.9962171912193298
+
+Title: L γ,λ
+Sentence: Consequently, R L0-1 f q γ,λ, * = R L0-1 f L0-1, * , indicating that L γ,λ FCL recovers the Bayesoptimal decision boundary.
+Score: 0.9866430759429932
+
+Title: L γ,λ
+Sentence: Thus, by minimizing FCL, we obtain a classifier whose arg max matches the optimal arg max implied by η, meeting the requirement for Def.
+Score: 0.9931426048278809
+
+Title: L γ,λ
+Sentence: 4.3.
+Score: 0.9773485660552979
+
+Title: Strictly Proper
+Sentence: Although classification calibration ensures correct arg max decisions, many real-world tasks also require accurate probability estimates.
+Score: 0.9977254271507263
+
+Title: Strictly Proper
+Sentence: While the true η(x) remains unknown, strictly proper losses incentivize unbiased probability estimation (Reid & Williamson, 2010;Williamson et al., 2016).
+Score: 0.8851469159126282
+
+Title: Strictly Proper
+Sentence: We show in Appendix A.7 that the calibration term ∥p−y∥ 2 2 is strictly proper.
+Score: 0.8484402894973755
+
+Title: Strictly Proper
+Sentence: Intuitively, adding ∥p − y∥ 2 2 penalizes deviations from the observed label distribution more severely as p drifts away, forcing the model to converge to correct probability estimates in expectation.
+Score: 0.9658447504043579
+
+Title: Reduction of Post-Processing Gap
+Sentence: We finally show that FCL reduces the post-processing gap (Blasiok et al., 2024) relative to focal loss alone.
+Score: 0.6642484068870544
+
+Title: Reduction of Post-Processing Gap
+Sentence: Recall that post-processing gap measures how much a smooth recalibration function could further improve the model's calibration: Theorem 4.5.
+Score: 0.9937072396278381
+
+Title: Reduction of Post-Processing Gap
+Sentence: For any predictor f : X → [0, 1] and any distribution D over X × {0, 1}, the L γ,λ FCL yields a smaller (or equal) post-processing gap than focal loss alone:
+
+This implies that by incorporating ∥p − y∥ 2 2 into training, the model's raw outputs require less recalibration after the fact.
+Score: 0.9854124188423157
+
+Title: Reduction of Post-Processing Gap
+Sentence: Additional details and proofs are in Appendix A.14.
+Score: 0.9344787001609802
+
+Title: Experimental Results
+Sentence: We evaluate the effectiveness of our proposed method on both image and text classification tasks.
+Score: 0.9671056866645813
+
+Title: Experimental Results
+Sentence: For image classification, we utilize datasets such as CIFAR-10/100 (Krizhevsky, 2009), Tiny-ImageNet (Deng et al., 2009), and CheXNet (Rajpurkar et al., 2017) to evaluate calibration of models including ResNet50 (He et al., 2016a), ResNet-100 (He et al., 2016b), Wide-ResNet-26-10 (Zagoruyko & Komodakis, 2016), and DenseNet-121 (Huang et al., 2017).
+Score: 0.9937604069709778
+
+Title: Experimental Results
+Sentence: For text classification, we employ the 20 Newsgroups dataset (Lang, 1995), web news dataset AG News (Zhang et al., 2015) and FinSen (Liang et al., 2024), training with global-pooling CNN (Lin et al., 2014).
+Score: 0.9720930457115173
+
+Title: Experimental Results
+Sentence: More, we include Out-of-Distribution (OoD) datasets to evaluate the robustness of the models: the SVHN dataset (Netzer et al., 2011), which consists of street view house numbers, and the CIFAR-10-C dataset (Hendrycks & Dietterich, 2019), a corrupted version of the CIFAR-10.
+Score: 0.9912715554237366
+
+Title: Experimental Results
+Sentence: Baselines Among calibration-during-training methods, Cross Entropy with Weight Decay (5 × 10 −4 ) (Guo et al., 2017), MMCE (Kumar et al., 2018), Brier loss (Brier, 1950), Label Smoothing (LS-0.05) (Szegedy et al., 2016), sampledependent focal loss (FLSD-53) (Lin et al., 2017), and Dual Focal Loss (Tao et al., 2023) as baselines.
+Score: 0.9933458566665649
+
+Title: Experimental Results
+Sentence: For post hoc calibration, we report the effect of temperature scaling (Guo et al., 2017) on top of these methods.
+Score: 0.9949731826782227
+
+Title: Experimental Results
+Sentence: For temperature scaling, we select the optimal temperature T ∈ (0, 10] (step size 0.1) that gives the lowest ECE on the validation set.
+Score: 0.9716477394104004
+
+Title: Experimental Results
+Sentence: Experiment Setup Our experiment setup aligns with prior work and public code by Mukhoti et al.
+Score: 0.9886634945869446
+
+Title: Experimental Results
+Sentence: (Mukhoti et al., 2020a) implemented using PyTorch.
+Score: 0.9827430248260498
+
+Title: Experimental Results
+Sentence: CIFAR-10/100: Trained ResNet-50, ResNet-110, WideResNet, DenseNet for 350 epochs, with a learning rate set to 0.1 for the first 150 epochs, 0.01 for the following 100 epochs, and 0.001 for the remaining epochs.
+Score: 0.9925161004066467
+
+Title: Experimental Results
+Sentence: Tiny-ImageNet: Trained ResNet for 100 epochs, with a learning rate set to 0.1 for the first 40 epochs, 0.01 for the following 20 epochs, and 0.001 for the remaining epochs.
+Score: 0.9892387390136719
+
+Title: Experimental Results
+Sentence: 20 Newsgroups: Trained Global Pooling CNN for 50 epochs, with a learning rate set to 0.001, beta set from 0.9 to 0.999.
+Score: 0.981671154499054
+
+Title: Experimental Results
+Sentence: We used Glove word embedding (glove.6B.100d) to train and evaluated by the best validated models.
+Score: 0.9728298783302307
+
+Title: Experimental Results
+Sentence: CheXNet: Trained DenseNet for 100 epochs with a ReduceLROnPlateau scheduler (patience = 5).
+Score: 0.987250804901123
+
+Title: Experimental Results
+Sentence: For optimization, we used SGD with a weight decay of 5 × 10 −4 and momentum of 0.9 for CIFAR-10/100 and Tiny-ImageNet, Adam optimizer with a learning rate of 0.001 for 20Newsgroup, and Adam optimizer with a learning rate of 0.0001 for CheXNet with 1 × 10 −5 weight decay.
+Score: 0.9821237921714783
+
+Title: Experimental Results
+Sentence: The batch sizes are all set to 128 but 32 for CheXNet.
+Score: 0.9927060008049011
+
+Title: Experimental Results
+Sentence: All experiments were conducted on NVIDIA GeForce RTX 3060 Ti and NVIDIA GeForce RTX 4090, with random seeds set to 1.
+Score: 0.9959468245506287
+
+Title: Experimental Results
+Sentence: For temperature scaling results, the temperature parameter T was optimized through a grid search over the range T ∈ [0, 0.1, 0.2, .
+Score: 0.993194580078125
+
+Title: Experimental Results
+Sentence: , 10] on the validation set, based on the best post-temperature-scaling ECE.
+Score: 0.988649845123291
+
+Title: Experimental Results
+Sentence: The exact temperature parameter was also used for other calibration metrics.
+Score: 0.9939232468605042
+
+Title: CALIBRATION ERROR
+Sentence: Tables 10, 3, 6, and 7 present the ECE, smCE, AdaECE, and Classwise-ECE metrics, respectively, before (pre) and after (post) temperature scaling for different methods across various models and datasets.
+Score: 0.988937258720398
+
+Title: CALIBRATION ERROR
+Sentence: Overall, FCL consistently achieves lower pre-T calibration error compared to other methods, indicating better inherent calibration.
+Score: 0.9962062835693359
+
+Title: CALIBRATION ERROR
+Sentence: Post-T calibration error for FCL are also among the lowest, showcasing its effectiveness even after temperature scaling.
+Score: 0.9929734468460083
+
+Title: CALIBRATION ERROR
+Sentence: FCL performs well across different architectures, particularly excelling with DenseNet-121 and ResNet-50/110.
+Score: 0.9944226145744324
+
+Title: CALIBRATION ERROR
+Sentence: It demonstrates strong performance on CIFAR-10, CIFAR-100, and Tiny-ImageNet, with significant improvements in calibration.
+Score: 0.9969735145568848
+
+Title: CALIBRATION ERROR
+Sentence: These results underscore the efficacy of FCL in enhancing model calibration, outperforming other methods like Brier Loss, MMCE, and Label Smoothing, Focal Loss in both pre-and post-temperature scaling scenarios.
+Score: 0.9980493783950806
+
+Title: RELIABILITY DIAGRAM
+Sentence: The Fig.
+Score: 0.9489081501960754
+
+Title: RELIABILITY DIAGRAM
+Sentence: 9 for ResNet-110 trained on CIFAR-10 show the reliability diagram for different loss functions: Cross Entropy, FLSD-53, Dual Focal, and Focal Calibration.
+Score: 0.9960901141166687
+
+Title: RELIABILITY DIAGRAM
+Sentence: The Cross Entropy loss shows a significant gap between the expected and actual accuracy, especially in the higher confidence bins indicated poor calibration.
+Score: 0.9951639175415039
+
+Title: RELIABILITY DIAGRAM
+Sentence: Focal Calibration Loss achieves the best calibration among the methods, with the lowest ECE and a relatively low MCE.
+Score: 0.9953065514564514
+
+Title: RELIABILITY DIAGRAM
+Sentence: The expected and actual accuracies are closely aligned, indicating excellent calibration.
+Score: 0.9966711401939392
+
+Title: RELIABILITY DIAGRAM
+Sentence: Additionally, the lowest test error is demonstrating that FCL not only improves calibration but also maintains or improves classification performance as Fig.
+Score: 0.9958608746528625
+
+Title: RELIABILITY DIAGRAM
+Sentence: 8 for ResNet-50 trained on CIFAR-10 with epochs range from 100 to 300.
+Score: 0.9836061000823975
+
+Title: CLASSIFICATION ERROR
+Sentence: The Tab.
+Score: 0.9818458557128906
+
+Title: CLASSIFICATION ERROR
+Sentence: 2 presents the classification error (%) on the test set for various methods across different datasets and models.
+Score: 0.9858176112174988
+
+Title: CLASSIFICATION ERROR
+Sentence: FCL consistently achieves the lowest classification error in most cases across all datasets and models, demonstrating its effectiveness in reducing test errors, especially in CIFAR-100 and News datasets.
+Score: 0.9606528282165527
+
+Title: GRAD-CAM HEATMAPS ON CHEXNET
+Sentence: We evaluate the effects of Cross Entropy, Focal Loss, and Focal Calibration Loss on localization performance using Grad-CAM heatmaps, a popular visualization technique for identifying regions of interest in deep learning models (Selvaraju et al., 2017).
+Score: 0.9964397549629211
+
+Title: GRAD-CAM HEATMAPS ON CHEXNET
+Sentence: Fig.
+Score: 0.9621496796607971
+
+Title: GRAD-CAM HEATMAPS ON CHEXNET
+Sentence: 1
+Score: 0.9270540475845337
+
+Title: presents a comparison of heatmaps generated with each loss function applied to
+Sentence: Table 1.
+Score: 0.9342361092567444
+
+Title: presents a comparison of heatmaps generated with each loss function applied to
+Sentence: ↓ ECE (%) for various methods both before (pre) and after (post) applying temperature scaling (Bin = 15) 4 .
+Score: 0.9780784249305725
+
+Title: Dataset Model
+Sentence: Weight Decay (Guo et al., 2017) Brier Loss (Brier, 1950) MMCE (Kumar et al., 2018) Label Smooth (Szegedy et al., 2016) Focal Loss -53 (Mukhoti et al., 2020a) Dual Focal (Tao et al.,   CheXNet (Rajpurkar et al., 2017), a deep learning model for chest X-ray classification.
+Score: 0.9943535327911377
+
+Title: Dataset Model
+Sentence: For Cross Entropy, the heatmaps show broader regions of activation, which suggest that the model has less certainty in localizing the anomalies.
+Score: 0.9936408400535583
+
+Title: Dataset Model
+Sentence: In contrast, focal loss demonstrates more concentrated regions of activation.
+Score: 0.9868641495704651
+
+Title: Dataset Model
+Sentence: This suggests that focal loss sharpens the model's focus on challenging examples.
+Score: 0.9945171475410461
+
+Title: Dataset Model
+Sentence: However, while the activations are more focused, they may not always be aligned with precise boundaries, which could affect the confidence in anomaly localization.
+Score: 0.996551513671875
+
+Title: Dataset Model
+Sentence: Focal Calibration Loss, on the other hand, provides the most well-defined and precise activation areas.
+Score: 0.9939820170402527
+
+Title: Dataset Model
+Sentence: The heatmaps generated show a balanced focus, particularly in difficult cases, while also improving probability calibration.
+Score: 0.9966037273406982
+
+Title: Dataset Model
+Sentence: This results in clearer boundaries and more accurate localization of anomalies lead to more confident and reliable predictions, making it especially suited for medical diagnosis tasks where precise localization and confidence in predictions are critical.
+Score: 0.9909823536872864
+
+Title: Dataset Model
+Sentence: Thus, FCL not only enhances model calibration but also refines anomaly localization, offering substantial benefits for applications in medical imaging where accurate and confident diagnoses are of utmost importance.
+Score: 0.9981479644775391
+
+Title: Dataset Model
+Sentence: CheXNet result shows in Appendix A.16.
+Score: 0.9838458299636841
+
+Title: Robustness on OoD Data Shift
+Sentence: We assess the robustness of models trained on in-distribution CIFAR-10 and evaluated on two distinct out-of-distribution (OoD) datasets: SVHN and CIFAR-10-C. Tab.
+Score: 0.9392034411430359
+
+Title: Robustness on OoD Data Shift
+Sentence: 4 presents the performance of Area Under the Receiver Operating Char-acteristic curve (AUROC) under data shifts.
+Score: 0.9454343318939209
+
+Title: Robustness on OoD Data Shift
+Sentence: Across most datasets, FCL consistently achieves the highest AUROC, outperforming other models in handling OoD data.
+Score: 0.9966993927955627
+
+Title: Robustness on OoD Data Shift
+Sentence: This indicates that FCL enhances the model's ability to distinguish between in-distribution and out-of-distribution samples effectively.
+Score: 0.9930945634841919
+
+Title: Robustness on OoD Data Shift
+Sentence: This suggests that the FCL generalize well across different types of OoD shifts.
+Score: 0.9935938715934753
+
+Title: FASTER CONVERGENCE
+Sentence: In our experiments, we compared the performance of various loss functions on the CIFAR-10 dataset using a ResNet-110 architecture.
+Score: 0.9136734008789062
+
+Title: FASTER CONVERGENCE
+Sentence: Specifically, we evaluated CE, FL (γ=3.0), DFL (γ=2.0), and FCL (γ=3.0).
+Score: 0.9275160431861877
+
+Title: FASTER CONVERGENCE
+Sentence: During the initial epochs from 0 to 50, CE demonstrated a relatively stable decrease, while the FL showed higher variability with sharp peaks and troughs, indicating potential overfitting on hard examples.
+Score: 0.9289941191673279
+
+Title: FASTER CONVERGENCE
+Sentence: The FCL shows faster convergence, reaching a low normalized test loss more quickly than the other loss functions.
+Score: 0.7822676301002502
+
+Title: FASTER CONVERGENCE
+Sentence: This indicates that FCL might be more effective in stabilizing and minimizing the loss during the initial training phase.
+Score: 0.991385817527771
+
+Title: FASTER CONVERGENCE
+Sentence: Table 3.
+Score: 0.9518307447433472
+
+Title: FASTER CONVERGENCE
+Sentence: ↓ smCE (%) for various methods both before (pre) and after (post) applying temperature scaling 5 .
+Score: 0.9690558910369873
+
+Title: Dataset Model
+Sentence: Weight Decay (Guo et al., 2017) Brier Loss (Brier, 1950) MMCE (Kumar et al., 2018) Label Smooth (Szegedy et al., 2016) Focal Loss -53 (Mukhoti et al., 2020a) Dual Focal (Tao et al.,
+Score: 0.9816484451293945
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: We compared the FCL and FL with different λ values while keeping γ = 3.0 constant by metrics including NLL, ECE, AdaECE, and Classwise-ECE both before and after temperature scaling as well as test error for each λ in Fig.
+Score: 0.9840466380119324
+
+Title: Primal Feasibility:
+Sentence: 4.
+Score: 0.9742161631584167
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: NLL decreases initially as λ increases from 0 to 0.5 but shows fluctuations and a slight increase beyond λ = 1.5.
+Score: 0.9971919655799866
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: For posttemperature scaling, NLL values are generally lower, indi-cating improved calibration.
+Score: 0.9954837560653687
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: ECE decreases significantly when λ is 0.5, indicating improved calibration.
+Score: 0.9960145950317383
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: However, calibration error increases for higher λ values, suggesting that too much regularization might degrade calibration performance as depicted in Fig.
+Score: 0.9941913485527039
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: The experiment shows that λ = 0.5 provides the best calibration performance across all ECE metrics before and after temperature scaling.
+Score: 0.9964938759803772
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: Adjusting γ influences how much the model concentrates on hard examples-higher γ increases this focus, which can improve calibration but may also lead to overfitting if excessive.
+Score: 0.9948064684867859
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: Modifying λ controls the weight of the calibration loss component; increasing λ emphasizes probability calibration by penalizing deviations between predicted and true probabilities, but overly large values can reduce classification accuracy.
+Score: 0.9960579872131348
+
+Title: BALANCE BETWEEN γ AND λ
+Sentence: We provide table of γ and λ selection with best calibration error performance in Appendix A.10 and an ablation study of L1/L2 norm in Appendix A.15.
+Score: 0.9700794816017151
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: As shown in Tab.
+Score: 0.987006425857544
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: 10, Tab.
+Score: 0.9878277778625488
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: 3, Tab.
+Score: 0.9875548481941223
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: 6 and Tab.7, the focal loss model exhibits a significant reduction in ECE after temperature scaling, indicating a substantial post-processing gap.
+Score: 0.9897838234901428
+
+Title: POST-PROCESSING GAP REDUCTION
+Sentence: In contrast, the FCL model shows minimal change in calibration error after temperature scaling closing with 1.0, confirming that FCL reduces the post-processing gap.
+Score: 0.996006190776825
+
+Title: Related Work
+Sentence: Improving the calibration of deep neural networks (DNNs) is critical for reliable uncertainty estimation.
+Score: 0.9967593550682068
+
+Title: Related Work
+Sentence: A common strategy involves post-hoc calibration methods, which adjust a pre-trained model's output probabilities without altering its architecture or training procedure.
+Score: 0.9971697926521301
+
+Title: Related Work
+Sentence: Platt scaling (Platt et al., 1999), originally designed for binary classifiers, was extended to multi-class settings by applying a linear transformation to logits to improve calibration.
+Score: 0.9973270893096924
+
+Title: Related Work
+Sentence: More recent methods like Temperature Scaling (Guo et al., 2017) introduce a temperature parameter to adjust the predicted logits, effectively reducing the Expected Calibration Error (ECE) across various models.
+Score: 0.9951463341712952
+
+Title: Related Work
+Sentence: Histogram Binning (Zadrozny & Elkan, 2002) discretizes the probability space into bins to align confidence scores with empirical frequencies.
+Score: 0.994411051273346
+
+Title: Related Work
+Sentence: While effective, these methods require held-out validation data and assume the test distribution matches the calibration data.
+Score: 0.9795408844947815
+
+Title: Calibration Strategies
+Sentence: Regularization
+Score: 0.8845527172088623
+
+Title: Calibration in Transformers
+Sentence: Calibration for transformer-based architectures, now prevalent in both vision and language domains, is increasingly essential for reliable deployment in high-stakes applications.
+Score: 0.9967474937438965
+
+Title: Calibration in Transformers
+Sentence: In NLP, foundational transformer models such as BERT (Devlin, 2018), GPT (Brown, 2020), and T5 (Raffel et al., 2020) often lead the field in accuracy yet suffer from miscalibrated confidence (Desai & Durrett, 2020;Jiang et al., 2020), especially under out-of-distribution conditions (Mielke et al., 2022).
+Score: 0.9947309494018555
+
+Title: Calibration in Transformers
+Sentence: Likewise, vision transformers (ViTs) exhibit calibration issues under distribution shifts (Ovadia et al., 2019), adversarial attacks (Shao et al., 2021), and low-data scenarios (Minderer et al., 2021).
+Score: 0.9981616139411926
+
+Title: Calibration in Transformers
+Sentence: These limitations underscore the need for robust calibration methods to enhance reliability in domains such as autonomous driving (Feng et al., 2021) and medical imaging (Mehrtash et al., 2020).
+Score: 0.9967531561851501
+
+Title: Conclusions
+Sentence: In conclusion, traditional Focal Loss has been instrumental in reducing misclassification rates by focusing on hardto-classify samples; however, it often falls short in providing well-calibrated predictions.
+Score: 0.9960461258888245
+
+Title: Impact Statement
+Sentence: Ensuring accurate and trustworthy confidence scores in deep neural networks is vital for deploying them in high-stakes domains such as healthcare, autonomous driving, and finance.
+Score: 0.9947746992111206
+
+Title: Impact Statement
+Sentence: By introducing a focal calibration loss that leverages an explicit Euclidean distance term, our approach not only addresses class imbalance but also reduces miscalibration, aligning model outputs with real-world outcome frequencies.
+Score: 0.9960850477218628
+
+Title: Impact Statement
+Sentence: This dual improvement in accuracy and reliability fosters greater transparency and confidence when models are used to assist critical decisions.
+Score: 0.993544340133667
+
+Title: Impact Statement
+Sentence: Consequently, our method's blend of focal weighting and calibration stands to significantly enhance model trustworthiness across a range of practical applications.
+Score: 0.9964789748191833
+
+Title: Impact Statement
+Sentence: A.
+Score: 0.9778571128845215
+
+Title: Impact Statement
+Sentence: Appendix
+Score: 0.9573997259140015
+
+Title: A.1. Evaluation Metrics
+Sentence: Formally, the ECE can be approximated by grouping predictions into M bins and calculating the average confidence and accuracy for each bin:
+
+where N is the total number of samples, M is the number of bins, B m is the set of indices of samples whose predicted probability falls into the m-th bin, |B m | is the number of samples in bin B m , acc(B m ) is the accuracy of the samples in bin B m , and conf(B m ) is the average confidence of the samples in bin B m defined in Eq.
+Score: 0.982785165309906
+
+Title: A.1. Evaluation Metrics
+Sentence: ( 18).
+Score: 0.9794053435325623
+
+Title: A.1. Evaluation Metrics
+Sentence: In this appendix, we provide a mathematical proof that minimizing the Focal Calibration Loss L γ,λ FCL mitigates overconfidence (OC) and underconfidence (UC) in the predicted probabilities of a classifier.
+Score: 0.996807873249054
+
+Title: A.1. Evaluation Metrics
+Sentence: Step 1: Bounding Overconfidence and Underconfidence We aim to bound the difference between the maximum predicted probability and the maximum true class probability.
+Score: 0.9304317235946655
+
+Title: A.1. Evaluation Metrics
+Sentence: For any x ∈ X , we have:
+
+where ∥ • ∥ ∞ denotes the infinity norm.
+Score: 0.9866255521774292
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Proof.
+Score: 0.9740234017372131
+
+Title: A.1. Evaluation Metrics
+Sentence: Let k * = arg max k pk (x) and k † = arg max k η k (x).
+Score: 0.8629466891288757
+
+Title: A.1. Evaluation Metrics
+Sentence: Then,
+
+Using the triangle inequality, we have:
+
+Since η k † (x) ≥ η k * (x) by the definition of k † and k * , it follows that:
+
+Similarly, since pk * (x) ≥ pk † (x), we have:
+
+Combining Equations ( 24) and ( 25), we get:
+
+Thus,
+
+Step 2: Relating Infinity Norm to Euclidean Norm We have the relationship between norms:
+
+This follows because the infinity norm is less than or equal to the Euclidean norm.
+Score: 0.9880358576774597
+
+Title: A.1. Evaluation Metrics
+Sentence: Step 3: Combining Steps 1 and 2 From inequalities ( 22) and ( 30), we obtain:
+
+Step 4: Minimizing the Calibration Loss Reduces the Norm The calibration loss for a single data point is:
+
+Since y is a one-hot encoding sampled from the distribution η(x), we have:
+
+The term
+
+) is independent of p(x) and represents the intrinsic uncertainty of the true distribution.
+Score: 0.9944199919700623
+
+Title: A.1. Evaluation Metrics
+Sentence: Therefore, minimizing L calib effectively minimizes ∥p(x) − η(x)∥ 2 2 .
+Score: 0.9908387064933777
+
+Title: A.1. Evaluation Metrics
+Sentence: Step 5: Impact on Overconfidence and Underconfidence By minimizing ∥p(x) − η(x)∥ 2 2 , we directly reduce the bound in Equation (31) on |max k pk (x) − max k η k (x)|.
+Score: 0.9887266755104065
+
+Title: A.1. Evaluation Metrics
+Sentence: This means that the difference between the highest predicted probability and the highest true probability decreases, mitigating both overconfidence and underconfidence.
+Score: 0.9973558187484741
+
+Title: A.1. Evaluation Metrics
+Sentence: Minimizing the Focal Calibration Loss L γ,λ FCL includes minimizing the calibration loss component L calib , which reduces the Euclidean distance between the predicted probabilities p(x) and the true class-posterior probabilities η(x).
+Score: 0.9971625208854675
+
+Title: A.1. Evaluation Metrics
+Sentence: This, in turn, reduces the bound on the difference between the maximum predicted probability and the maximum true probability, thereby mitigating overconfidence and underconfidence.
+Score: 0.998336672782898
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Let X be the input space and Y = {1, 2, .
+Score: 0.8765175938606262
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: , K} the set of K classes.
+Score: 0.9934216141700745
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: For a given input x ∈ X , let η = [η 1 , η 2 , .
+Score: 0.9822760224342346
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: , η K ] ⊤ denote the true class-posterior probabilities, where η i = P(y = i | x) and K i=1 η i = 1; q = [q 1 , q 2 , .
+Score: 0.9911407828330994
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: , q K ] ⊤ be the predicted probability vector, where q i ∈ (0, 1) and K i=1 q i = 1.
+Score: 0.9906139373779297
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: • Calibration Loss Term: The term λ K i=1 (q i − η i ) 2 is strictly convex in q because it is a sum of squared terms.
+Score: 0.990558385848999
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: • Focal Loss Term: The term − K i=1 η i (1 − q i ) γ log q i is convex in q i for q i ∈ (0, 1).
+Score: 0.9875801205635071
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: The function ϕ(q i ) = −(1 − q i ) γ log q i is convex in q i ∈ (0, 1) for γ ≥ 0.
+Score: 0.9850207567214966
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Since η i ≥ 0, and a non-negative weighted sum of convex functions is convex, the focal loss term is convex.
+Score: 0.9410609602928162
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: A.1 in Appendix A.4).
+Score: 0.9834843277931213
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Step 2: Existence and Uniqueness of the Minimizer Because L γ,λ FCL (q) is strictly convex and the feasible set defined by q i > 0 and K i=1 q i = 1 is convex and closed, there exists a unique global minimizer q * .
+Score: 0.9907174706459045
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Step 3: Setting Up the Lagrangian To find the minimizer, we set up the Lagrangian function incorporating the equality constraint:
+
+We do not need to include inequality constraints q i > 0 explicitly because q i ∈ (0, 1) due to the logarithm and the domain of q.
+Score: 0.997426450252533
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Step 4: Deriving the KKT Conditions The Karush-Kuhn-Tucker (KKT) conditions for optimality are:
+
+1.
+Score: 0.8191214203834534
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Stationarity: For each i, ∂L ∂qi = 0.
+Score: 0.9820318222045898
+
+Title: Primal Feasibility:
+Sentence: K i=1 q i = 1.
+Score: 0.9849655628204346
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: 3.
+Score: 0.9737786054611206
+
+Title: Primal Feasibility:
+Sentence: Dual Feasibility: Not applicable here since there are no inequality constraints in q i after considering the domain.
+Score: 0.9744748473167419
+
+Title: Primal Feasibility:
+Sentence: Complementary Slackness: Not applicable since we don't have inequality constraints with slack variables.
+Score: 0.9967682361602783
+
+Title: Primal Feasibility:
+Sentence: Compute the partial derivative:
+
+Step 5: Analyzing the Stationarity Condition Let's denote:
+
+Then the stationarity condition becomes:S i (q i ) + µ = 0.
+Score: 0.9802128672599792
+
+Title: Primal Feasibility:
+Sentence: Since µ is the same for all i, we have:
+
+Step 6: Showing that q * i = η i satisfies the conditions We need evaluate S i (q i ) at q i = η i : 1.
+Score: 0.7911186814308167
+
+Title: Primal Feasibility:
+Sentence: When η i > 0 and η i ∈ (0, 1): Compute log η i , (1 − η i ), and γ.
+Score: 0.9819924831390381
+
+Title: Primal Feasibility:
+Sentence: Substitute q i = η i into S i (q i ):
+
+2.
+Score: 0.9828760027885437
+
+Title: Primal Feasibility:
+Sentence: Observation: The term S i (η i ) depends only on η i and is constant for each i.
+Score: 0.9917224049568176
+
+Title: Primal Feasibility:
+Sentence: Therefore, S i (η i ) + µ = 0 holds for each i with the same µ.
+Score: 0.9870206117630005
+
+Title: Primal Feasibility:
+Sentence: Equality Across Classes: Since S i (η i ) + µ = 0 for all i, and S i (η i ) is a constant for each i, the only way this can hold is if η i = η j or the terms are adjusted by λ.
+Score: 0.9949343800544739
+
+Title: Primal Feasibility:
+Sentence: However, this suggests that q i = η i satisfies the stationarity condition for some µ, but we need to ensure that this solution indeed minimizes the loss function.
+Score: 0.9572950601577759
+
+Title: Primal Feasibility:
+Sentence: Calibration Loss term is minimized to 0:
+
+η i because the negative log-likelihood is minimized when the predicted probabilities match the true probabilities.
+Score: 0.9962473511695862
+
+Title: Primal Feasibility:
+Sentence: Step 8: Handling the case when η i = 0 or η i = 1 1.
+Score: 0.9728542566299438
+
+Title: Primal Feasibility:
+Sentence: If η i = 0: The focal loss term for class i becomes zero:−η i (1 − q i ) γ log q i = 0.
+Score: 0.992833137512207
+
+Title: Primal Feasibility:
+Sentence: The calibration loss term is λ(q i − 0) 2 = λq 2 i , minimized when q i = 0.
+Score: 0.9933211207389832
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: 2.
+Score: 0.9712012410163879
+
+Title: Primal Feasibility:
+Sentence: If η i = 1: The focal loss term becomes:−(1 − q i ) γ log q i .
+Score: 0.8268897533416748
+
+Title: Primal Feasibility:
+Sentence: This is minimized when q i = 1.
+Score: 0.9899929165840149
+
+Title: Primal Feasibility:
+Sentence: The calibration loss term λ(q i − 1) 2 is minimized when q i = 1.
+Score: 0.9925825595855713
+
+Title: Primal Feasibility:
+Sentence: In both cases, q * i = η i minimizes the loss.
+Score: 0.9899318218231201
+
+Title: Primal Feasibility:
+Sentence: Therefore, minimizing the Focal Calibration Loss L γ,λ FCL (q) over the probability simplex recovers the true class-posterior probabilities q * = η.
+Score: 0.9941832423210144
+
+Title: A.4. Convexity of the Sum of Strictly Convex and Convex Functions
+Sentence: Theorem A.1.
+Score: 0.985920250415802
+
+Title: A.4. Convexity of the Sum of Strictly Convex and Convex Functions
+Sentence: Then the function h = f + g is strictly convex on R n .
+Score: 0.8977881073951721
+
+Title: A.4. Convexity of the Sum of Strictly Convex and Convex Functions
+Sentence: Let x, y ∈ R n with x ̸ = y, and let θ ∈ (0, 1).
+Score: 0.9364838004112244
+
+Title: A.4. Convexity of the Sum of Strictly Convex and Convex Functions
+Sentence: Since f is strictly convex, we have:
+
+Similarly, since g is convex, we have:
+
+Adding the two inequalities, we obtain:
+
+This strict inequality shows that h is strictly convex on R n .
+Score: 0.695165753364563
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Theorem A.2.
+Score: 0.9867955446243286
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: The Focal Calibration Loss L γ,λ FCL is classification-calibrated; that is, it satisfies the Strictly Order-Preserving Property.
+Score: 0.9844030141830444
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: From Def.
+Score: 0.9851204752922058
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: ?
+Score: 0.9745650887489319
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: ?, we aim to show that the Focal Calibration Loss (FCL) satisfies:
+
+where q * = [q * 1 , q * 2 , .
+Score: 0.9934205412864685
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: , q * K ] ⊤ is the minimizer of the pointwise conditional risk R LFCL (q).
+Score: 0.958554744720459
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Step 1: Define the Focal Calibration Loss (FCL) The Focal Calibration Loss for a single sample x with true label y ∈ {1, 2, .
+Score: 0.9973479509353638
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: , K} is defined as:
+
+where:
+
+• q = [q 1 , q 2 , .
+Score: 0.9526764750480652
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: , q K ] ⊤ is the predicted probability distribution over the K classes.
+Score: 0.990826427936554
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • η i = P(y = i | x) is the true class-posterior probability for class i.
+Score: 0.9917003512382507
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • γ ≥ 0 is the focusing parameter.
+Score: 0.9803507924079895
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • λ > 0 is calibration coefficient.
+Score: 0.9942142367362976
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: (51)
+
+Thus:
+
+Step 6: Analyze the Stationarity Condition From Equation ( 52), we observe that for each i:
+
+where:
+
+Since µ is the same for all i, we can write:
+
+Therefore, for any i, j:
+
+Step 7: Show the Strictly Order-Preserving Property Suppose q * i < q * j .
+Score: 0.980050265789032
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: We need to show that η i < η j .
+Score: 0.9945752620697021
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Assume, for contradiction, that η i ≥ η j .
+Score: 0.8578842282295227
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Case 1:
+
+From Equation ( 56), we have:
+
+Since q * i < q * j and η i > 0, we analyze the sign of Φ(q).
+Score: 0.9926364421844482
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Observation:
+
+• The function Φ(q) is decreasing in q over q ∈ (0, 1).
+Score: 0.9894990921020508
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • q * i − q * j < 0.
+Score: 0.9899882674217224
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Thus, the left-hand side (LHS) is positive, which contradicts the equality to zero.
+Score: 0.9814898371696472
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Case 2: η i > η j
+
+Similarly, from Equation (56):
+
+Since q * i < q * j and η i > η j , we have:
+
+Thus, the LHS is positive, leading to a contradiction.
+Score: 0.9837520122528076
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Step 8: Conclusion Our assumption that η i ≥ η j must be false.
+Score: 0.9552732706069946
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Therefore, if q * i < q * j , it must be that η i < η j .
+Score: 0.760425329208374
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Hence, the Focal Calibration Loss satisfies the Strictly Order-Preserving Property, and thus it is classification-calibrated.
+Score: 0.9740937352180481
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: A.6.
+Score: 0.975442111492157
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Properties of σ γ,λ Lemma A.3.
+Score: 0.9856588244438171
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Let σ γ,λ (q) be defined as:
+
+where q ∈ (0, 1), γ ≥ 0, and λ ≥ 0.
+Score: 0.5195209383964539
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Then, σ γ,λ (q) has the following properties:
+
+1. σ γ,λ (q) is continuous and differentiable on q ∈ (0, 1).
+Score: 0.9661238789558411
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: As q → 0 + , σ γ,λ (q) → 1.
+Score: 0.9970455765724182
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: As q → 1 − , σ γ,λ (q) → −2λ.
+Score: 0.9866900444030762
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: 4. σ γ,λ (q) is strictly decreasing on q ∈ (0, 1).
+Score: 0.6554707288742065
+
+Title: ■
+Sentence: 5.
+Score: 0.9719048738479614
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: 1.
+Score: 0.968666672706604
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Continuity and Differentiability.
+Score: 0.9742366075515747
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Each term in ( 59) is continuous and differentiable on q ∈ (0, 1):
+
+• (1 − q) γ is continuous and differentiable for q ∈ (0, 1) and γ ≥ 0.
+Score: 0.5459883809089661
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • −γq log q (1 − q) γ−1 is continuous and differentiable since log q is continuous on q ∈ (0, 1).
+Score: 0.9526723623275757
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • −2λq is a linear function and thus continuous and differentiable.
+Score: 0.9640403985977173
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Therefore, σ γ,λ (q) is continuous and differentiable on q ∈ (0, 1).
+Score: 0.9854267835617065
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Limit as q → 0 + .
+Score: 0.9946959614753723
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: As q → 0 + , we have (1 − q) γ → 1, q log q → 0, and −2λq → 0.
+Score: 0.9845989942550659
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Limit as q → 1 − .
+Score: 0.9841444492340088
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: As q → 1 − , (1 − q) γ → 0, −γq log q (1 − q) γ−1 → 0, and −2λq → −2λ.
+Score: 0.984859049320221
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Therefore:
+
+4.
+Score: 0.9781619310379028
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Strict Monotonic Decrease.
+Score: 0.9893419742584229
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Compute the first derivative σ ′γ,λ (q):
+
+Since log q < 0 for q ∈ (0, 1) and (1 − q) γ−1 > 0, the first term is positive.
+Score: 0.9975900650024414
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: The second term is negative or zero depending on γ:
+
+• If γ ≥ 1, then (γ − 1) ≥ 0, and since log q < 0, the second term is negative.
+Score: 0.986003577709198
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • If 0 ≤ γ < 1, then (γ − 1) < 0, but log q < 0, so the product is positive; however, q(1 − q) γ−2 remains finite and positive.
+Score: 0.9861056804656982
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Overall, σ ′γ,λ (q) < 0 for all q ∈ (0, 1), implying that σ γ,λ (q) is strictly decreasing on q ∈ (0, 1).
+Score: 0.9589255452156067
+
+Title: ■
+Sentence: Corollary A.4.
+Score: 0.9884118437767029
+
+Title: ■
+Sentence: The equation σ γ,λ (q) = 0 has exactly one solution q * ∈ (0, 1).
+Score: 0.8977461457252502
+
+Title: ■
+Sentence: Understanding the properties of σ γ,λ (q) is crucial in analyzing the behavior of the Focal Calibration Loss.
+Score: 0.991718053817749
+
+Title: ■
+Sentence: The function's monotonic decrease ensures a unique mapping between the predicted probabilities q and the true class probabilities η, aiding in establishing the consistency and calibration of the loss function.
+Score: 0.9967899918556213
+
+Title: ■
+Sentence: Figure 5.
+Score: 0.9636441469192505
+
+Title: ■
+Sentence: This behavior is essential for ensuring that the Focal Calibration Loss provides a unique and consistent mapping between predicted probabilities and true class probabilities, contributing to the effectiveness of the loss function in classification tasks.
+Score: 0.9961368441581726
+
+Title: ■
+Sentence: A.7.
+Score: 0.9745061993598938
+
+Title: ■
+Sentence: In the proof, Y ∼ P denotes a random variable Y that follows the probability distribution P .
+Score: 0.9727740287780762
+
+Title: ■
+Sentence: The predicted probability for class k is q k , and the true probability for class k is p k .
+Score: 0.9943464398384094
+
+Title: ■
+Sentence: The expectation E Y ∼P [S(Q, Y )] represents the expected value of the scoring function S(Q, Y ) over the distribution P .
+Score: 0.8293135762214661
+
+Title: ■
+Sentence: The calibration loss L calib is defined as the mean squared L 2 norm, and it measures the squared differences between predicted probabilities pi and actual binary outcomes y i for binary classification, or between predicted probability vectors pi and true outcome vectors y i for multiclass classification.
+Score: 0.9963083863258362
+
+Title: ■
+Sentence: The derivatives ∂ ∂qj and ∂ 2 ∂q 2 j denote the first and second partial derivatives w.r.t.
+Score: 0.5340509414672852
+
+Title: ■
+Sentence: the predicted probability q j , used to find and verify the maxima of the expected score.
+Score: 0.9933428168296814
+
+Title: ■
+Sentence: The L 2 norm and the Brier score are closely related.
+Score: 0.9833887815475464
+
+Title: ■
+Sentence: For binary classification, the squared L 2 norm of the difference between predicted probabilities pi and actual binary outcomes y i is equivalent to the Brier score:
+
+For multiclass classification, the mean squared L 2 norm is:
+
+This is the Brier score for multiclass classification.
+Score: 0.9320871233940125
+
+Title: ■
+Sentence: 1) BINARY CLASSIFICATION:
+
+Let p be the true probability of the event Y = 1.
+Score: 0.6090742349624634
+
+Title: ■
+Sentence: Then, the expected score is:
+
+To find the maxima, take the derivative w.r.t.
+Score: 0.9876242876052856
+
+Title: ■
+Sentence: q and set it to zero:
+
+We need to check the second derivative to see if it is a maximum (for the properness condition) and if it is the only maximizer (for the strictness condition):
+
+The second derivative is always negative which means that the function is concave and the maximum is unique.
+Score: 0.993502676486969
+
+Title: ■
+Sentence: Therefore, p = q is the only maximizer and the Brier scoring rule for binary classification is strictly proper.
+Score: 0.8776901364326477
+
+Title: ■
+Sentence: 2) MULTICLASS CLASSIFICATION:
+
+This expression can be expressed as follows by replacing q iK with 1 − i̸ =K q i :
+
+Taking the derivative w.r.t.
+Score: 0.9915517568588257
+
+Title: ■
+Sentence: q j and setting it to zero, we obtain:
+
+We know that i p i = 1 and i q i = 1, therefore:
+
+Now, we need to check the second derivative to see if it is a maximum (for the properness condition) and if it is the only maximizer for the strictness condition:
+
+The second derivative is always negative which means that the function is concave and the maximum is unique.
+Score: 0.9918792843818665
+
+Title: ■
+Sentence: Therefore, p = q is the only maximizer and the Brier scoring rule for multiclass classification is strictly proper.
+Score: 0.8844134211540222
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Case 1: λ > 0 Let y ∈ ∆ K be the true probability vector, and p ∈ ∆ K be the predicted probability vector.
+Score: 0.9948253631591797
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: We consider two scenarios:
+
+(a) When p = y.
+Score: 0.9688379764556885
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: At p = y, the calibration loss is:
+
+Assuming y is a one-hot vector with y j = 1 for the true class j, the focal loss becomes:
+
+Thus, the total loss is:
+
+(b) When p ̸ = y.
+Score: 0.9952034950256348
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Case 2: λ = 0 When λ = 0, the FCL reduces to the focal loss:
+
+The focal loss is not strictly proper because:
+
+(a) Multiple Minimizers: Consider any p where pj = 1 and pk = 0 for k ̸ = j.
+Score: 0.9875733256340027
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: In this case:
+
+However, suppose pj = q < 1 but still significantly higher than other pk .
+Score: 0.9885913729667664
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Depending on γ, the focal loss may not penalize this deviation strongly, and L γ focal (p, y) may still be close to zero.
+Score: 0.9958862662315369
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Therefore, the minimum loss may not be uniquely attained at p = y.
+Score: 0.9991124272346497
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: (b) Lack of Strict Convexity: The focal loss is not strictly convex with respect to p, especially when γ = 0, where it reduces to the cross-entropy loss, which is proper but not strictly proper without additional regularization.
+Score: 0.8345497846603394
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: A.9.
+Score: 0.9749451875686646
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: Focal Loss Relative with Entropy Regularised KL Divergence
+
+This section we illustrate why focal loss tends to favor accurate yet less confident solutions.
+Score: 0.9717686176300049
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: Let L f represent the focal loss with parameter γ, and L c represent the cross-entropy loss between p and q.
+Score: 0.9518008232116699
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: Here, K denotes the number of classes, and q k and pk represent the ground-truth and predicted probabilities for the k-th class, respectively.
+Score: 0.9933053851127625
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: We consider the following Given that L c = KL(q∥p) + H[q], combining it to inequality Eq.
+Score: 0.6622965335845947
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: ( 82):
+
+In the case of one-hot encoding (Delta distribution for q), focal loss will maximize −p k log pk (let k be the ground-truth class index), the component of the entropy of p corresponding to the ground-truth index.
+Score: 0.9880557060241699
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: Thus, it will prefer learning p such that pk is assigned a higher value (because of the KL term), but not too high (because of the entropy term), and will ultimately avoid preferring overconfident models (by contrast to cross-entropy loss).
+Score: 0.9919800758361816
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: We compared the decision boundaries of a neural network trained with Focal Loss (FL) and Focal Calibration Loss (FCL) on a noisy, hard-to-classify synthetic dataset, using the same γ = 10 for both models.
+Score: 0.9968917965888977
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: The dataset, generated with noise=0.2, created overlapping classes that are difficult to separate.
+Score: 0.8286278247833252
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: Both models were trained using a simple feedforward neural network with two hidden layers of 10 units and optimized with Adam for 500 epochs.
+Score: 0.9697364568710327
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: While the FL model generated sharp decision boundaries focusing on hard samples, the FCL model, with λ = 1.5, produced a smoother boundary as depicted in Fig.
+Score: 0.9964459538459778
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: 7, effectively balancing accuracy and calibration.
+Score: 0.9965131878852844
+
+Title: Overall Conclusion The Focal Calibration Loss L γ,λ
+Sentence: A.12.
+Score: 0.977353572845459
+
+Title: Dataset Model
+Sentence: Weight Decay (Guo et al., 2017) Brier Loss (Brier, 1950) MMCE (Kumar et al., 2018) Label Smooth (Szegedy et al., 2016) Focal Loss -53 (Mukhoti et al., 2020a) Dual Focal (Tao et al.,   Proof.
+Score: 0.9890611171722412
+
+Title: Dataset Model
+Sentence: Let the post-processed prediction be defined as κ(p ik ) = pik +η(p ik ), where η(p ik ) is the post-processing adjustment function applied to the predicted probability pik .
+Score: 0.8602500557899475
+
+Title: Dataset Model
+Sentence: This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term.
+Score: 0.9963729381561279
+
+Title: Dataset Model
+Sentence: Following Definition 2.3, the post-processing gap for the FCL pGap D (L γ,λ FCL )is defined as:
+
+Step 1: Expanding the Post-Processing Gap for FCL Substituting the definition of the focal calibration loss, we obtain:
+
+Step 2: Special Case when λ = 0 When λ = 0, the focal calibration loss simplifies to the focal loss, as the calibration term is removed.
+Score: 0.9863250851631165
+
+Title: Dataset Model
+Sentence: Thus, the post-processing gap for FCL reduces to the post-processing gap for FL:
+
+Step 3: General Case when λ > 0 When λ > 0, the calibration term influences the post-processing gap by helping to reduce the calibration error.
+Score: 0.9908391833305359
+
+Title: Dataset Model
+Sentence: We focus on the term: Step 5: Analyzing Overconfidence (OC) Cases When pik > y ik , η(p ik ) > 0.
+Score: 0.9953672885894775
+
+Title: Dataset Model
+Sentence: In this case, the term 2(y ik − pik )η(p ik ) is negative, and −η(p ik ) 2 < 0, which means that the calibration term overall is negative.
+Score: 0.9971328973770142
+
+Title: Dataset Model
+Sentence: This reduction in the post-processing gap brings the prediction closer to the true label, reducing the pGap.
+Score: 0.9941012263298035
+
+Title: Dataset Model
+Sentence: Step 6: Analyzing Underconfidence (UC) Case When pik < y ik , η(p ik ) > 0, and thus 2(y ik − pik )η(p ik ) is positive.
+Score: 0.9785828590393066
+
+Title: Dataset Model
+Sentence: This positive term increases the predicted value, reducing the gap between pik and y ik .
+Score: 0.9825024604797363
+
+Title: Dataset Model
+Sentence: Additionally, the term −η(p ik ) 2 is still negative but smaller in magnitude, ensuring that the gap is reduced.
+Score: 0.9883191585540771
+
+Title: Dataset Model
+Sentence: Since E (x,y)∼D K k=1 2(y ik − pik )η(p ik ) − η(p ik ) 2 ensures that pGap is not increased, maintaining or reducing the gap, as depicted in Fig.
+Score: 0.9975906610488892
+
+Title: Dataset Model
+Sentence: 6, we conclude that: pGap D (L FCL ) ≤ pGap D (L focal ).
+Score: 0.986135721206665
+
+Title: Dataset Model
+Sentence: (92)
+
+A.15.
+Score: 0.9836713075637817
+
+Title: Dataset Model
+Sentence: Ablation Study: L1 vs. L2 Loss
+
+We did not present results for L1 or other L p losses in the main text because our preliminary experiments indicated that they perform worse than L2 in terms of calibration.
+Score: 0.9854028224945068
+
+Title: Dataset Model
+Sentence: This section provides an extended discussion on how FCL improves interpretability and performance in medical imaging tasks, specifically for Chest X-ray anomaly detection (CheXNet).
+Score: 0.9949892163276672
+
+Title: Dataset Model
+Sentence: Interpretability with Grad-CAM Heatmaps.
+Score: 0.990324854850769
+
+Title: Dataset Model
+Sentence: Grad-CAM heatmaps offer a widely accepted visualization tool for highlighting the most influential regions of a model's activation.
+Score: 0.9956336617469788
+
+Title: Dataset Model
+Sentence: By adopting FCL in training, medical practitioners gain a more intuitive understanding of the model's decision-making process, thereby enhancing trust and transparency.
+Score: 0.9957659244537354
+
+Title: Dataset Model
+Sentence: As illustrated in Fig.
+Score: 0.9781928062438965
+
+Title: Dataset Model
+Sentence: 1 (in the main text), FCL produces clearer and more precise anomaly-localization maps compared to baseline methods.
+Score: 0.9934154748916626
+
+Title: Dataset Model
+Sentence: This improvement not only has practical utility in diagnostic tasks but also provides stronger interpretability, crucial for the stringent reliability standards in medical applications.
+Score: 0.9947623610496521
+
+Title: Dataset Model
+Sentence: Consistent with Section 5.3.1, FCL achieves superior calibration metrics while delivering finer visual explanations-bridging the gap between purely numerical evaluations and real-world clinical needs.
+Score: 0.997886598110199
+
+Title: Dataset Model
+Sentence: Training Procedure.
+Score: 0.840854823589325
+
+Title: Dataset Model
+Sentence: We followed the training procedure outlined by Rajpurkar et al.
+Score: 0.8708898425102234
+
+Title: Dataset Model
+Sentence: (Rajpurkar, 2017), including the ten-crop augmentation for both validation and test phases.
+Score: 0.9908711314201355
+
+Title: Dataset Model
+Sentence: Table 9 compares per-class AUROC scores for CheXNet using BCE vs. our FCL (along with earlier baselines).
+Score: 0.894778847694397
+
+Title: Dataset Model
+Sentence: Note that FCL consistently yields strong performance gains, particularly in terms of average AUROC and reliability scores (ECE, MCE).
+Score: 0.9939992427825928
+
+Title: Dataset Model
+Sentence: Overall, FCL consistently enhances both calibration quality and interpretability in CheXNet.
+Score: 0.9970198273658752
+
+Title: Dataset Model
+Sentence: These improvements align with the high standards of reliability and transparency demanded in clinical practice, making FCL particularly suitable for real-world medical diagnostic workflows.
+Score: 0.9954094290733337
+
+Title: Dataset Model
+Sentence: A.17.
+Score: 0.9752330183982849
+

@@ -1,0 +1,54 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: We found that the mean score assigned to ChatGPT responses was significantly greater than the score assigned to the minimum standard student group in this study.
+
+Best Entailment: 0.9973635077476501
+Best Section: 4
+Best Sentence: We found that the mean score assigned to ChatGPT responses was significantly greater than the score assigned to the minimum standard student group in this study.
+
+Worst: 
+
+Title: Data Collection
+Sentence: For the thirty questions submitted to ChatGPT, there was an equal distribution of questions across each of the six levels of Bloom's cognitive domain.
+Score: 0.9912713766098022
+
+Title: Data Collection
+Sentence: The ten questions selected with student responses were equally split between the lower (knowledge, comprehension, application) and higher (analysis, evaluation, synthesis) taxonomy levels.
+Score: 0.6489636301994324
+
+Title: Results
+Sentence: The average of the mean scores assigned by tutors to the ten student-generated responses ("minimally passing group") was 2.38 (σ = 0.61, 95% CI 1.94-2.82, range 1.17-3.17) on a scale from 1 to 5 (see Figure 1).
+Score: 0.9914630055427551
+
+Title: Bloom's Taxonomy Domains
+Sentence: One-way ANOVA across the six domains did not show a statistically significant
+Score: 0.9977847933769226
+
+Title: Morjaria et al
+Sentence: Upon comparison to the performance of our most recent pre-clerkship student cohort by domain, no statistically significant differences or trends across the six domains was identified (see Figure 2).
+Score: 0.9992092251777649
+
+Title: Discussion
+Sentence: 8,9 hatGPT performance was shown to be comparable to students who are performing at the minimum standard on these assessments, but slightly lower when compared to a historical student cohort.
+Score: 0.9999223947525024
+
+Title: Discussion
+Sentence: The level of performance was not found to vary across domains of Bloom's taxonomy.
+Score: 0.9990022778511047
+
+Title: 4
+Sentence: However, our findings affirmed that by selecting past student responses receiving a passing grade of 3 out of 5, we were selecting minimally passing student responses compared to a typical cohort of students, rather than selecting from the median performance standard of our students.
+Score: 0.9908567667007446
+
+Title: Morjaria et al
+Sentence: Our limited sample did not reveal a statistically significant trend in the quality of ChatGPT responses in association with question complexity, which in our study is measured by domain of Bloom's Taxonomy.
+Score: 0.9993226528167725
+
+Title: Morjaria et al
+Sentence: This lack of trend in ChatGPT response quality with question difficulty or complexity is in contrast with one of the USMLE studies 9 and warrants further focused research.
+Score: 0.9991791844367981
+
+Title: Conclusions
+Sentence: Our most recent preclerkship cohort outperforms the average performance of ChatGPT but there is a risk of underperforming students not being identified in a timely manner if the technology is wrongfully applied by students on assessments.
+Score: 0.926909327507019
+

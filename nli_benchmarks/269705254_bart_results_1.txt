@@ -1,0 +1,40 @@
+BART x NLI RESULTS
+
+Sentence: There is an undeniable sense of victimhood, entrapment, and melancholia associated with gendered Artificially-Intelligent (AI) devices in popular narrative.
+
+Section Title: Woman-as-wife
+Retrieved Sentence: Despite the fact that the degree of sentience in SF representations of gynoids is by no means substantiated in NLP-incorporating dolls' performances (Kleeman, 2020), the Artificial Intelligibility of gendered 'AI' allows some NLP-incorporating devices, like Samantha and Sophia, to be assigned the Woman-as-Wife genre of humanness.
+Entailment Score: 0.00018303024990018457
+Neutral Score: 0.9993552565574646
+Contradiction Score: 0.0004617728991433978
+
+Section Title: Introduction
+Retrieved Sentence: Moreover, the tropic representation of gendered AI as sentient, suffering victim in turn informs tech ethics, policy, and dominant understandings of existing AI devices in the real world.
+Entailment Score: 0.9833914041519165
+Neutral Score: 0.016456570476293564
+Contradiction Score: 0.00015200414054561406
+
+Section Title: Introduction
+Retrieved Sentence: Moreover, the tropic representation of gendered AI as sentient, suffering victim in turn informs tech ethics, policy, and dominant understandings of existing AI devices in the real world.
+Entailment Score: 0.9833914041519165
+Neutral Score: 0.016456570476293564
+Contradiction Score: 0.00015200414054561406
+
+Section Title: Introduction
+Retrieved Sentence: Engineers have already realized that gendering robots elicits responses that are informed by culture and socio-political structures.
+Entailment Score: 0.000595977297052741
+Neutral Score: 0.999207079410553
+Contradiction Score: 0.00019700007396750152
+
+Section Title: Notes
+Retrieved Sentence: Jahna Otterbacher and Michael Talias find that gender design impacts upon participants' perception of the robot's 'agency ' (2017, p. 214).
+Entailment Score: 0.0007762272143736482
+Neutral Score: 0.9983713030815125
+Contradiction Score: 0.0008524630684405565
+
+Section Title: Intelligence and intelligibility
+Retrieved Sentence: The judge of a gendered AI system need not actually understand how the system works, infrastructurally speaking, in order to for it to be understandable to them via intelligible gendering, and hence to be imagined sentient like a human.
+Entailment Score: 0.0007265247986651957
+Neutral Score: 0.9989460110664368
+Contradiction Score: 0.00032753549749031663
+

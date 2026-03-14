@@ -1,0 +1,18 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: In Figure 1, it is noticed that the car coordinate model has four state variables such as x, y is the central position of the x, y-axis of the car;  is the speed of the vehicle;  is the tilt angle of the car (value 0 when turning to the east, counterclockwise in the positive direction).
+
+Best Entailment: 0.9948906898498535
+Best Section: MATHEMATICAL MODEL OF CAR
+Best Sentence: In Figure 1, it is noticed that the car coordinate model has four state variables such as x, y is the central position of the x, y-axis of the car;  is the speed of the vehicle;  is the tilt angle of the car (value 0 when turning to the east, counterclockwise in the positive direction).
+
+Worst: 
+
+Title: Reinforcement learning
+Sentence: The structural principle of the reinforcement learning strategy is depicted in Figure 3.
+Score: 0.5081526637077332
+
+Title: Augmented agent design
+Sentence: Figure 6 shows the advantage of an RL controller the vehicle has moved along the path and is in the correct parking position.
+Score: 0.8649889230728149
+

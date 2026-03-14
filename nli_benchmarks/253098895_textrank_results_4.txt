@@ -10,7 +10,9 @@ Best Sentence: For a query set Q = {(q i , SC(q i ))} |Q| i=1 , the goal is to f
 
 Here, Q and C are the USGS and Wikidata geo-entities ( §3.1).
 
-Worst: Title: Experimental Setup
+Worst: 
+
+Title: Experimental Setup
 Sentence: The task is to predict the OSM semantic type for each geo-entity.
 Score: 0.5763919949531555
 

@@ -38,25 +38,25 @@ Medium Article.
 
 ## Written Code
 1. From ```src/data_processing```:
-    + ```filter_cs_papers.py```: connects to S2ORC corpus, extracts ```TARGET_PAPERS``` number of CS-related papers via matching keywords in title (257 lines)
-    + ```clean_existing_papers.py```: keeps relevant info from each paper (metadata, biliographies, sections, text), saving all to a ```.jsonl``` file (113 lines)
-    + ```format_cleaned_papers.py```: extracts relevant info (section titles and corresponding section text from S2ORC character offsets), saving each paper as ```{corpusid}.json``` for pipeline use (195 lines)
-    + NOTE: more information can be found in this directory's ```README.md```.
+- ```filter_cs_papers.py```: connects to S2ORC corpus, extracts ```TARGET_PAPERS``` number of CS-related papers via matching keywords in title (257 lines)
+- ```clean_existing_papers.py```: keeps relevant info from each paper (metadata, biliographies, sections, text), saving all to a ```.jsonl``` file (113 lines)
+- ```format_cleaned_papers.py```: extracts relevant info (section titles and corresponding section text from S2ORC character offsets), saving each paper as ```{corpusid}.json``` for pipeline use (195 lines)
+- NOTE: more information can be found in this directory's ```README.md```.
 
 2. From ```src/workflows```:
-    + ```app.py```: ```streamlit``` implementation of interactive UI + connection between all workflows, pulls pre-generated summaries, retrievals, and metrics for viewing (281 lines)
-    + ```compute_metrics.py```: generates and saves metrics (readability, perplexity, etc.) for evaluating TextRank and BART summaries for UI use (73 lines)
++ ```app.py```: ```streamlit``` implementation of interactive UI + connection between all workflows, pulls pre-generated summaries, retrievals, and metrics for viewing (281 lines)
++ ```compute_metrics.py```: generates and saves metrics (readability, perplexity, etc.) for evaluating TextRank and BART summaries for UI use (73 lines)
 
 3. From ```src/workflows/summarization```: 
-    + ```Summarization_Model_Pipeline.ipynb```: entire implementation + testing of TextRank and BART summarization methods, summarization metrics, and retrieval metrics (~480 lines)
-    + ```summarize.py```: helper functions for generating + saving summaries for the UI, takes code from notebook (198 lines)
-    + ```metrics.py```: helper functions for generating metrics for ```compute_metrics.py``` to use (94 lines)
++ ```Summarization_Model_Pipeline.ipynb```: entire implementation + testing of TextRank and BART summarization methods, summarization metrics, and retrieval metrics (~480 lines)
++ ```summarize.py```: helper functions for generating + saving summaries for the UI, takes code from notebook (198 lines)
++ ```metrics.py```: helper functions for generating metrics for ```compute_metrics.py``` to use (94 lines)
 
 4. From ```src/workflows/retrieval```:
-    + ```Evidence_Retrieval.ipynb```: BM25 implementation for retrieving top matches (50 lines)
-    + ```PaperEmbeddings.ipynb```: creates and saves embeddings for chunks of text from original papers (55 lines)
-    + ```bm_retrieval.py```: helper function implementation of BM25 (58 lines)
-    + ```faiss_retrieval.py```: loads previously saved embeddings and finds top evidence matches (sentences and section titles) for summaries (40 lines)
-    + ```retrieval_save.py```: saves all resulting retrievals for all papers to be used in UI and for metric evaluations (87 lines)
++ ```Evidence_Retrieval.ipynb```: BM25 implementation for retrieving top matches (50 lines)
++ ```PaperEmbeddings.ipynb```: creates and saves embeddings for chunks of text from original papers (55 lines)
++ ```bm_retrieval.py```: helper function implementation of BM25 (58 lines)
++ ```faiss_retrieval.py```: loads previously saved embeddings and finds top evidence matches (sentences and section titles) for summaries (40 lines)
++ ```retrieval_save.py```: saves all resulting retrievals for all papers to be used in UI and for metric evaluations (87 lines)
 
 All other directories contain evidence of our presaved data (corpus IDs may slightly vary, as Law and Maggie extracted papers at different timepoints), summaries, retrievals, and metrics/benchmarks.

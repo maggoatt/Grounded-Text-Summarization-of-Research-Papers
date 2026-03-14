@@ -1,0 +1,11 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The Attention Head Specialization Hypothesis (H2) extends the notion of functional differentiation to the granularity of individual attention heads, proposing that specific heads preferentially engage in recall or reasoning tasks.
+
+Best Entailment: 0.9740062952041626
+Best Section: Attention Head Specialization Across Tasks
+Best Sentence: The Attention Head Specialization Hypothesis (H2) extends the notion of functional differentiation to the granularity of individual attention heads, proposing that specific heads preferentially engage in recall or reasoning tasks.
+
+Worst: 
+
+None

@@ -1,0 +1,18 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The gendering of an object as female in relation with the normative user, whose desires are predicted through algorithmic thinking, inevitably invokes the lover's discourse because of the role of heteronormative structures in determining the value of the colonially-produced genre of humanness I call Woman-as-Wife.
+
+Best Entailment: 0.9862338304519653
+Best Section: Woman-as-wife
+Best Sentence: The gendering of an object as female in relation with the normative user, whose desires are predicted through algorithmic thinking, inevitably invokes the lover's discourse because of the role of heteronormative structures in determining the value of the colonially-produced genre of humanness I call Woman-as-Wife.
+
+Worst: 
+
+Title: Intelligence and intelligibility
+Sentence: Though psychometric IQ testing and standardized testing have remained the dominant mode of measuring intelligence since the 1950s, the Stanford-Binet IQ test is not an assessment of any range of cognitive activity.
+Score: 0.9988008737564087
+
+Title: A lover's discourse
+Sentence: Conversely, the 'loved object' of the user's affection does not need to speak (2018, p.3), but acts as Artificially Intelligible interface for the user's feeling.
+Score: 0.8121402263641357
+

@@ -1,0 +1,58 @@
+BART x NLI RESULTS
+
+Sentence: ChatGPT (OpenAI, California, USA), a large language model (LLM), was released for public use in November 2022.
+
+Section Title: Conclusions
+Retrieved Sentence: Our most recent preclerkship cohort outperforms the average performance of ChatGPT but there is a risk of underperforming students not being identified in a timely manner if the technology is wrongfully applied by students on assessments.
+Entailment Score: 2.204205338784959e-05
+Neutral Score: 0.025895003229379654
+Contradiction Score: 0.974082887172699
+
+Section Title: Introduction
+Retrieved Sentence: 3,4 n November 2022, ChatGPT (OpenAI, California, USA), a large language model (LLM), was released for public use.
+Entailment Score: 0.994594156742096
+Neutral Score: 0.005191604606807232
+Contradiction Score: 0.0002142594166798517
+
+Section Title: 4
+Retrieved Sentence: However, it is likely that increasing question difficulty and including images has already been, or will soon be, rendered ineffective with the release of ChatGPT-4 and further iterations of the technology.
+Entailment Score: 2.694133945624344e-05
+Neutral Score: 0.9932896494865417
+Contradiction Score: 0.006683411076664925
+
+Section Title: Introduction
+Retrieved Sentence: ChatGPT has a dialogue interface and can interpret complex free-text queries or prompts, responding to users with full sentences or paragraphs, mimicking human writing styles.
+Entailment Score: 5.6924465752672404e-05
+Neutral Score: 0.993920087814331
+Contradiction Score: 0.0060230279341340065
+
+Section Title: Introduction
+Retrieved Sentence: 10,11 The ability of ChatGPT to quickly and accurately apply known concepts in medicine to novel problems, including reflection prompts and exam questions, and to mimic human writing styles, introduces a potential threat to the validity of traditional forms of medical student assessment including short answer assessment.
+Entailment Score: 0.00011605957843130454
+Neutral Score: 0.23635457456111908
+Contradiction Score: 0.7635293006896973
+
+Section Title: Conclusions
+Retrieved Sentence: Our most recent preclerkship cohort outperforms the average performance of ChatGPT but there is a risk of underperforming students not being identified in a timely manner if the technology is wrongfully applied by students on assessments.
+Entailment Score: 2.204205338784959e-05
+Neutral Score: 0.025895003229379654
+Contradiction Score: 0.974082887172699
+
+Section Title: Introduction
+Retrieved Sentence: The purpose of this study was to determine the extent to which the use of ChatGPT threatens the scoring validity of short answer assessments in an undergraduate medical education program.
+Entailment Score: 0.0001620310649741441
+Neutral Score: 0.46457117795944214
+Contradiction Score: 0.5352668762207031
+
+Section Title: Introduction
+Retrieved Sentence: Short answer assessments are a widely used form of student evaluation in medical education, and are critical in evaluating student knowledge, communication skills, and other essential competencies required for delivering compassionate care.
+Entailment Score: 9.425134521734435e-06
+Neutral Score: 6.916456914041191e-05
+Contradiction Score: 0.999921441078186
+
+Section Title: Morjaria et al
+Retrieved Sentence: 31,32 The ability of ChatGPT to meet the standard on our institution's short answer assessment problems poses a threat to the validity of our assessments, especially given our assessor comments that they were sometimes convinced that a ChatGPT-generated response was produced by a student.
+Entailment Score: 3.812484283116646e-05
+Neutral Score: 0.0036742608062922955
+Contradiction Score: 0.9962875843048096
+

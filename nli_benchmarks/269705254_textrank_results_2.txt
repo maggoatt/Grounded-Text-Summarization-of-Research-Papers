@@ -1,0 +1,11 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: In the third and final section, it presents an extension to Sylvia Wynter's theory of genres of humanness under coloniality, coining the 'Woman-as-Wife' genre of humanness, and arguing that emulation of this particular gendered genre of humanness allows simplistic AI, like that of Sophia, to be made intelligible as sentient victim.
+
+Best Entailment: 0.9887620806694031
+Best Section: Introduction
+Best Sentence: In the third and final section, it presents an extension to Sylvia Wynter's theory of genres of humanness under coloniality, coining the 'Woman-as-Wife' genre of humanness, and arguing that emulation of this particular gendered genre of humanness allows simplistic AI, like that of Sophia, to be made intelligible as sentient victim.
+
+Worst: 
+
+None

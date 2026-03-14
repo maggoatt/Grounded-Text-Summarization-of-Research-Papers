@@ -6,7 +6,9 @@ Best Entailment: 0.9856013655662537
 Best Section: Introduction
 Best Sentence: Specifically, SPABERT linearizes the 2-dimensional spatial context by forming pseudo sentences that consist of names of the pivot and neighboring geo-entities, ordered by their spatial distance to the pivot.
 
-Worst: Title: Pretraining
+Worst: 
+
+Title: Pretraining
 Sentence: One task is the masked language modeling (MLM) (Devlin et al., 2019), for which SPABERT needs to learn how to complete the full names of geo-entities from pseudo sentences with randomly masked subtokens using the remaining subtokens and their spatial coordinates (i.e., partial names and spatial relations between subtokens).
 Score: 0.6311126351356506
 

@@ -1,0 +1,54 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The role of this system is to assist the driver in safely and quickly parking the vehicle [1], [2].
+
+Best Entailment: 0.9935101866722107
+Best Section: INTRODUCTION
+Best Sentence: The role of this system is to assist the driver in safely and quickly parking the vehicle [1], [2].
+
+Worst: 
+
+Title: 303
+Sentence: To perform optimal control motion computation, this MPC controller needs to consider all input and output constraints on the system, such as speed limit, safe distance after, physical limit of vehicle, maximum steering angle, and obstacles for the controller to avoid [23]- [26].
+Score: 0.9988981485366821
+
+Title: 303
+Sentence: Based on this mathematical model, an MPC controller combined with RL for vehicle movement and obstacle avoidance in section 3.
+Score: 0.6839044690132141
+
+Title: MATHEMATICAL MODEL OF CAR
+Sentence: The vehicle can assist in overcoming obstacles using a Lidar sensor.
+Score: 0.8428573608398438
+
+Title: MATHEMATICAL MODEL OF CAR
+Sentence: Blocks might be stationary, like a giant pit, or moving, like a slowly driving car.
+Score: 0.8138896822929382
+
+Title: MATHEMATICAL MODEL OF CAR
+Sentence: The most frequent driver behavior is briefly switching lanes, crossing an obstruction, and retracing their steps.
+Score: 0.9831005334854126
+
+Title: MPC CONTROLLER DESIGN AND RL-PPO ADVANCED LEARNING 3.1. MPC model predictive controller
+Sentence: The predicted state is then used to update the control input in real time, allowing the controller to track the desired course accurately.
+Score: 0.9945263266563416
+
+Title: Reinforcement learning
+Sentence: Machine learning's RL area investigates how an agent in a given environment should decide what behaviors to perform to maximize a particular reward over the long term.
+Score: 0.9630013108253479
+
+Title: Augmented agent design
+Sentence: This is an online, model-free, gradient training method.
+Score: 0.9951876401901245
+
+Title: Augmented agent design
+Sentence: This algorithm is a kind of policy gradient training that alternates between sampling the data through the environment interaction and optimizing the objective function using a random gradient function.
+Score: 0.997928261756897
+
+Title: Augmented agent design
+Sentence: This means that even though the vehicle moves continuously in an environment with static and dynamic obstacles, it can regulate the knowledge it has learned and make increasingly accurate decisions, avoiding the obstacles.
+Score: 0.994186520576477
+
+Title: Augmented agent design
+Sentence: The response of the driving angle is shown in Figure 8.
+Score: 0.7372557520866394
+

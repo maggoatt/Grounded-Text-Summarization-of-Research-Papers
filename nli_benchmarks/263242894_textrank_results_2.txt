@@ -1,0 +1,11 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: By comparing the performance of ChatGPT and pre-clerkship medical students on short answer questions encountered on their regular assessments, we explored the extent to which responses are similar between groups for questions aimed at the six levels of Bloom's Taxonomy, a pedagogical framework that includes descriptions of six domains of cognitive problem solving with increasing levels of complexity (knowledge, comprehension, application, analysis, evaluation, synthesis).
+
+Best Entailment: 0.9853032827377319
+Best Section: Introduction
+Best Sentence: By comparing the performance of ChatGPT and pre-clerkship medical students on short answer questions encountered on their regular assessments, we explored the extent to which responses are similar between groups for questions aimed at the six levels of Bloom's Taxonomy, a pedagogical framework that includes descriptions of six domains of cognitive problem solving with increasing levels of complexity (knowledge, comprehension, application, analysis, evaluation, synthesis).
+
+Worst: 
+
+None

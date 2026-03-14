@@ -1,0 +1,112 @@
+BART x NLI RESULTS
+
+Sentence: Figure 6 further demonstrates that specialized heads are distributed across all layers of the network.
+
+Section Title: Mechanistic Interpretability and Circuits
+Retrieved Sentence: The distinction between recall and reasoning can be formalized in terms of the operations applied to hidden representations.
+Entailment Score: 5.6240296544274315e-05
+Neutral Score: 0.9995654225349426
+Contradiction Score: 0.00037833373062312603
+
+Section Title: Introduction
+Retrieved Sentence: By establishing which components activate during genuine reasoning versus memorized retrieval, we aim to provide a mechanistic yardstick for separating these two cognitive processes.
+Entailment Score: 5.035819413024001e-05
+Neutral Score: 0.9996945858001709
+Contradiction Score: 0.0002550619246903807
+
+Section Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Retrieved Sentence: Figures 2 and 3 illustrate the dominance and broader distribution of recall-specialized layers compared to the more localized reasoning-specialized layers.
+Entailment Score: 6.42870509182103e-05
+Neutral Score: 0.9990455508232117
+Contradiction Score: 0.0008901342516764998
+
+Section Title: Mechanistic Interpretability and Circuits
+Retrieved Sentence: Behavioral evidence suggests that earlier layers contribute more to recall while deeper layers perform multi-step reasoning Elhage et al.
+Entailment Score: 7.611085311509669e-05
+Neutral Score: 0.9991750121116638
+Contradiction Score: 0.0007488011033274233
+
+Section Title: Introduction
+Retrieved Sentence: By establishing which components activate during genuine reasoning versus memorized retrieval, we aim to provide a mechanistic yardstick for separating these two cognitive processes.
+Entailment Score: 5.035819413024001e-05
+Neutral Score: 0.9996945858001709
+Contradiction Score: 0.0002550619246903807
+
+Section Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Retrieved Sentence: Figures 2 and 3 illustrate the dominance and broader distribution of recall-specialized layers compared to the more localized reasoning-specialized layers.
+Entailment Score: 6.42870509182103e-05
+Neutral Score: 0.9990455508232117
+Contradiction Score: 0.0008901342516764998
+
+Section Title: Recall, Reasoning, and Modular Subspaces
+Retrieved Sentence: 3 Dataset Construction To investigate the neural mechanisms underlying recall versus reasoning in large language models (LLMs), we constructed a controlled dataset that isolates these two cognitive functions.
+Entailment Score: 4.3147694668732584e-05
+Neutral Score: 0.999584972858429
+Contradiction Score: 0.0003718859516084194
+
+Section Title: Introduction
+Retrieved Sentence: To investigate these hypotheses, we construct controlled recall-reasoning task pairs that isolate differences in computation rather than superficial input content.
+Entailment Score: 4.063990854774602e-05
+Neutral Score: 0.9994972944259644
+Contradiction Score: 0.00046201387885957956
+
+Section Title: MLP Neuron Task-Specificity (Hypothesis H3)
+Retrieved Sentence: As shown in Figure 8, recall-preferring neurons were highly active during recall tasks and minimally responsive during reasoning tasks, whereas reasoning-preferring neurons displayed the inverse profile.
+Entailment Score: 6.277264765230939e-05
+Neutral Score: 0.9996461868286133
+Contradiction Score: 0.0002910027978941798
+
+Section Title: Attention Head Specialization Across Tasks
+Retrieved Sentence: Specialization Results -Out of 784 total heads (28 layers × 28 heads), 583 were identified as consistently specialized under these strict criteria.
+Entailment Score: 7.145902782212943e-05
+Neutral Score: 0.999552309513092
+Contradiction Score: 0.0003761891566682607
+
+Section Title: Specialization Type
+Retrieved Sentence: Even under strict statistical criteria, more than 70% of heads (583/784) were consistently specialized.
+Entailment Score: 6.594055594177917e-05
+Neutral Score: 0.9997499585151672
+Contradiction Score: 0.00018415554950479418
+
+Section Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Retrieved Sentence: These findings provide strong evidence for the Layer Specialization Hypothesis.
+Entailment Score: 0.0001349122467217967
+Neutral Score: 0.9997957348823547
+Contradiction Score: 6.942694744793698e-05
+
+Section Title: Attention Head Specialization Across Tasks
+Retrieved Sentence: Effect Sizes -The distribution of effect sizes among specialized heads was substantial, ranging from 2.8 to 13.8 with a mean of 6.83.
+Entailment Score: 5.1138460548827425e-05
+Neutral Score: 0.999665379524231
+Contradiction Score: 0.0002834699407685548
+
+Section Title: Specialization Type
+Retrieved Sentence: Figure 5 highlights the top 15 specialized heads ranked by average effect size, including recallspecialized heads such as L2H5, L7H1, and L6H9, and reasoning-specialized heads such as L26H5, L27H8, and L21H10.
+Entailment Score: 3.102793561993167e-05
+Neutral Score: 0.9993615746498108
+Contradiction Score: 0.0006073513068258762
+
+Section Title: H1: Specific layers specialize for recall vs reasoning (layer specialization)
+Retrieved Sentence: Heads were classified as consistently specialized if they demonstrated significant differential activation between recall and reasoning tasks in at least three of the five metrics while meeting the strict thresholds.
+Entailment Score: 3.70813904737588e-05
+Neutral Score: 0.9995843768119812
+Contradiction Score: 0.0003784951986745
+
+Section Title: Specialization Type
+Retrieved Sentence: Figure 6 further demonstrates that specialized heads are distributed across all layers of the network, with certain layers (e.g., 0-4) exhibiting higher concentrations.
+Entailment Score: 0.9947806000709534
+Neutral Score: 0.004941600374877453
+Contradiction Score: 0.00027778613730333745
+
+Section Title: Attention Head Specialization Across Tasks
+Retrieved Sentence: Figure 6 further demonstrates that specialized heads are distributed across all layers of the network, with certain layers (e.g., 0-4) exhibiting higher concentrations.
+Entailment Score: 0.9947806000709534
+Neutral Score: 0.004941600374877453
+Contradiction Score: 0.00027778613730333745
+
+Section Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Retrieved Sentence: These findings provide strong evidence for the Layer Specialization Hypothesis.
+Entailment Score: 0.0001349122467217967
+Neutral Score: 0.9997957348823547
+Contradiction Score: 6.942694744793698e-05
+

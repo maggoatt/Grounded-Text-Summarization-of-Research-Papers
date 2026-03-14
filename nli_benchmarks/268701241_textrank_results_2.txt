@@ -1,0 +1,46 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Figure 6 shows the advantage of an RL controller the vehicle has moved along the path and is in the correct parking position.
+
+Best Entailment: 0.9885455965995789
+Best Section: Augmented agent design
+Best Sentence: Figure 6 shows the advantage of an RL controller the vehicle has moved along the path and is in the correct parking position.
+
+Worst: 
+
+Title: MATHEMATICAL MODEL OF CAR
+Sentence: The most frequent driver behavior is briefly switching lanes, crossing an obstruction, and retracing their steps.
+Score: 0.9949694275856018
+
+Title: MPC CONTROLLER DESIGN AND RL-PPO ADVANCED LEARNING 3.1. MPC model predictive controller
+Sentence: The model structure used in the MPC controller is shown in Figure 2.
+Score: 0.9987271428108215
+
+Title: Output noise model
+Sentence: The output noise model is determined by the (7):
+
+0 ( + 1) =  0  0 ( + 1) +  0  0 ( + 1) (7)  0 () =  0  0 () +  0  0 ()
+
+In there:  0 ,  0 ,  0 ,  0 are constant state matrices;  0 () is the vector of the measured output noise when  0 ≥ 0;   () is the vector of the output noise   can't measure;  0 is the vector of input noise whose mean value is 0, when  0 ≥ 1.
+Score: 0.9886690974235535
+
+Title: Reinforcement learning
+Sentence: = 2 −(0.05  2 +0.04  2 ) + 0.5 −40  2 − 0.05 2 + 100  − 50  (9) where:   ,   ,   and the errors in the position and angle of the car's inclination determined from the required position;  is the steering angle;   (0 and 1) indicates whether the vehicle is parked or not at the time ;   (0 and 1) indicates whether the vehicle collides with an obstacle at time .
+Score: 0.9640170931816101
+
+Title: Augmented agent design
+Sentence: The reasons for the results are: in the first episodes, the car did not know how to avoid static and dynamic obstacles, so it caused a very early collision.
+Score: 0.850631594657898
+
+Title: Augmented agent design
+Sentence: The more you train, that is, for more extensive episodes, the number of steps increases over time.
+Score: 0.9978938698768616
+
+Title: Augmented agent design
+Sentence: The elapsed time of the car is 10.8 s. However, the part of the parked car is still wrong on the Y axis (meaning the parked car is slanted).
+Score: 0.9808385372161865
+
+Title: Augmented agent design
+Sentence: The response of the driving angle is shown in Figure 8.
+Score: 0.7801089286804199
+

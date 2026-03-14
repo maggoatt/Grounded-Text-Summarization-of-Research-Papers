@@ -1,0 +1,14 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Distributions of these features were compared between recall and reasoning tasks using the Mann-Whitney U test, and effect sizes were quantified with Cohen's d. To control for multiple comparisons, FDR correction was applied with α = 0.01.
+
+Best Entailment: 0.9971518516540527
+Best Section: General Statistical Framework
+Best Sentence: • Multiple comparisons: FDR Benjamini and Hochberg [1995] correction (α = 0.01) for H1 and H2, and Bonferroni correction Dunn [1961] (α = 0.0001) for the fine-grained H3 analysis.
+
+Worst: 
+
+Title: H3: MLP neurons exhibit task-specific firing patterns
+Sentence: To correct for multiple testing across the large number of neurons, Bonferroni correction was applied with α = 0.0001.
+Score: 0.9980169534683228
+

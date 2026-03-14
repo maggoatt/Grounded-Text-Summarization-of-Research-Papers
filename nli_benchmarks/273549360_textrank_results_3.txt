@@ -1,0 +1,56 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term.
+
+Best Entailment: 0.9800302386283875
+Best Section: Dataset Model
+Best Sentence: This gives the post-processed version of the focal calibration loss (FCL) as:
+
+where L focal is the focal loss, L calib is the calibration loss, and λ ≥ 0 is a weighting parameter controlling the calibration term.
+
+Worst: 
+
+Title: Problem Formulation
+Sentence: , η K (x) ⊤ , where η k (x) = P y = k | x , would allow direct identification of the Bayes-optimal classifier:
+
+in practice we do not observe η(x) but only empirical samples (x i , y i ).
+Score: 0.8803044557571411
+
+Title: Experimental Results
+Sentence: Baselines Among calibration-during-training methods, Cross Entropy with Weight Decay (5 × 10 −4 ) (Guo et al., 2017), MMCE (Kumar et al., 2018), Brier loss (Brier, 1950), Label Smoothing (LS-0.05) (Szegedy et al., 2016), sampledependent focal loss (FLSD-53) (Lin et al., 2017), and Dual Focal Loss (Tao et al., 2023) as baselines.
+Score: 0.9641158580780029
+
+Title: A.1. Evaluation Metrics
+Sentence: Formally, the ECE can be approximated by grouping predictions into M bins and calculating the average confidence and accuracy for each bin:
+
+where N is the total number of samples, M is the number of bins, B m is the set of indices of samples whose predicted probability falls into the m-th bin, |B m | is the number of samples in bin B m , acc(B m ) is the accuracy of the samples in bin B m , and conf(B m ) is the average confidence of the samples in bin B m defined in Eq.
+Score: 0.8605114221572876
+
+Title: A.1. Evaluation Metrics
+Sentence: Then,
+
+Using the triangle inequality, we have:
+
+Since η k † (x) ≥ η k * (x) by the definition of k † and k * , it follows that:
+
+Similarly, since pk * (x) ≥ pk † (x), we have:
+
+Combining Equations ( 24) and ( 25), we get:
+
+Thus,
+
+Step 2: Relating Infinity Norm to Euclidean Norm We have the relationship between norms:
+
+This follows because the infinity norm is less than or equal to the Euclidean norm.
+Score: 0.9775030016899109
+
+Title: ■
+Sentence: For binary classification, the squared L 2 norm of the difference between predicted probabilities pi and actual binary outcomes y i is equivalent to the Brier score:
+
+For multiclass classification, the mean squared L 2 norm is:
+
+This is the Brier score for multiclass classification.
+Score: 0.9905824661254883
+

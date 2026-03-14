@@ -1,0 +1,14 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: A head was defined as specialized if it exhibited significant differential activation between recall and reasoning tasks in at least three of these metrics while also satisfying the statistical and effect size thresholds.
+
+Best Entailment: 0.9943636655807495
+Best Section: Attention Head Specialization Across Tasks
+Best Sentence: A head was defined as specialized if it exhibited significant differential activation between recall and reasoning tasks in at least three of these metrics while also satisfying the statistical and effect size thresholds.
+
+Worst: 
+
+Title: Cross-Validation
+Sentence: A neuron was considered consistently task-specific if it maintained the same task preference (recall vs. reasoning) in at least 80% of the folds.
+Score: 0.9995321035385132
+

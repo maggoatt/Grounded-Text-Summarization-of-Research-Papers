@@ -1,0 +1,44 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: We reuse the BCJRFormer models from Section V-B and train each ECCT outer decoder on the outputs produced by the inner decoder for a channel configuration with equal insertion and deletion rates (p I = p D ) and a substitution probability of p S = 0.012.
+
+Best Entailment: 0.9851758480072021
+Best Section: F. End-to-End Transformer Decoding
+Best Sentence: We reuse the BCJRFormer models from Section V-B and train each ECCT outer decoder on the outputs produced by the inner decoder for a channel configuration with equal insertion and deletion rates (p I = p D ) and a substitution probability of p S = 0.012.
+
+Worst: 
+
+Title: I. INTRODUCTION
+Sentence: While optimal linear codes are known for erasures and substitutions, no similar guarantees exist for insertions and deletions.
+Score: 0.6995193362236023
+
+Title: D. Inner Code Construction and BCJR
+Sentence: To elicit the IDS channel's Markov property, we follow the paper [3] and introduce a latent drift variable D i , defined as the difference between the number of insertions and deletions that occur before transmitting the i-th symbol.
+Score: 0.9956120252609253
+
+Title: C. ConvBCJRFormer
+Sentence: , r nci+dj ],
+
+under the simplifying assumption that each transmitted symbol is independently substituted with probability p S and that there are no insertions or deletions.
+Score: 0.9955857992172241
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: We train separate inner decoders for different values of M and for varying deletion and insertion probabilities p D = p I with substitution probability p S = 0.012, and we compare their error rates with those of the BCJR algorithm.
+Score: 0.9984525442123413
+
+Title: D. BCJRFormer for Joint Inner Decoding
+Sentence: To handle varying M k , we pad the concatenated inputwhich originally has dimensions n in M k × δ × q -with a dedicated token so that it has dimensions n in M max × δ × q, and we mask the M max − M k padded columns in both the attention mechanism (3) and the mean aggregation (5).
+Score: 0.6539121866226196
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: We reuse the corresponding model from Section V-C and consider the same 40,960,000 transmissions of each sequence for both decoders.
+Score: 0.9005057215690613
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: As expected, the average error rates of the alternating sequence (first row) are much higher than those of the all-zero sequence (second row).
+Score: 0.5076319575309753
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: This premature convergence results in higher error rates than those observed for models trained on sequences with higher deletion/insertion error probabilities.
+Score: 0.9930984377861023
+

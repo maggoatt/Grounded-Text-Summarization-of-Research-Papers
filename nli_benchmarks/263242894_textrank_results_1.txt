@@ -1,0 +1,11 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: The purpose of this study was to determine the extent to which the use of ChatGPT threatens the scoring validity of short answer assessments in an undergraduate medical education program.
+
+Best Entailment: 0.9885019063949585
+Best Section: Introduction
+Best Sentence: The purpose of this study was to determine the extent to which the use of ChatGPT threatens the scoring validity of short answer assessments in an undergraduate medical education program.
+
+Worst: 
+
+None

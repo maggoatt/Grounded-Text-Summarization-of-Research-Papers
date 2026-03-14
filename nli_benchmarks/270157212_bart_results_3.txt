@@ -1,0 +1,118 @@
+BART x NLI RESULTS
+
+Sentence: We propose new tensor fully-connected layers for a more efficient parametrization.
+
+Section Title: Introduction
+Retrieved Sentence: With the explosion of computing resources, including cloud-based storage and accessible advanced hardware, learning from large-scale, multiway data has become possible.Two distinct fields have emerged as the gold standards for handling multidimensional data: tensor analysis for featurization and compression and deep learning for high-dimensional function approximation.Both deep learning and tensor methods have achieved strong performance in image and video recognition (Vasilescu and Terzopoulos, 2002;Krizhevsky et al., 2012), medical imaging analysis (Omberg et al., 2007;Ronneberger et al., 2015), spatiotemporal weather analysis (Chattopadhyay et al., 2020;Li et al., 2020), and more.This work focuses on leveraging advantages of tensor methods to enhance deep learning design.
+Entailment Score: 0.00018221981008537114
+Neutral Score: 0.9997057318687439
+Contradiction Score: 0.00011207420902792364
+
+Section Title: Numerical results
+Retrieved Sentence: We present two image classification problems to compare tensor linear layers and stable tensor neural networks to comparable matrix versions.Overall, the results show that t-NN trained with tubal loss functions generalize better to unseen data than equivalent matrix networks, and can do so with 20-30 times fewer network weights.
+Entailment Score: 6.221423973329365e-05
+Neutral Score: 0.9995970129966736
+Contradiction Score: 0.0003408469201531261
+
+Section Title: Related work
+Retrieved Sentence: Tensor methods for compression high dimensional data and operators grew in popularity concurrently with the development of structured operators for neural networks.Many popular tensor frameworks are designed to featurize multiway arrays (Tucker, 1966;Carroll and Chang, 1970;Harshman, 1970;de Lathauwer et al., 2000;Kolda and Bader, 2009) or to approximate a given high-dimensional operator (Oseledets, 2011;Cichocki et al., 2016).Because the weights and features of deep neural networks are notoriously high-dimensional, tensorized approaches have gained traction.In Novikov et al.
+Entailment Score: 0.0004071115399710834
+Neutral Score: 0.999121367931366
+Contradiction Score: 0.00047155265929177403
+
+Section Title: Related work
+Retrieved Sentence: Tensor methods for compression high dimensional data and operators grew in popularity concurrently with the development of structured operators for neural networks.Many popular tensor frameworks are designed to featurize multiway arrays (Tucker, 1966;Carroll and Chang, 1970;Harshman, 1970;de Lathauwer et al., 2000;Kolda and Bader, 2009) or to approximate a given high-dimensional operator (Oseledets, 2011;Cichocki et al., 2016).Because the weights and features of deep neural networks are notoriously high-dimensional, tensorized approaches have gained traction.In Novikov et al.
+Entailment Score: 0.0004071115399710834
+Neutral Score: 0.999121367931366
+Contradiction Score: 0.00047155265929177403
+
+Section Title: Related work
+Retrieved Sentence: Tensor methods for compression high dimensional data and operators grew in popularity concurrently with the development of structured operators for neural networks.Many popular tensor frameworks are designed to featurize multiway arrays (Tucker, 1966;Carroll and Chang, 1970;Harshman, 1970;de Lathauwer et al., 2000;Kolda and Bader, 2009) or to approximate a given high-dimensional operator (Oseledets, 2011;Cichocki et al., 2016).Because the weights and features of deep neural networks are notoriously high-dimensional, tensorized approaches have gained traction.In Novikov et al.
+Entailment Score: 0.0004071115399710834
+Neutral Score: 0.999121367931366
+Contradiction Score: 0.00047155265929177403
+
+Section Title: Related work
+Retrieved Sentence: (2015), the authors combine efficient tensor storage and processing schemes with DNN training, resulting up to seven times fewer network weights.This work specifically used the tensor train style of weight storage, which is notable for compression of very high dimensional data, but does not have linear algebraic motivations in this context.Further studies followed, such as Chien and Bao (2018) that used multiway operations to extract features convolutionally.This work computes a Tucker factorization of convolutional features rather than treating tensors as operators.Similar layer contraction approaches, called tensor regression layers, have appeared in works such as in Cao et al.
+Entailment Score: 0.0001605320576345548
+Neutral Score: 0.9988399147987366
+Contradiction Score: 0.000999566400423646
+
+Section Title: Tensor neural networks (t-NNs)
+Retrieved Sentence: Improved parameterization with the ⋆ M -product When designing a neural network, we seek to balance a simple parameter space with an expressive feature space.However, traditionally fully-connected layers like (5) use parameters in a highly inefficient manner.We propose new tensor fully-connected layers for a more efficient parametrization while still creating a rich feature space.Specifically, we consider the following tensor forward propagation scheme:
+
+Here, the weight tensor W j is of size m j+1 × m j × n and the bias B j is of size m j+1 × 1 × n.The forward propagation through Equation ( 6) results in a tensor neural network F tnn (•, θ) where θ ≡ (W j , B j ) d j=1 .Through the illustration in Figure 2, we depict the number of weight parameters required to preserve the size of our feature space using either a dense matrix (Figure 2A) or a dense tensor under the ⋆ M -product (Figure 2B).Using the ⋆ M -algebra, we can reduce the number of weight parameters by a factor of n while maintaining the same number of features (i.e., maintaining a rich feature space).Beyond the parametric advantages, the multilinear ⋆ M -product incorporates the structure of the data into the features.This enables our t-NNs to extract more meaningful features, and hence improve the richness of our feature space.
+Entailment Score: 0.4263053238391876
+Neutral Score: 0.57342529296875
+Contradiction Score: 0.00026940900715999305
+
+Section Title: . Our contributions
+Retrieved Sentence: Because of the popularity of this area of research, we want to clarify the objectives and contributions of this paper from the outset.Our contributions are the following:
+
+• Tensor algebra and processing for efficient parameterization:
+
+we introduce a basic framework for t-NNs, describe the associated tensor algebra, and demonstrate the inherit properties from stable network architectures.We also derive the training algorithm for t-NNs, leveraging matrixmimeticity for elegant formulations.We show that this tensor parameterization, compared to an equivalent matrix approach, can reduce the number of weights by an order of magnitude.
+Entailment Score: 0.0001398232125211507
+Neutral Score: 0.9995679259300232
+Contradiction Score: 0.00029218714917078614
+
+Section Title: Related work
+Retrieved Sentence: As we eluded to in the previous paragraph, in this work, we take a notably different perspective on tensors.We consider tensors as multiway operators and process our layers under this tensor operation.This provides a linear algebraic structure that enables us to extend desirable neural network structure to high dimensions with ease.Because of our strong algebraic foundation, we are able to express forward and backward propagation simply; in comparison, other tensor frameworks require heavy indexing notation.We share and achieve the same goal as other tensor approaches of reducing the number of network weights.
+Entailment Score: 8.901043474907055e-05
+Neutral Score: 0.9888893365859985
+Contradiction Score: 0.011021583341062069
+
+Section Title: . MNIST dimensionality reduction
+Retrieved Sentence: The MNIST dataset (LeCun et al., 2010) is composed of 28 × 28 grayscale images of handwritten digits.We train on 50, 000 images and reserve 10, 000 for validation.We report test accuracy on 10, 000 images not used for training nor validation.For NNs, we vectorize images and store as columns, resulting in a matrix of size 28 2 × b where b is the number of images.For t-NNs, we store the images as lateral slices, resulting in a tensor of size 28 × b × 28.
+Entailment Score: 5.775054160039872e-05
+Neutral Score: 0.9976097345352173
+Contradiction Score: 0.0023324773646891117
+
+Section Title: CIFAR-
+Retrieved Sentence: The CIFAR10 dataset (Krizhevsky and Hinton, 2009) is composed of 32 × 32 × 3 RGB natural images belonging to ten classes.We train on 40, 000 images and reserve 10, 000 for validation.We report test accuracy on 10, 000 images not used for training nor validation.For NNs, we vectorize images and store as columns, resulting in a matrix of size (3 • 32 2 ) × b where b is the number of images.For t-NNs, we store the images as lateral slices  and stack the color channels vertically, resulting in a tensor of size (3 • 32) × b × 32.We train for 500 epochs using Adam with a batch size of 32.We use a learning rate of 10 −3 that decays after every 100 epochs by a factor of 0.9.We use the PyTorch defaults for the other optimizer hyperparameters.For the t-cross entropy loss, we use a squared ℓ 2 -norm and normalize by the number of entries in the tube.
+Entailment Score: 0.00011186947813257575
+Neutral Score: 0.992712140083313
+Contradiction Score: 0.007175970356911421
+
+Section Title: FIGURE
+Retrieved Sentence: Loss and accuracy convergence for MNIST with four di erent two-layer neural networks.To see the di erences clearly, we omit the initial accuracy, which was close to % for each network.The t-NN with cross entropy loss (orange diamonds ) produces the best training (darker, solid) and validation (lighter, dashed) accuracy.The t-NN with t-loss (green squares ) performs second best with in terms of accuracy, demonstrating the benefits of tensor operator layers.Despite having the greatest number of weights, the NN with square weights (purple ×'s) performs worst in terms of accuracy.
+Entailment Score: 2.133101224899292e-05
+Neutral Score: 0.9907916784286499
+Contradiction Score: 0.009187014773488045
+
+Section Title: FIGURE
+Retrieved Sentence: ., ).The forward Euler network resulted in a test accuracy of % and the leapfrog network resulted in a test accuracy of .%.As expected, the leapfrog trajectory is smoother and contains rotational dynamics.The colors are linearly separable at the last layer, indicating good classification performance.
+Entailment Score: 5.588676140177995e-05
+Neutral Score: 0.9992648959159851
+Contradiction Score: 0.0006792524945922196
+
+Section Title: . MNIST classification
+Retrieved Sentence: ., ).The forward Euler network resulted in a test accuracy of % and the leapfrog network resulted in a test accuracy of .%.As expected, the leapfrog trajectory is smoother and contains rotational dynamics.The colors are linearly separable at the last layer, indicating good classification performance.
+Entailment Score: 5.588676140177995e-05
+Neutral Score: 0.9992648959159851
+Contradiction Score: 0.0006792524945922196
+
+Section Title: . Discretizing Hamiltonians with leapfrog integration
+Retrieved Sentence: The dynamics in Figure 4 show the topological benefits of leapfrog integration.The data points exhibit smoother, rotational dynamics to reach the desired linearly-separable final configuration.In comparison, forward Euler propagation significantly changes topology during forward propagation.Such topological changes may yield ill-posed learning problems and poor network generalization.
+Entailment Score: 5.3370578825706616e-05
+Neutral Score: 0.9996721744537354
+Contradiction Score: 0.00027446119929663837
+
+Section Title: FIGURE
+Retrieved Sentence: The t-NN architecture with cross entropy loss outperforms all networks in terms of test accuracy and accuracy per class.The second-best performing network is the t-NN with t-loss.These results are evidence that the features learned from the tensor linear layer (layer 1) are better than those learned by a dense matrix layer.We further note that matrix network NN with square weights has the same final layer shape as the t-NN with cross entropy loss; the only difference between the networks is the first layer.We depict the learned features of each network that preserves the size of the images in Figure 8.The t-NN features from the first layer contain more structure than the NN features with square weights.This reflects the ⋆ M -operation, which first acts along the tubes (rows of the images in Figure 8).We also observe that the features of NN are more extreme, close to +1 and −1, the limits of the range of the activation function σ (x) = tanh(x).In comparison, the features extracted from the t-NN with t-loss offer more variety of entries, but still hits the extreme values often.This demonstrates that t-NNs still produce rich feature spaces and are able to achieve these features with about 20 times fewer weights.
+Entailment Score: 0.00014608900528401136
+Neutral Score: 0.9994827508926392
+Contradiction Score: 0.0003711761673912406
+
+Section Title: FIGURE
+Retrieved Sentence: We note that the t-NN network with t-cross entropy loss performs well, and we gain insight into the beneifts of t-losses from the accuracy per class in Figure 9.We observe that when we use tubal losses, we require high values for many frontal slices.This creates a more rigorous classification requirement and, as we will see in subsequent experiments, can yield networks that ./fdata.
+Entailment Score: 4.7861511120572686e-05
+Neutral Score: 0.9988837838172913
+Contradiction Score: 0.0010683380533009768
+
+Section Title: FIGURE
+Retrieved Sentence: We note that the t-NN network with t-cross entropy loss performs well, and we gain insight into the beneifts of t-losses from the accuracy per class in Figure 9.We observe that when we use tubal losses, we require high values for many frontal slices.This creates a more rigorous classification requirement and, as we will see in subsequent experiments, can yield networks that ./fdata.
+Entailment Score: 4.7861511120572686e-05
+Neutral Score: 0.9988837838172913
+Contradiction Score: 0.0010683380533009768
+

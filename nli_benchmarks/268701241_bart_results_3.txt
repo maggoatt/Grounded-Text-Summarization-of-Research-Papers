@@ -1,0 +1,76 @@
+BART x NLI RESULTS
+
+Sentence: The next part, an MPC controller combined with RL for vehicle movement and obstacle avoidance.
+
+Section Title: MATHEMATICAL MODEL OF CAR
+Retrieved Sentence: In Figure 1, the article employs a rectangular automobile model with dimensions of 5 meters in length and 2 meters in breadth.
+Entailment Score: 0.00034008946386165917
+Neutral Score: 0.9987053871154785
+Contradiction Score: 0.0009544555796310306
+
+Section Title: Reinforcement learning
+Retrieved Sentence: Additionally, the action in question involves the pursuit of a balance between discovery (an untried condition) and exploitation (a known form).
+Entailment Score: 0.0016134980833157897
+Neutral Score: 0.9965299963951111
+Contradiction Score: 0.001856490969657898
+
+Section Title: Augmented agent design
+Retrieved Sentence: Body.
+Entailment Score: 0.00023752456763759255
+Neutral Score: 0.9799787402153015
+Contradiction Score: 0.019783807918429375
+
+Section Title: INTRODUCTION
+Retrieved Sentence: Path planning, control, and monitoring constantly interact in the automatic car parking system.
+Entailment Score: 0.0002722253557294607
+Neutral Score: 0.9975122213363647
+Contradiction Score: 0.0022154944017529488
+
+Section Title: INTRODUCTION
+Retrieved Sentence: Path planning, control, and monitoring constantly interact in the automatic car parking system.
+Entailment Score: 0.0002722253557294607
+Neutral Score: 0.9975122213363647
+Contradiction Score: 0.0022154944017529488
+
+Section Title: 303
+Retrieved Sentence: The first part introduces the study of automatic parking vehicle control.
+Entailment Score: 0.0002391625166637823
+Neutral Score: 0.9995787739753723
+Contradiction Score: 0.00018201014609076083
+
+Section Title: 303
+Retrieved Sentence: The MPC controller moves the vehicle constantly along the reference path while the MPC algorithm searches for an empty parking spot.
+Entailment Score: 0.018968112766742706
+Neutral Score: 0.9394137859344482
+Contradiction Score: 0.041618067771196365
+
+Section Title: 303
+Retrieved Sentence: Based on this mathematical model, an MPC controller combined with RL for vehicle movement and obstacle avoidance in section 3.
+Entailment Score: 0.9411251544952393
+Neutral Score: 0.0534244142472744
+Contradiction Score: 0.005450415425002575
+
+Section Title: Augmented agent design
+Retrieved Sentence: This paper presents a successful controller design that combines the MPC model predictive control and RL method RL-PPO.
+Entailment Score: 0.002048648428171873
+Neutral Score: 0.997685432434082
+Contradiction Score: 0.0002659157325979322
+
+Section Title: INTRODUCTION
+Retrieved Sentence: The automatic parking system is one of the modern driver support services in the intelligent traffic system.
+Entailment Score: 0.00010394393029855564
+Neutral Score: 0.9994751811027527
+Contradiction Score: 0.000420903495978564
+
+Section Title: INTRODUCTION
+Retrieved Sentence: Therefore, this automated parking technology attracts many scientists to research and propose related control algorithms in theory and experiment.
+Entailment Score: 0.00010132913303095847
+Neutral Score: 0.9992805123329163
+Contradiction Score: 0.0006181683274917305
+
+Section Title: 303
+Retrieved Sentence: Finally, the paper makes conclusions about the main features of the automatic parking solution and future research directions.
+Entailment Score: 0.0003559952601790428
+Neutral Score: 0.9988458156585693
+Contradiction Score: 0.000798197987023741
+

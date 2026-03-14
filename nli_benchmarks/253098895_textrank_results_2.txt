@@ -6,7 +6,9 @@ Best Entailment: 0.9908978343009949
 Best Section: Contextualizing Geo-entities
 Best Sentence: 1 is constructed as: The pseudo sentence starts with the pivot name followed by the names of the pivot's neighboring geo-entities, ordered by their spatial distance to the pivot in ascending order.
 
-Worst: Title: Introduction
+Worst: 
+
+Title: Introduction
 Sentence: For example, [ Speedway , ], [ Speedway , ], and [ Speedway , ] would have different representations since the surrounding environment of , , and could vary.
 Score: 0.9395914077758789
 

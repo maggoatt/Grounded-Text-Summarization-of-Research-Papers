@@ -1,0 +1,162 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: To test H3, the activations of individual neurons within the MLP layers were analyzed.
+
+Best Entailment: 0.9928960204124451
+Best Section: H3: MLP neurons exhibit task-specific firing patterns
+Best Sentence: To test H3, the activations of individual neurons within the MLP layers were analyzed.
+
+Worst: 
+
+Title: Introduction
+Sentence: Two abilities in particular stand out: recall, the ability to retrieve memorized facts, and reasoning, the ability to integrate multiple pieces of information to draw an inferences.
+Score: 0.6971346139907837
+
+Title: Introduction
+Sentence: Attention heads can implement recognizable functions such as induction heads that support in-context learning Olsson and et al.
+Score: 0.9398272633552551
+
+Title: Introduction
+Sentence: [2022] or heads that selectively copy tokens and localize features.
+Score: 0.5255704522132874
+
+Title: Introduction
+Sentence: To investigate these hypotheses, we construct controlled recall-reasoning task pairs that isolate differences in computation rather than superficial input content.
+Score: 0.8986977338790894
+
+Title: Introduction
+Sentence: In particular, we draw on synthetic linguistic puzzles inspired by the International Linguistics Olympiad (IOL), curated from multiple public datasets, where recall tasks require direct fact retrieval while reasoning tasks demand rule discovery and multi-step inference.
+Score: 0.5895436406135559
+
+Title: Introduction
+Sentence: In parallel, we design counterfactual factual queries to further disentangle recall from reasoning under matched surface forms.
+Score: 0.8914390206336975
+
+Title: Introduction
+Sentence: Our work makes the following contributions to mechanistic interpretability:
+
+• A dataset of controlled recall-reasoning task pairs that disentangle differences in semantic content from differences in computation.
+Score: 0.963600218296051
+
+Title: Introduction
+Sentence: • Discovery of modular activation subspaces within MLP blocks, revealing interpretable roles such as feature selection, transformation, and gating.
+Score: 0.9376081824302673
+
+Title: Mechanistic Interpretability and Circuits
+Sentence: In attention, a head computes
+
+with Q = HW Q , K = HW K , and V = HW V .
+Score: 0.9990743398666382
+
+Title: Mechanistic Interpretability and Circuits
+Sentence: [2022] replaces a corrupted hidden state with its clean counterpart during a forward pass, and measures the change in output probability,
+
+where a large ∆ (l) indicates that layer l is causally important for the target behavior.
+Score: 0.7875798940658569
+
+Title: Recall, Reasoning, and Modular Subspaces
+Sentence: A feed-forward block,
+
+has been interpreted as a key-value memory system, with W 1 selecting features and W 2 writing them back into the residual stream Geva et al.
+Score: 0.9968751668930054
+
+Title: Recall, Reasoning, and Modular Subspaces
+Sentence: Empirical analyses indicate that hidden dimensions cluster into modular subspaces that perform roles such as feature selection, transformation, and gating Nanda [2023].
+Score: 0.9993440508842468
+
+Title: Design Principles and Generation
+Sentence: To ensure clarity and verifiability, the dataset focuses on world geography, specifically countries, their capitals, and the continents in which they are located.
+Score: 0.9990963935852051
+
+Title: Design Principles and Generation
+Sentence: A large language model was prompted to generate lists of entities related by specific, verifiable facts (e.g., "list 50 countries, their capitals, and their continents").
+Score: 0.9998791217803955
+
+Title: Design Principles and Generation
+Sentence: The final dataset contains 60 questions, evenly divided into 30 recall tasks and 30 reasoning tasks.
+Score: 0.7901117205619812
+
+Title: Task Structure and Balance
+Sentence: Each recall question directly queries a single fact from the knowledge base, such as "What is the capital of France?".
+Score: 0.9992949962615967
+
+Title: Task Structure and Balance
+Sentence: Reasoning questions require combining two pieces of information from the same triple, such as "If Paris is the capital of France and France is in Europe, what continent is Paris in?".
+Score: 0.9979707598686218
+
+Title: Task Structure and Balance
+Sentence: By keeping linguistic complexity constant across both task types, we achieve a balanced comparison in which the cognitive demand-single-step retrieval versus multi-step inference-serves as the primary distinguishing factor.
+Score: 0.9852017760276794
+
+Title: Model Selection
+Sentence: For this study, the Qwen2.5-7B-Instruct language model was utilized.
+Score: 0.9989657402038574
+
+Title: Primary Hypothesis and Sub-Hypotheses
+Sentence: • H2: Attention heads show differential activation patterns between task types.
+Score: 0.9957401752471924
+
+Title: Activation Tracing and Data Collection
+Sentence: Experimental data were obtained by feeding controlled recall and reasoning prompt pairs to the model.
+Score: 0.9003970623016357
+
+Title: Activation Tracing and Data Collection
+Sentence: • MLP activations (outputs of the gate projection in the MLP block).
+Score: 0.9914147257804871
+
+Title: General Statistical Framework
+Sentence: Across hypotheses, the following statistical procedures were employed:
+
+• Significance testing: Mann-Whitney U test Mann and Whitney [1947] to compare distributions between recall and reasoning tasks.
+Score: 0.9915732741355896
+
+Title: General Statistical Framework
+Sentence: • Effect size: Cohen's d Cohen [1988] as a measure of magnitude of difference.
+Score: 0.9982336759567261
+
+Title: Cross-Validation
+Sentence: Robustness was further assessed via 5-fold cross-validation on the top 50 most task-specific neurons identified in the initial analysis.
+Score: 0.9805024266242981
+
+Title: Firing Pattern Analysis
+Sentence: Task specificity was quantified as the absolute difference in firing probability between the two task types.
+Score: 0.9817857146263123
+
+Title: H1: Specific layers specialize for recall vs reasoning (layer specialization)
+Sentence: To test H1, a comprehensive layer-wise activation analysis framework was implemented.
+Score: 0.8687591552734375
+
+Title: H2: Attention heads show differential activation patterns between task types
+Sentence: Five attention-specific metrics were computed for each head: (1) attention entropy measuring distribution uniformity, (2) maximum attention weight indicating peak focus, (3) attention focus quantifying concentration patterns, (4) attention spread measuring dispersion, and
+
+(5) the Gini coefficient Gini [1936] assessing inequality of attention allocation.
+Score: 0.9560714364051819
+
+Title: H3: MLP neurons exhibit task-specific firing patterns
+Sentence: Distributions of activations between recall and reasoning tasks were compared using the Mann-Whitney U test, and Cohen's d was computed as an effect size measure.
+Score: 0.9997865557670593
+
+Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Sentence: Distributions were compared using the Mann-Whitney U test, and multiple comparisons were controlled via false discovery rate (FDR) correction at α = 0.01.
+Score: 0.9990063309669495
+
+Title: Layer-Wise Attention Behavior in Recall vs. Reasoning
+Sentence: Cross-Validation Robustness -To assess robustness, we repeated the analysis using 5-fold crossvalidation.
+Score: 0.8749827146530151
+
+Title: Attention Head Specialization Across Tasks
+Sentence: Head-Level Analysis -Attention head behavior was quantified using five metrics: entropy, maximum weight, focus, spread, and the Gini coefficient.
+Score: 0.9998931884765625
+
+Title: Specialization Type
+Sentence: The breakdown is shown in Table 2: 239 recall-specialized, 219 reasoning-specialized, and 125 mixed-specialized.
+Score: 0.9838612675666809
+
+Title: Specialization Type
+Sentence: Figure 5 highlights the top 15 specialized heads ranked by average effect size, including recallspecialized heads such as L2H5, L7H1, and L6H9, and reasoning-specialized heads such as L26H5, L27H8, and L21H10.
+Score: 0.5220685005187988
+
+Title: MLP Neuron Task-Specificity (Hypothesis H3)
+Sentence: Cross-Validation Robustness -To test robustness, we evaluated the top 50 most task-specific neurons under 5-fold cross-validation.
+Score: 0.9934180974960327
+

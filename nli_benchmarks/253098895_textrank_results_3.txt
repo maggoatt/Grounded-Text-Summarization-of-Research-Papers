@@ -6,7 +6,9 @@ Best Entailment: 0.9809349179267883
 Best Section: Pretraining
 Best Sentence: One task is the masked language modeling (MLM) (Devlin et al., 2019), for which SPABERT needs to learn how to complete the full names of geo-entities from pseudo sentences with randomly masked subtokens using the remaining subtokens and their spatial coordinates (i.e., partial names and spatial relations between subtokens).
 
-Worst: Title: Introduction
+Worst:
+
+Title: Introduction
 Sentence: Looking at a stopping location, [ Speedway , ], 1 from a person's trajectory, we might assume that this person needs to use the location's amenities if Speedway implies a gas station, and is near a highway exit.
 Score: 0.9860687255859375
 

@@ -1,0 +1,42 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder.
+
+Best Entailment: 0.9842050671577454
+Best Section: G. ConvBCJRFormer for Convolutional Decoding
+Best Sentence: In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder.
+
+Worst: 
+
+Title: Ins.
+Sentence: 2: State transitions for a codeword symbol x i transmitted through the IDS channel.
+Score: 0.9953197836875916
+
+Title: C. Convolutional Codes
+Sentence: Figure 3 shows the generator matrix for a rate 1/2 convolutional code with generator polynomials [5,7] 8 as an example.
+Score: 0.9840003848075867
+
+Title: A. BCJRFormer
+Sentence: Our proposed BCJRFormer model, illustrated in Figure 1, is a decoder-only transformer.
+Score: 0.9861035346984863
+
+Title: C. ConvBCJRFormer
+Sentence: Figure 5 illustrates the modified architecture.
+Score: 0.99853515625
+
+Title: APPENDIX C ABLATION: SEQUENCE EMBEDDING
+Sentence: In Figure 15, we compare two models: one without sequence embedding and one with sequence embedding.
+Score: 0.993536114692688
+
+Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Sentence: Figure 16 shows (left column) the symbol error rates for BCJRFormer and the BCJR algorithm, as well as the difference between the error rate of BCJR and that of BCJRFormer (right column).
+Score: 0.9942376613616943
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: Figure 17  with the proposed input and with the aggregated input.
+Score: 0.9993544220924377
+
+Title: APPENDIX E ABLATION: FAILURE TO DECODE IN LOW PROBABILITY DOMAIN FOR VECTORIZED INPUTS
+Sentence: We evaluate the impact of our proposed masking of ConvBCJRFormer's cross-attention mechanism using the generator matrix G. In Figure 18, we compare the training convergence of models from Experiment V-G with equivalent models trained without masking.
+Score: 0.9466443061828613
+

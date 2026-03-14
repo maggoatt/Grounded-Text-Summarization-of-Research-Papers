@@ -1,0 +1,184 @@
+BART x NLI RESULTS
+
+Sentence: In DNA data storage, multiple noisy reads of the same sequence are often clustered and then aligned to yield a candidate sequence for error correction.
+
+Section Title: I. INTRODUCTION
+Retrieved Sentence: DNA data storage is an emerging storage medium that encodes binary data into DNA sequences for high-density, long-term storage.
+Entailment Score: 7.914294837974012e-05
+Neutral Score: 0.9992201328277588
+Contradiction Score: 0.0007006649393588305
+
+Section Title: D. BCJRFormer for Joint Inner Decoding
+Retrieved Sentence: In DNA data storage, the number of received sequences (denoted as M k ) varies for each transmitted sequence, which makes training models for fixed cluster sizes inefficient.
+Entailment Score: 0.00019381853053346276
+Neutral Score: 0.9971445202827454
+Contradiction Score: 0.0026616319082677364
+
+Section Title: II. RELATED WORK
+Retrieved Sentence: The article [10] proposes DNAformer, an end-to-end retrieval solution for DNA data storage that also uses a transformer-based architecture to reconstruct data from multiple noisy reads.
+Entailment Score: 0.00016748385678511113
+Neutral Score: 0.9993273019790649
+Contradiction Score: 0.0005052016931585968
+
+Section Title: I. INTRODUCTION
+Retrieved Sentence: However, writing, storing, and reading DNA are error-prone processes that produce multiple noisy reads of the same sequence [1].
+Entailment Score: 7.214830839075148e-05
+Neutral Score: 0.9997639060020447
+Contradiction Score: 0.0001639500551391393
+
+Section Title: D. BCJRFormer for Joint Inner Decoding
+Retrieved Sentence: In DNA data storage, the number of received sequences (denoted as M k ) varies for each transmitted sequence, which makes training models for fixed cluster sizes inefficient.
+Entailment Score: 0.00019381853053346276
+Neutral Score: 0.9971445202827454
+Contradiction Score: 0.0026616319082677364
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: In DNA data storage, multiple noisy reads of the same sequence are often clustered and then aligned to yield a candidate sequence for error correction [9]- [12].
+Entailment Score: 0.9943048357963562
+Neutral Score: 0.005202443338930607
+Contradiction Score: 0.000492763938382268
+
+Section Title: E. Transformer and ECCT
+Retrieved Sentence: The ECCT was proposed for decoding transmissions over a binary-input symmetric-output channel, a type of memoryfree channels that introduces substitution errors independently of the binary input symbol [7].
+Entailment Score: 5.999958739266731e-05
+Neutral Score: 0.9801546931266785
+Contradiction Score: 0.019785333424806595
+
+Section Title: Ins.
+Retrieved Sentence: We then discuss the transformer architecture and the original formulation of the ECCT decoder for binary-input symmetric-output channels.
+Entailment Score: 0.0003137464518658817
+Neutral Score: 0.9976925849914551
+Contradiction Score: 0.0019936540629714727
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: The authors show that their ECCT decoder outperforms both Belief Propagation and other neural decoders on binary-input symmetric-output channels.
+Entailment Score: 0.0012915299739688635
+Neutral Score: 0.9909434914588928
+Contradiction Score: 0.0077650342136621475
+
+Section Title: B. ECCT as Outer Decoder
+Retrieved Sentence: We propose ConvBCJRFormer, an extension of BCJR-Former that decodes transmissions of a zero-terminated binary convolutional (n c , 1, m) codeword over the IDS channel.
+Entailment Score: 0.0013658449752256274
+Neutral Score: 0.9449557065963745
+Contradiction Score: 0.05367845296859741
+
+Section Title: Unknown
+Retrieved Sentence: The input for their models is derived from the BCJR algorithm, much like how we design the input for our BCJRFormer.
+Entailment Score: 0.0005190522642806172
+Neutral Score: 0.9979647397994995
+Contradiction Score: 0.001516281277872622
+
+Section Title: C. ConvBCJRFormer
+Retrieved Sentence: We then apply a sigmoid function σ to produce the prediction probabilities xin for the inner codeword x in , xout for the outer codeword x out , and 0m for the final memory state.
+Entailment Score: 0.00050143658882007
+Neutral Score: 0.9949758052825928
+Contradiction Score: 0.0045227548107504845
+
+Section Title: Inner Outer
+Retrieved Sentence: The BCJR algorithm can also decode convolutional inner codes over the IDS channel by considering all combinations of convolutional and drift states [13].
+Entailment Score: 0.0005179335130378604
+Neutral Score: 0.9958640336990356
+Contradiction Score: 0.0036180492024868727
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: We demonstrate that this decoder, named ConvBCJRFormer, achieves error rates only slightly worse than BCJR decoding while offering a generalizable mechanism to incorporate linear code information.
+Entailment Score: 0.00028231865144334733
+Neutral Score: 0.9961961507797241
+Contradiction Score: 0.003521496430039406
+
+Section Title: E. Complexity
+Retrieved Sentence: Finally, we show that ConvBCJRFormer can jointly synchronize and decode convolutional codes with only minor tradeoffs compared to the BCJR algorithm.
+Entailment Score: 0.0008521907730028033
+Neutral Score: 0.9981327652931213
+Contradiction Score: 0.001015078159980476
+
+Section Title: E. ECCT for Outer Decoding
+Retrieved Sentence: We reuse the BCJRFormer models from Section V-B and train each ECCT outer decoder on the outputs produced by the inner decoder for a channel configuration with equal insertion and deletion rates (p I = p D ) and a substitution probability of p S = 0.012.
+Entailment Score: 0.000715657661203295
+Neutral Score: 0.9967271089553833
+Contradiction Score: 0.002557216677814722
+
+Section Title: F. End-to-End Transformer Decoding
+Retrieved Sentence: We reuse the BCJRFormer models from Section V-B and train each ECCT outer decoder on the outputs produced by the inner decoder for a channel configuration with equal insertion and deletion rates (p I = p D ) and a substitution probability of p S = 0.012.
+Entailment Score: 0.000715657661203295
+Neutral Score: 0.9967271089553833
+Contradiction Score: 0.002557216677814722
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: • We demonstrate that ECCT can serve as an outer decoder in concatenated coding schemes, achieving lower error rates than Belief Propagation.
+Entailment Score: 0.0007587357540614903
+Neutral Score: 0.9980025887489319
+Contradiction Score: 0.0012386842863634229
+
+Section Title: B. ECCT as Outer Decoder
+Retrieved Sentence: We propose ConvBCJRFormer, an extension of BCJR-Former that decodes transmissions of a zero-terminated binary convolutional (n c , 1, m) codeword over the IDS channel.
+Entailment Score: 0.0013658449752256274
+Neutral Score: 0.9449557065963745
+Contradiction Score: 0.05367845296859741
+
+Section Title: G. ConvBCJRFormer for Convolutional Decoding
+Retrieved Sentence: In Figure 12, we compare the difference in bit error rates between the decoded outer codeword xout and the outer codeword x out for both the BCJR algorithm and the ConvBCJRFormer decoder.
+Entailment Score: 0.0003443853638600558
+Neutral Score: 0.9955238103866577
+Contradiction Score: 0.004131822381168604
+
+Section Title: Ins.
+Retrieved Sentence: We first introduce our channel model and describe concatenated coding schemes, with a focus on the BCJR algorithm that is used to derive the input for both BCJRFormer and ConvBCJRFormer.
+Entailment Score: 0.0008437733049504459
+Neutral Score: 0.9968031644821167
+Contradiction Score: 0.002353055402636528
+
+Section Title: APPENDIX D OUTPUT DISTRIBUTION: COMPARISON OF BCJR AND BCJRFORMER
+Retrieved Sentence: We explore the symbol-wise error rate distribution of BCJRFormer by comparing it to the BCJR algorithm for transmissions of these two codewords in the quaternary domain.
+Entailment Score: 0.000729300663806498
+Neutral Score: 0.9949710369110107
+Contradiction Score: 0.004299684427678585
+
+Section Title: C. BCJRFormer for Quaternary Marker Codewords
+Retrieved Sentence: For a more detailed analysis of the symbol-wise differences between the two decoders, see Appendix D. Next, we evaluate BCJRFormer for jointly decoding M noisy copies of a codeword.
+Entailment Score: 0.00027949121431447566
+Neutral Score: 0.999077558517456
+Contradiction Score: 0.0006429263739846647
+
+Section Title: IV. METHOD
+Retrieved Sentence: We focus on constructing an appropriate input representation that achieves near-BCJR performance and scales to jointly decode multiple noisy copies of the same codeword.
+Entailment Score: 0.00045623010373674333
+Neutral Score: 0.9990684390068054
+Contradiction Score: 0.00047533217002637684
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: • We introduce ConvBCJRFormer, a cross-attending transformer architecture that extends BCJRFormer to decode convolutional codes as an initial step toward transformerbased joint inner and outer decoding of linear codeword transmissions over the IDS channel.
+Entailment Score: 0.0010089572751894593
+Neutral Score: 0.9950124621391296
+Contradiction Score: 0.003978522028774023
+
+Section Title: F. End-to-End Transformer Decoding
+Retrieved Sentence: We demonstrate that an end-to-end transformer pipelineusing BCJRFormer as the inner decoder and ECCT as the outer decoder -outperforms pipelines that use either the BCJR algorithm or Belief Propagation as decoders.
+Entailment Score: 0.0006855333922430873
+Neutral Score: 0.9824609160423279
+Contradiction Score: 0.016853531822562218
+
+Section Title: Ins.
+Retrieved Sentence: We then discuss the transformer architecture and the original formulation of the ECCT decoder for binary-input symmetric-output channels.
+Entailment Score: 0.0003137464518658817
+Neutral Score: 0.9976925849914551
+Contradiction Score: 0.0019936540629714727
+
+Section Title: F. End-to-End Transformer Decoding
+Retrieved Sentence: In the high probability domain, the pipeline using the iterative BCJR inner decoder slightly outperforms the pipeline using BCJRFormer.
+Entailment Score: 0.0003284323902335018
+Neutral Score: 0.9982559084892273
+Contradiction Score: 0.001415646867826581
+
+Section Title: E. ECCT for Outer Decoding
+Retrieved Sentence: We demonstrate that an end-to-end transformer pipelineusing BCJRFormer as the inner decoder and ECCT as the outer decoder -outperforms pipelines that use either the BCJR algorithm or Belief Propagation as decoders.
+Entailment Score: 0.0006855333922430873
+Neutral Score: 0.9824609160423279
+Contradiction Score: 0.016853531822562218
+
+Section Title: Drift Sliding Window
+Retrieved Sentence: • By combining BCJRFormer as the inner decoder with ECCT as the outer decoder (see Figure 4), we propose a transformer-based pipeline for end-to-end decoding of concatenated codewords over the insertion, deletion, and substitution (IDS) channel that outperforms approaches based on BCJR or Belief Propagation decoders.
+Entailment Score: 0.0003619517956394702
+Neutral Score: 0.9939755797386169
+Contradiction Score: 0.005662483628839254
+

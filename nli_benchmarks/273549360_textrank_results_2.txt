@@ -1,0 +1,166 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: We aim to minimize the Focal Calibration Loss (FCL) and Our goal is to show that the minimizer q * of L γ,λ FCL (q) satisfies q * i = η i for all i.
+
+subject to q i > 0 and
+
+Step 1: Convexity of the Loss Function Before proceeding, we establish that L γ,λ FCL (q) is strictly convex in q over the domain q i ∈ (0, 1).
+
+Best Entailment: 0.9970123767852783
+Best Section: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Best Sentence: We aim to minimize the Focal Calibration Loss (FCL) and Our goal is to show that the minimizer q * of L γ,λ FCL (q) satisfies q * i = η i for all i.
+
+subject to q i > 0 and
+
+Step 1: Convexity of the Loss Function Before proceeding, we establish that L γ,λ FCL (q) is strictly convex in q over the domain q i ∈ (0, 1).
+
+Worst: 
+
+Title: Motivation and Contributions.
+Sentence: Our key contributions are:
+
+• Focal Calibration Loss (FCL): We propose a new loss function that combines the traditional Focal Loss with a proper calibration term, uniquely aligning predicted probabilities with true class-posterior probabilities to mitigate overconfidence and underconfidence.
+Score: 0.8109290599822998
+
+Title: Problem Formulation
+Sentence: from an unknown distribution with density p(x, y) on X × Y.
+Score: 0.5817372798919678
+
+Title: Focal Calibration Loss
+Sentence: (Charoenphakdee et al., 2021) proved that focal loss is classification-calibrated, it is not strictly proper.
+Score: 0.997967541217804
+
+Title: Strictly Proper
+Sentence: L is strictly proper if, for any y ∈ ∆ K and any p ̸ = y, L(y, y) < L(p, y).
+Score: 0.5739069581031799
+
+Title: Experimental Results
+Sentence: For temperature scaling, we select the optimal temperature T ∈ (0, 10] (step size 0.1) that gives the lowest ECE on the validation set.
+Score: 0.7240744233131409
+
+Title: RELIABILITY DIAGRAM
+Sentence: Focal Calibration Loss achieves the best calibration among the methods, with the lowest ECE and a relatively low MCE.
+Score: 0.6637115478515625
+
+Title: A.1. Evaluation Metrics
+Sentence: Formally, the ECE can be approximated by grouping predictions into M bins and calculating the average confidence and accuracy for each bin:
+
+where N is the total number of samples, M is the number of bins, B m is the set of indices of samples whose predicted probability falls into the m-th bin, |B m | is the number of samples in bin B m , acc(B m ) is the accuracy of the samples in bin B m , and conf(B m ) is the average confidence of the samples in bin B m defined in Eq.
+Score: 0.6775386929512024
+
+Title: A.1. Evaluation Metrics
+Sentence: Step 1: Bounding Overconfidence and Underconfidence We aim to bound the difference between the maximum predicted probability and the maximum true class probability.
+Score: 0.5957269072532654
+
+Title: A.1. Evaluation Metrics
+Sentence: Then,
+
+Using the triangle inequality, we have:
+
+Since η k † (x) ≥ η k * (x) by the definition of k † and k * , it follows that:
+
+Similarly, since pk * (x) ≥ pk † (x), we have:
+
+Combining Equations ( 24) and ( 25), we get:
+
+Thus,
+
+Step 2: Relating Infinity Norm to Euclidean Norm We have the relationship between norms:
+
+This follows because the infinity norm is less than or equal to the Euclidean norm.
+Score: 0.9467400312423706
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Let X be the input space and Y = {1, 2, .
+Score: 0.8621521592140198
+
+Title: A.3. Proof that Minimizing the Focal Calibration Loss Recovers the True Class-Posterior Probabilities
+Sentence: Step 3: Setting Up the Lagrangian To find the minimizer, we set up the Lagrangian function incorporating the equality constraint:
+
+We do not need to include inequality constraints q i > 0 explicitly because q i ∈ (0, 1) due to the logarithm and the domain of q.
+Score: 0.9925729036331177
+
+Title: Primal Feasibility:
+Sentence: Dual Feasibility: Not applicable here since there are no inequality constraints in q i after considering the domain.
+Score: 0.7720295190811157
+
+Title: Primal Feasibility:
+Sentence: Compute the partial derivative:
+
+Step 5: Analyzing the Stationarity Condition Let's denote:
+
+Then the stationarity condition becomes:S i (q i ) + µ = 0.
+Score: 0.8969622254371643
+
+Title: Primal Feasibility:
+Sentence: The calibration loss term is λ(q i − 0) 2 = λq 2 i , minimized when q i = 0.
+Score: 0.9905360341072083
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: (51)
+
+Thus:
+
+Step 6: Analyze the Stationarity Condition From Equation ( 52), we observe that for each i:
+
+where:
+
+Since µ is the same for all i, we can write:
+
+Therefore, for any i, j:
+
+Step 7: Show the Strictly Order-Preserving Property Suppose q * i < q * j .
+Score: 0.6853879690170288
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: We need to show that η i < η j .
+Score: 0.9621675610542297
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: • q * i − q * j < 0.
+Score: 0.686075747013092
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Step 8: Conclusion Our assumption that η i ≥ η j must be false.
+Score: 0.9530084133148193
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: As q → 0 + , σ γ,λ (q) → 1.
+Score: 0.751565158367157
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: There exists a unique q * ∈ (0, 1) such that σ γ,λ (q * ) = 0.
+Score: 0.924802303314209
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Strict Monotonic Decrease.
+Score: 0.8328261971473694
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Compute the first derivative σ ′γ,λ (q):
+
+Since log q < 0 for q ∈ (0, 1) and (1 − q) γ−1 > 0, the first term is positive.
+Score: 0.9268945455551147
+
+Title: A.5. Proof that the Focal Calibration Loss Satisfies the Strictly Order-Preserving Property
+Sentence: Overall, σ ′γ,λ (q) < 0 for all q ∈ (0, 1), implying that σ γ,λ (q) is strictly decreasing on q ∈ (0, 1).
+Score: 0.9842029809951782
+
+Title: ■
+Sentence: Plot of σ γ,λ (q) vs. q for different γ and λ
+
+The analysis of σ γ,λ (q) confirms that the function is strictly decreasing and crosses zero exactly once in the interval q ∈ (0, 1) in Fig.
+Score: 0.631132960319519
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: Case 2: λ = 0 When λ = 0, the FCL reduces to the focal loss:
+
+The focal loss is not strictly proper because:
+
+(a) Multiple Minimizers: Consider any p where pj = 1 and pk = 0 for k ̸ = j.
+Score: 0.6695589423179626
+
+Title: A.8. Proof that the Focal Calibration Loss is Strictly Proper
+Sentence: (b) Lack of Strict Convexity: The focal loss is not strictly convex with respect to p, especially when γ = 0, where it reduces to the cross-entropy loss, which is proper but not strictly proper without additional regularization.
+Score: 0.967531144618988
+
