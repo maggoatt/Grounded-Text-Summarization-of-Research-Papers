@@ -1,0 +1,32 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: Specifically, SPABERT linearizes the 2-dimensional spatial context by forming pseudo sentences that consist of names of the pivot and neighboring geo-entities, ordered by their spatial distance to the pivot.
+
+Best Entailment: 0.9856013655662537
+Best Section: Introduction
+Best Sentence: Specifically, SPABERT linearizes the 2-dimensional spatial context by forming pseudo sentences that consist of names of the pivot and neighboring geo-entities, ordered by their spatial distance to the pivot.
+
+Worst: Title: Pretraining
+Sentence: One task is the masked language modeling (MLM) (Devlin et al., 2019), for which SPABERT needs to learn how to complete the full names of geo-entities from pseudo sentences with randomly masked subtokens using the remaining subtokens and their spatial coordinates (i.e., partial names and spatial relations between subtokens).
+Score: 0.6311126351356506
+
+Title: Pretraining
+Sentence: Since OSM is crowd-sourced, we clean the raw data by removing non-alphanumeric place names and geo-entities that do not have a place name or geocoordinates.
+Score: 0.7379494309425354
+
+Title: Experimental Setup
+Sentence: We manually transcribe text labels in these maps to generate 154 geo-entities, each containing a name (from the text label) and the image coordinates (text label's pixel location in the scanned map) The task is to find the corresponding Wikidata geo-entity3 for each USGS geo-entity with only their spatial relations from pixel locations.
+Score: 0.6458067297935486
+
+Title: Supervised Geo-Entity Typing
+Sentence: Note that during training, the model does not use the neighboring geo-entities' OSM semantic types.
+Score: 0.9965644478797913
+
+Title: Model Comparison
+Sentence: We use the same baseline 5 Because Q is not georeferenced, we use the top K nearest neighbors instead of pixel distances.
+Score: 0.7054203748703003
+
+Title: Spatial Context and Ablation Study
+Sentence: Since the entity omission criteria of the USGS maps are unknown and Wikidata mostly contain important landmark geo-entities, we also simulate omission using the OSM dataset by gradually removing random neighbors of a pivot entity within a fixed neighborhood.
+Score: 0.8745851516723633
+

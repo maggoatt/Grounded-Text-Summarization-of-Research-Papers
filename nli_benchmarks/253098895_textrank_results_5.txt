@@ -1,0 +1,9 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: SPABERT also encodes the spatial relations between the pivot and neighboring geo-entities with a continuous spatial coordinate embedding.
+
+Best Entailment: 0.9883130192756653
+Best Section: Introduction
+Best Sentence: SPABERT also encodes the spatial relations between the pivot and neighboring geo-entities with a continuous spatial coordinate embedding.
+
+Worst: None

@@ -1,0 +1,644 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: One task is the masked language modeling (MLM) (Devlin et al., 2019), for which SPABERT needs to learn how to complete the full names of geo-entities from pseudo sentences with randomly masked subtokens using the remaining subtokens and their spatial coordinates (i.e., partial names and spatial relations between subtokens).
+
+Best Entailment: 0.9809349179267883
+Best Section: Pretraining
+Best Sentence: One task is the masked language modeling (MLM) (Devlin et al., 2019), for which SPABERT needs to learn how to complete the full names of geo-entities from pseudo sentences with randomly masked subtokens using the remaining subtokens and their spatial coordinates (i.e., partial names and spatial relations between subtokens).
+
+Worst: Title: Introduction
+Sentence: Looking at a stopping location, [ Speedway , ], 1 from a person's trajectory, we might assume that this person needs to use the location's amenities if Speedway implies a gas station, and is near a highway exit.
+Score: 0.9860687255859375
+
+Title: Introduction
+Sentence: Best viewed in color.
+Score: 0.9914880990982056
+
+Title: Introduction
+Sentence: name, Speedway , to arrive at [ Speedway , ] in the middle of farmlands.
+Score: 0.9897304773330688
+
+Title: Introduction
+Sentence: Specifically, we contextualize a geo-entity by a reasonable surrounding neighborhood learned from experience and, from the neighborhood, relate other relevant geo-entities based on their name and spatial relations (e.g., distance) to the geo-entity.
+Score: 0.9966922998428345
+
+Title: Introduction
+Sentence: Capturing this spatially varying location semantics can help recognizing and resolving geospatial concepts (e.g., toponym detection, typing and linking) and the grounding of geo-entities in documents, scanned historical maps, and a variety of knowledge bases, such as Wikidata, Open-StreetMap, and GeoNames.
+Score: 0.7398861050605774
+
+Title: Introduction
+Sentence: Recently, the research community has seen a rapid advancement in pretrained language models (PLMs) (Devlin et al., 2019;Liu et al., 2019;Lewis et al., 2020;Sanh et al., 2019), which supports strong contextualized language representation abilities (Lan et al., 2020) and serves as the backbones of various NLP systems (Rothe et al., 2020;Yang et al., 2019).
+Score: 0.7928222417831421
+
+Title: Introduction
+Sentence: The extensions of these PLMs help NL tasks in different data domains (e.g., biomedicine (Lee et al., 2020;Phan et al., 2021), software engineering (Tabassum et al., 2020), fi-Figure 1: Overview for generating the pivot entity representation, E p ( : pivot entity; : neighboring geo-entities).
+Score: 0.9697427153587341
+
+Title: Introduction
+Sentence: SPABERT sorts and concatenate neighboring geo-entities by their distance to pivot in ascending order to form a pseudo-sentence.
+Score: 0.9929024577140808
+
+Title: Introduction
+Sentence: [CLS] is prepended at the beginning.
+Score: 0.9914559721946716
+
+Title: Introduction
+Sentence: [SEP] separates entities.
+Score: 0.9942535758018494
+
+Title: Introduction
+Sentence: SPABERT generates token representations and aggregates representations of pivot tokens to produce E p .
+Score: 0.9914411306381226
+
+Title: Introduction
+Sentence: nance (Liu et al., 2021)) and modalities (e.g., tables (Herzig et al., 2020;Yin et al., 2020;Wang et al., 2022) and images (Li et al., 2020a;Su et al., 2019)).
+Score: 0.9978103041648865
+
+Title: Introduction
+Sentence: Specifically, SPABERT linearizes the 2-dimensional spatial context by forming pseudo sentences that consist of names of the pivot and neighboring geo-entities, ordered by their spatial distance to the pivot.
+Score: 0.9879789352416992
+
+Title: Introduction
+Sentence: SPABERT also encodes the spatial relations between the pivot and neighboring geo-entities with a continuous spatial coordinate embedding.
+Score: 0.9940723776817322
+
+Title: Introduction
+Sentence: The spatial coordinate embedding models horizontal and vertical distance relations separately and, in turn, can capture the orientation relations.
+Score: 0.9380718469619751
+
+Title: Introduction
+Sentence: These techniques make the inputs compatible with the BERT-family structures.
+Score: 0.9879921078681946
+
+Title: Introduction
+Sentence: MLM and MEP enable SPABERT to learn from pseudo sentences for generating spatially varying contextualized representations for geo-entities.
+Score: 0.9839774966239929
+
+Title: Introduction
+Sentence: SPABERT provides a general-purpose representation for geo-entities based on their spatial context.
+Score: 0.9935047626495361
+
+Title: Introduction
+Sentence: Similar to linguistic context, spatial context refers to the surrounding environment of a geo-entity.
+Score: 0.9886659383773804
+
+Title: Introduction
+Sentence: For example, [ Speedway , ], [ Speedway , ], and [ Speedway , ] would have different representations since the surrounding environment of , , and could vary.
+Score: 0.9897356033325195
+
+Title: Introduction
+Sentence: We evaluate SPABERT on two tasks: 1) geo-entity typing and 2) geo-entity linking to external knowledge bases.
+Score: 0.9076083302497864
+
+Title: Introduction
+Sentence: To summarize, this work has the following contributions.
+Score: 0.965209424495697
+
+Title: SPABERT
+Sentence: SPABERT is a LM built upon a pretrained BERT and further trained to produce contextualized geo-entity representations given large geographic datasets.
+Score: 0.7929836511611938
+
+Title: Model Comparison
+Sentence: Fig.
+Score: 0.9904242157936096
+
+Title: SPABERT
+Sentence: 1 shows the outline of SPABERT, with the details below.
+Score: 0.9851433634757996
+
+Title: SPABERT
+Sentence: This section first presents the preliminary ( §2.1) and then describes the overall approach for learning geo-entities' contextualized representations ( §2.2), the pretraining strategies ( §2.3), and inference procedures ( §2.4).
+Score: 0.9667983055114746
+
+Title: Preliminary
+Sentence: We assume that given a geographic dataset (e.g., OSM) with many geo-entities, S = {g 1 , g 2 , ..., g l }, each geo-entity g i (e.g., [ Speedway , ]) has two attributes: name g name ( Speedway ) and location g loc ( ).
+Score: 0.7703455686569214
+
+Title: Preliminary
+Sentence: The location attribute, g loc , is a tuple g loc = (g locx , g locy , ...) that identifies the location in a coordinate system (e.g., x and y image pixel coordinates or latitude and longitude geocoordinates with altitudes).
+Score: 0.992453396320343
+
+Title: Preliminary
+Sentence: WLOG, here we assume a 2-dimensional space.
+Score: 0.9898591637611389
+
+Title: Preliminary
+Sentence: SPABERT aims to generate a contextualized representation for each geo-entity g i in S given its spatial context.
+Score: 0.8817793726921082
+
+Title: Preliminary
+Sentence: We denote a geo-entity that we seek to contextualize as the pivot entity, g p , p for short.
+Score: 0.9513012766838074
+
+Title: Preliminary
+Sentence: The spatial context of p is SC(p) = {g n 1 , ..., g n k } where distance(p, g n k ) < T .
+Score: 0.9791570901870728
+
+Title: Preliminary
+Sentence: T is a spatial distance parameter defining a local area.
+Score: 0.9895132184028625
+
+Title: Preliminary
+Sentence: We call g n 1 , ..., g n k as p's neighboring geo-entities and denote them as n 1 , ..., n k when there is no confusion.
+Score: 0.9533412456512451
+
+Title: Contextualizing Geo-entities
+Sentence: Linearizing Neighboring Geo-entity Names For a pivot, p, SPABERT first linearizes its neighboring geo-entitie names to form a BERT-compatible input sequence, called a pseudo sentence.
+Score: 0.562432587146759
+
+Title: Contextualizing Geo-entities
+Sentence: The corresponding pseudo sentence for the example in Fig.
+Score: 0.9899510741233826
+
+Title: Contextualizing Geo-entities
+Sentence: 1 is constructed as: The pseudo sentence starts with the pivot name followed by the names of the pivot's neighboring geo-entities, ordered by their spatial distance to the pivot in ascending order.
+Score: 0.5492775440216064
+
+Title: Contextualizing Geo-entities
+Sentence: The idea is that nearby geo-entities are more related (for contextualization) than distant geo-entities.
+Score: 0.9640122652053833
+
+Title: Contextualizing Geo-entities
+Sentence: SPABERT also tokenizes the pseudo sentences using the original BERT tokenizer with the special token [SEP] to separate entity names.
+Score: 0.9527357816696167
+
+Title: Contextualizing Geo-entities
+Sentence: The subtokens of a neighbor n k is denoted as T n k j as in Fig.
+Score: 0.9717734456062317
+
+Title: Contextualizing Geo-entities
+Sentence: 2.
+Score: 0.9914735555648804
+
+Title: Contextualizing Geo-entities
+Sentence: Encoding Spatial Relations SPABERT adopts two types of position embeddings in addtion to the token embeddings in the pseudo sentences (Fig.
+Score: 0.9868634939193726
+
+Title: Contextualizing Geo-entities
+Sentence: 2).
+Score: 0.9940664768218994
+
+Title: Contextualizing Geo-entities
+Sentence: The sequence position embedding represents the token order, same as the original position embedding in BERT and other Transformer LMs.
+Score: 0.9811875224113464
+
+Title: Contextualizing Geo-entities
+Sentence: Also, SPABERT incorporates a spatial coordinate embedding mechanism, which seeks to represent the spatial relations between the pivot and its neighboring geo-entities.
+Score: 0.9951223731040955
+
+Title: Contextualizing Geo-entities
+Sentence: SPABERT's spatial coordinate embeddings encode each location dimension separately to capture the relative distance and orientation between geo-entities.
+Score: 0.9969282746315002
+
+Title: Contextualizing Geo-entities
+Sentence: Specifically, for the 2-dimensional space, SPABERT generates normalized distance dist n k
+
+x and dist n k y for each neighboring geo-entity using the following equations:
+
+where Z is a normalization factor, and (g locx p , g locy p ), (g locx n k , g locy n k ) are the locations of pivot p and neighboring entity n k .
+Score: 0.9452159404754639
+
+Title: Contextualizing Geo-entities
+Sentence: Note that the tokens belong to the same geo-entity name have the same dist n k x and dist n k y .
+Score: 0.9715830087661743
+
+Title: Contextualizing Geo-entities
+Sentence: Also, SPABERT uses DSEP, a constant numerical value larger than max(dist n k
+
+x , dist n k y ) for all neighboring entities to differentiate special tokens from entity name tokens.
+Score: 0.9879525303840637
+
+Title: Contextualizing Geo-entities
+Sentence: SPABERT encodes dist n k x and dist n k y using a continuous spatial coordinate embedding layer with real-valued distances as input to preserve the continuity of the output embeddings.
+Score: 0.9815861582756042
+
+Title: Contextualizing Geo-entities
+Sentence: Let S n k be the spatial coordinate embedding of the neighbor entity n k , M be the embedding's dimension, and S n k ∈ R M .
+Score: 0.9912649989128113
+
+Title: Contextualizing Geo-entities
+Sentence: We define S n k as:
+
+x and dist n k y for the spatial coordinate embeddings along the horizontal and vertical directions, respectively.
+Score: 0.9888532161712646
+
+Title: Contextualizing Geo-entities
+Sentence: Similar to BERT, SPABERT encoder calculates an output embedding for each token.
+Score: 0.9163746237754822
+
+Title: Contextualizing Geo-entities
+Sentence: Then SPABERT averages the pivot's token-level embeddings to produce a fixedlength embedding for the pivot's contextualized representation.
+Score: 0.9817153215408325
+
+Title: Pretraining
+Sentence: The block below shows an example of the masked input for MLM, where ### are the masked subtokens.
+Score: 0.7853896617889404
+
+Title: Pretraining
+Sentence: Therefore, we propose and incorporate a masked entity prediction (MEP) task, which randomly masks all subtokens of an entity name in a pseudo sentence.
+Score: 0.6123525500297546
+
+Title: Pretraining
+Sentence: For MEP, SPABERT relies on the masked entity's spatial relation to neighboring entities to recover the masked name.
+Score: 0.9469791054725647
+
+Title: Pretraining
+Sentence: The block below shows an example of the masked input for MEP.
+Score: 0.8211420178413391
+
+Title: Pretraining
+Sentence: [CLS] University of Minnesota [SEP]
+
+Both MLM and MEP have a masking rate of 15% (without masking [CLS] and [SEP]).
+Score: 0.96578049659729
+
+Title: Pretraining
+Sentence: The sequence position and spatial coordinates are not masked.
+Score: 0.998172402381897
+
+Title: Pretraining
+Sentence: Pretraining Data We construct a large training set from OSM covering the City of London and the State of California.
+Score: 0.9741684198379517
+
+Title: Pretraining
+Sentence: Since OSM is crowd-sourced, we clean the raw data by removing non-alphanumeric place names and geo-entities that do not have a place name or geocoordinates.
+Score: 0.9844167828559875
+
+Title: Pretraining
+Sentence: We randomly select geo-entities as pivots and construct pseudo sentences as described in §2.2.
+Score: 0.745578408241272
+
+Title: Pretraining
+Sentence: To efficiently find the neighboring entities from a pivot sorted by distances, we leverage the Geohash algorithm introduced by Gustavo Niemeyer in 2008.
+Score: 0.997273862361908
+
+Title: Pretraining
+Sentence: We first generate the Geohash string for geo-entities on OpenStreetMap, which encodes a location into a string of a maximum length of 20 with base 32.
+Score: 0.9887548685073853
+
+Title: Pretraining
+Sentence: For example, a city 'Madelia' with the geolocation (44.0508°N, 94.4183°W) has a Geohash string of '9zufe7nwjefpjksty0m8'.
+Score: 0.9861331582069397
+
+Title: Pretraining
+Sentence: The length of the hash string is associated with the size of the geographic area that the string represents.
+Score: 0.9811466932296753
+
+Title: Pretraining
+Sentence: We use the hash strings to first filter out the geo-entities guaranteed to be outside the spatial context radius and keep the neighbors within the nearest nine hash grids for distance calculation.
+Score: 0.91231769323349
+
+Title: Pretraining
+Sentence: The use of Geohash reduces the computation time when constructing the pseudo sentences.
+Score: 0.9888792037963867
+
+Title: Pretraining
+Sentence: 3 shows an example of Geohash representations.
+Score: 0.9943546056747437
+
+Title: Pretraining
+Sentence: Given the pivot 'Kenneth H Keller Hall', we can calculate its hash string of different lengths to quickly retrieve the neighboring entities within a desired range (i.e., the green box).
+Score: 0.9962908029556274
+
+Title: Pretraining
+Sentence: This way, we generate 69,168 and 148,811 pseudo sentences in London and California, respectively, leading to a pretraining corpus of around 150M words.
+Score: 0.981641411781311
+
+Title: Pretraining
+Sentence: We use all of them for pretraining SPABERT with MLM and MEP.
+Score: 0.6729273200035095
+
+Title: Inference
+Sentence: The pretrained SPABERT can already generate spatially varying contextualized representations for geo-entities.
+Score: 0.9810506701469421
+
+Title: Inference
+Sentence: Here, we use geo-entity typing as an example task to demonstrate the effectiveness of contextualized geo-entity representations.
+Score: 0.9923346638679504
+
+Title: Inference
+Sentence: In this task, we aim to predict the geo-entity's semantic type (e.g., transportation and healthcare).
+Score: 0.5560448169708252
+
+Title: Inference
+Sentence: We stack a softmax prediction head on top of the final-layer hidden states (i.e., geo-entity embeddings) to perform the classification.
+Score: 0.944889485836029
+
+Title: Inference
+Sentence: One example task, which we refer to as geo-entity linking, is to link geo-entities from a geographic information system (GIS) oriented dataset to graph-based knowledge bases (KBs).
+Score: 0.9940783977508545
+
+Title: Experimental Setup
+Sentence: Datasets Open Street Map (OSM) 2 is a large-scale geographic database, and it is widely used in many popular map-related services.
+Score: 0.988109827041626
+
+Title: Experimental Setup
+Sentence: For supervised geoentity typing, we randomly select 25,872 and 7,726 pivot geo-entities together with their neighboring entities from point features of nine semantic types on OSM in the State of California and the City of London, respectively (Tab.
+Score: 0.8668593764305115
+
+Title: Experimental Setup
+Sentence: 1).
+Score: 0.9935935139656067
+
+Title: Experimental Setup
+Sentence: Each geo-entity is associated with a name and its geocoordinates.
+Score: 0.9968330264091492
+
+Title: Experimental Setup
+Sentence: ( §3.2).
+Score: 0.9939364790916443
+
+Title: Experimental Setup
+Sentence: For unsupervised geo-entity linking, we randomly select 14 scanned historical maps in California from the United States Geological Survey (USGS) Historical Topographic Maps Collection.
+Score: 0.9874956607818604
+
+Title: Experimental Setup
+Sentence: We manually transcribe text labels in these maps to generate 154 geo-entities, each containing a name (from the text label) and the image coordinates (text label's pixel location in the scanned map) The task is to find the corresponding Wikidata geo-entity3 for each USGS geo-entity with only their spatial relations from pixel locations.
+Score: 0.9913081526756287
+
+Title: Experimental Setup
+Sentence: Note that the geocoordinates of geo-entities in the scanned maps are unknown.
+Score: 0.9930316209793091
+
+Title: Experimental Setup
+Sentence: For geo-entity linking task, the annotation details are described below.
+Score: 0.9900784492492676
+
+Title: Experimental Setup
+Sentence: They draw bounding boxes/polygons around text labels and transcribe
+Score: 0.9423127174377441
+
+Title: Model Configuration
+Sentence: We create two variants of SPABERT, namely SPABERT base and SPABERT large with weights and tokenizers initialized from the uncased versions of the BERT base and BERT large , respectively.
+Score: 0.9804635643959045
+
+Title: Model Configuration
+Sentence: We primarily use the same optimization parameters as in (Devlin et al., 2019) and train the model with the AdamW optimizer.
+Score: 0.9765649437904358
+
+Title: Model Configuration
+Sentence: We save the model checkpoints every 2K iterations.
+Score: 0.9356611967086792
+
+Title: Model Configuration
+Sentence: The learning rate is 5×10 −5 for SPABERT Base and 1 × 10 −6 for SPABERT Large for stability.
+Score: 0.9914318323135376
+
+Title: Model Configuration
+Sentence: Distance normalization factor Z is 0.0001, and distance separator DSEP is 20.
+Score: 0.9930362105369568
+
+Title: Model Configuration
+Sentence: The batch size is 12 to fit in one NVIDIA RTX A5000 GPU with 24GB memory.
+Score: 0.9899603128433228
+
+Title: Supervised Geo-Entity Typing
+Sentence: Task Description We tackle geo-entity typing as a supervised classification task using the modified SPABERT architecture in §2.4 and finetune the model end-to-end by optimizing the cross-entropy loss.
+Score: 0.9700890183448792
+
+Title: Supervised Geo-Entity Typing
+Sentence: Specifically, the training set of this task contains {(g i , SC(g i ), y i )} N i=1 , where g i is the pivot entity; y i is its OSM semantic type label; SC(g i ) contains its neighboring entities in the nearest nine hash grids.
+Score: 0.9929531216621399
+
+Title: Supervised Geo-Entity Typing
+Sentence: Note that during training, the model does not use the neighboring geo-entities' OSM semantic types.
+Score: 0.661574125289917
+
+Title: Supervised Geo-Entity Typing
+Sentence: We report the F1 score for each class (i.e., an OSM semantic type) and the micro-F1 for all samples in the test set.
+Score: 0.9236096739768982
+
+Title: Model Comparison
+Sentence: We compare SPABERT with several strong PLMs, including BERT (Devlin et al., 2019), RoBERTa (Liu et al., 2019), Span-BERT (Joshi et al., 2020), LUKE (Yamada et al., 2020), and SimCSE (Gao et al., 2021).
+Score: 0.9572336673736572
+
+Title: Model Comparison
+Sentence: For all these models, we use the pretrained weights with the uncased version.
+Score: 0.9787176847457886
+
+Title: Model Comparison
+Sentence: For SimCSE, we use both the BERT and RoBERTa versions with the weights obtained from unsupervised training.
+Score: 0.9871970415115356
+
+Title: Model Comparison
+Sentence: We further finetune these baseline LMs end-to-end on the same pseudo-sentence dataset as SPABERT (Tab.
+Score: 0.9111301898956299
+
+Title: Model Comparison
+Sentence: 1) with a softmax prediction head appended after the baseline model.
+Score: 0.9953538179397583
+
+Title: Model
+Sentence: Result Analysis Tab.
+Score: 0.9934337139129639
+
+Title: Model Comparison
+Sentence: 2 summarizes the geo-entity typing results on the OSM test set with finetuned baselines and SPABERT.
+Score: 0.9899721145629883
+
+Title: Model Comparison
+Sentence: The last column shows the micro-F1 scores (per-instance average).
+Score: 0.9922105073928833
+
+Title: Model Comparison
+Sentence: The remaining columns are the F1 scores for individual classes.
+Score: 0.9949601888656616
+
+Title: Model Comparison
+Sentence: In addition, SPABERT shows the best performance over the existing context-aware LMs for both base and large groups.
+Score: 0.9924321174621582
+
+Title: Model Comparison
+Sentence: We can also observe that the Financial class has high F1 scores for all models.
+Score: 0.9789972901344299
+
+Title: Model Comparison
+Sentence: 4 visualizes the geo-entity features from SPABERT Base .
+Score: 0.990964412689209
+
+Title: Model Comparison
+Sentence: It shows that Financial and Public_Service have the most separable features from other classes.
+Score: 0.9473505020141602
+
+Title: Model Comparison
+Sentence: The non-separable region in the middle is mainly due to the similar spatial context and semantics of geo-entities (e.g.
+Score: 0.9687806963920593
+
+Title: Model Comparison
+Sentence: "nursing home" can be close to both Facilities and Healthcare).
+Score: 0.9923087358474731
+
+Title: Unsupervised Geo-Entity Linking
+Sentence: SC(q i ) contains q i 's nearest 20 geo-entities, and SC(c i ) includes c i 's neighboring geo-entities within a 5km radius.
+Score: 0.7657578587532043
+
+Title: Unsupervised Geo-Entity Linking
+Sentence: 5  For this task, we use the evaluation metrics of Recall@K and Mean-Reciprocal-Rank (MRR).
+Score: 0.9940235018730164
+
+Title: Model Comparison
+Sentence: We use the same baseline 5 Because Q is not georeferenced, we use the top K nearest neighbors instead of pixel distances.
+Score: 0.9890702962875366
+
+Title: Model
+Sentence: MRR R@1 R@5 R@10 BERT Base
+
+.
+Score: 0.9905433058738708
+
+Title: Model
+Sentence: models as in the typing task without finetuning.
+Score: 0.9976342916488647
+
+Title: Model
+Sentence: 3 shows the geo-entity linking results.
+Score: 0.9844968318939209
+
+Title: Model
+Sentence: In particular, among the baseline models, SimCSE BERT has the highest score for MRR and R@1.
+Score: 0.9550063610076904
+
+Title: Model
+Sentence: SPABERT has significantly higher R@5 and R@10 than SimCSE.
+Score: 0.9404783844947815
+
+Title: Model
+Sentence: Also, SPABERT outperforms all baselines on MRR, R@5, and R@10.
+Score: 0.6706277132034302
+
+Title: Model
+Sentence: Also, SpanBERT shows the worst performance among all models.
+Score: 0.8466988801956177
+
+Title: Model
+Sentence: This could be that Span-BERT utilizes masked random spans in pretraining, which does not work well for pseudo sentences of geo-entity names.
+Score: 0.9955447912216187
+
+Title: Model
+Sentence: In contrast, SPABERT's MEP specifically masks tokens from the same
+Score: 0.9800644516944885
+
+Title: Spatial Context and Ablation Study
+Sentence: Here SPABERT performs the best for the 1:125K maps (30-CA) (Tab.
+Score: 0.99000084400177
+
+Title: Spatial Context and Ablation Study
+Sentence: 4).
+Score: 0.9938662648200989
+
+Title: Spatial Context and Ablation Study
+Sentence: Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales.
+Score: 0.884762704372406
+
+Title: Spatial Context and Ablation Study
+Sentence: We test this scenario for geoentity linking to see if the same pivot entity would have similar representations from decreasing neighbor densities (i.e., the original set of neighbors vs. after random omission at varying rates).
+Score: 0.6955971121788025
+
+Title: Spatial Context and Ablation Study
+Sentence: We use the same evaluation metric as in §3.3, as they reflect the similarity of the learned geo-entity representation (Fig.
+Score: 0.9675004482269287
+
+Title: Spatial Context and Ablation Study
+Sentence: 5).
+Score: 0.9937699437141418
+
+Title: Impact of Pseudo Sentence Length
+Sentence: We analyze the impact of pseudo sentence length on geo-entity typing by varying the number of neighboring entities.
+Score: 0.9803295135498047
+
+Title: Impact of Pseudo Sentence Length
+Sentence: Tab.
+Score: 0.9920563101768494
+
+Title: Impact of Pseudo Sentence Length
+Sentence: 5 shows the results of SPABERT Base and SPABERT Large with an increasing number of neighbors.
+Score: 0.9089643955230713
+
+Title: Impact of Pseudo Sentence Length
+Sentence: We observe that as #Neighbor increases,  the micro-F1 score increases accordingly, as expected.
+Score: 0.9535291790962219
+
+Title: Impact of Pseudo Sentence Length
+Sentence: The increment is more evident at the beginning, illustrating that the spatial context helps contextualize the pivot entity, especially in a local neighborhood.
+Score: 0.7829188704490662
+
+Title: Impact of Pseudo Sentence Length
+Sentence: The benefit of adding additional neighboring entities decreases as distance increases beyond a certain point.
+Score: 0.8375602960586548
+
+Title: Impact of Pseudo Sentence Length
+Sentence: This conforms to the wellstudied spatial autocorrelation.
+Score: 0.7823162078857422
+
+Title: Effect of Spatial Coordinate Embedding
+Sentence: We train two additional SPABERT variants that do not include the spatial coordinate embedding during MLM and MEP pretraining and use them for geo-entity linking.
+Score: 0.9934806823730469
+
+Title: Effect of Spatial Coordinate Embedding
+Sentence: For MRR, SPABERT Base and SPABERT Large drop from 0.515 to 0.458 and from 0.537 to 0.478 compared to their original SPABERT version.
+Score: 0.9763454794883728
+
+Title: Effect of Spatial Coordinate Embedding
+Sentence: Also, the variants have lower recall scores compared to their original SPABERT version.
+Score: 0.9828352332115173
+
+Title: Effect of Spatial Coordinate Embedding
+Sentence: The most significant drop in the recall is on R@1 from 0.383 to 0.283 for SPABERT Large .
+Score: 0.983199954032898
+
+Title: Related Work
+Sentence: Pretrained Language Models PLMs have been the dominant paradigm for language representation.
+Score: 0.9764562845230103
+
+Title: Related Work
+Sentence: To support entity representation, several approaches propose to perform mention detection (Yamada et al., 2020), incorporate mention memory cells (de Jong et al., 2021), or injecting structural knowledge representations (Wang et al., 2021;Zhang et al., 2019;Peters et al., 2019;Zhou et al., 2022).
+Score: 0.994979202747345
+
+Title: Related Work
+Sentence: Due to the large body of work, we refer readers to recent surveys summarizing this line of work (Qiu et al., 2020;Wei et al., 2021).
+Score: 0.8405160307884216
+
+Title: Related Work
+Sentence: For example, a significant amount of vision-language models (Kim et al., 2021;Zhai et al., 2022;Li et al., 2020a;Lu et al., 2019) have been developed by jointly pretraining on co-occurring vision and language corpora, and are in the support of grounding (Zhang et al., 2020;Chen et al., 2020), generation (Cho et al., 2021;Yu et al., 2022) and retrieval tasks (Zhang et al., 2021;Li et al., 2020b) on the vision modality.
+Score: 0.9368942379951477
+
+Title: Related Work
+Sentence: Other PLMs capture semi-structure tabular data by linearizing table cells (Herzig et al., 2020;Yin et al., 2020;Iida et al., 2021) or incorporating structural prior in the attention mechanism (Wang et al., 2022;Trabelsi et al., 2022;Eisenschlos et al., 2021).
+Score: 0.9946138262748718
+
+Title: Related Work
+Sentence: To the best of our knowledge, none of the prior studies have extended pretrained LMs to geo-entity representation, nor do they support a suitable mechanism to capture the geo-entities' spatial relations, which do not have structural prior.
+Score: 0.741314172744751
+
+Title: Related Work
+Sentence: This is exactly the focus of our work.
+Score: 0.7121126055717468
+
+Title: Related Work
+Sentence: For example, in the biomedicine domain, a series of models (Lee et al., 2020;Peng et al., 2019;Alsentzer et al., 2019;Phan et al., 2021) have been developed by training PLMs on corpora derived from PubMed.
+Score: 0.991234540939331
+
+Title: Related Work
+Sentence: Similarly, PLMs have been trained on corpora specific to software engineering (Tabassum et al., 2020), finance (Liu et al., 2021), and proteomics (Zhou et al., 2020) domains.
+Score: 0.9978492259979248
+
+Title: Conclusion
+Sentence: SPABERT utilizes a novel spatial coordinate embedding mechanism to capture spatial relations between 2D geo-entities and linearizes the geo-entities into 1D sequences, compatible with the BERT-family structures.
+Score: 0.9978998899459839
+
+Title: Conclusion
+Sentence: We plan to evaluate SPABERT on additional related tasks, such as geo-entity to natural language grounding.
+Score: 0.8693892359733582
+
+Title: Conclusion
+Sentence: Also, we plan to extend SPABERT to support other geo-entity geometry types, including lines and polygons.
+Score: 0.8016182780265808
+
+Title: Limitations
+Sentence: The current model design only considers points but not polygon and line geometries, which could also help provide meaningful spatial relations for contextualizing a geo-entity.
+Score: 0.9873660802841187
+
+Title: Limitations
+Sentence: Training of SPABERT also requires considerable GPU resources which might produce environmental impacts.
+Score: 0.8571021556854248
+

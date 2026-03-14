@@ -1,0 +1,36 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: 1 is constructed as: The pseudo sentence starts with the pivot name followed by the names of the pivot's neighboring geo-entities, ordered by their spatial distance to the pivot in ascending order.
+
+Best Entailment: 0.9908978343009949
+Best Section: Contextualizing Geo-entities
+Best Sentence: 1 is constructed as: The pseudo sentence starts with the pivot name followed by the names of the pivot's neighboring geo-entities, ordered by their spatial distance to the pivot in ascending order.
+
+Worst: Title: Introduction
+Sentence: For example, [ Speedway , ], [ Speedway , ], and [ Speedway , ] would have different representations since the surrounding environment of , , and could vary.
+Score: 0.9395914077758789
+
+Title: Preliminary
+Sentence: WLOG, here we assume a 2-dimensional space.
+Score: 0.9793674349784851
+
+Title: Contextualizing Geo-entities
+Sentence: 2).
+Score: 0.9508645534515381
+
+Title: Pretraining
+Sentence: For example, a city 'Madelia' with the geolocation (44.0508°N, 94.4183°W) has a Geohash string of '9zufe7nwjefpjksty0m8'.
+Score: 0.9827548861503601
+
+Title: Model Configuration
+Sentence: We create two variants of SPABERT, namely SPABERT base and SPABERT large with weights and tokenizers initialized from the uncased versions of the BERT base and BERT large , respectively.
+Score: 0.9913083910942078
+
+Title: Spatial Context and Ablation Study
+Sentence: 4).
+Score: 0.9648674726486206
+
+Title: Spatial Context and Ablation Study
+Sentence: 5).
+Score: 0.831601083278656
+

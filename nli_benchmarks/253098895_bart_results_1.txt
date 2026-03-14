@@ -1,0 +1,112 @@
+BART x NLI RESULTS
+
+Sentence: SPABERT is a LM built upon a pretrained BERT and trained to produce contextualized geo-entity representations given large geographic datasets.
+
+Section Title: Conclusion
+Retrieved Sentence: This paper presented SPABERT ( ), a language model trained on geographic datasets for contextualizing geo-entities.
+Entailment Score: 0.0013754687970504165
+Neutral Score: 0.9983038902282715
+Contradiction Score: 0.0003205907123629004
+
+Section Title: Introduction
+Retrieved Sentence: SPABERT is a LM built upon a pretrained BERT and further trained to produce contextualized geo-entity representations given large geographic datasets.
+Entailment Score: 0.98780357837677
+Neutral Score: 0.011062652803957462
+Contradiction Score: 0.0011337385512888432
+
+Section Title: Introduction
+Retrieved Sentence: To tackle these challenges, we present SPABERT ( ), a LM that captures the spatially varying semantics of geo-entity names using large geographic datasets for entity representation.
+Entailment Score: 0.00048275201697833836
+Neutral Score: 0.9993391633033752
+Contradiction Score: 0.00017801692592911422
+
+Section Title: Preliminary
+Retrieved Sentence: Linearizing Neighboring Geo-entity Names For a pivot, p, SPABERT first linearizes its neighboring geo-entitie names to form a BERT-compatible input sequence, called a pseudo sentence.
+Entailment Score: 0.0003072245162911713
+Neutral Score: 0.9983951449394226
+Contradiction Score: 0.001297594397328794
+
+Section Title: Contextualizing Geo-entities
+Retrieved Sentence: Also, SPABERT incorporates a spatial coordinate embedding mechanism, which seeks to represent the spatial relations between the pivot and its neighboring geo-entities.
+Entailment Score: 0.00024136477441061288
+Neutral Score: 0.9994675517082214
+Contradiction Score: 0.00029110844479873776
+
+Section Title: Contextualizing Geo-entities
+Retrieved Sentence: Then SPABERT averages the pivot's token-level embeddings to produce a fixedlength embedding for the pivot's contextualized representation.
+Entailment Score: 0.00026433554012328386
+Neutral Score: 0.9991549253463745
+Contradiction Score: 0.0005807921988889575
+
+Section Title: Unknown
+Retrieved Sentence: The representations support various downstream applications, including contextualized geo-entity classification and similarity-based inference tasks, such as geo-entity typing and linking.
+Entailment Score: 0.0003216483455616981
+Neutral Score: 0.9992274045944214
+Contradiction Score: 0.00045092060463503003
+
+Section Title: Introduction
+Retrieved Sentence: Specifically, we contextualize a geo-entity by a reasonable surrounding neighborhood learned from experience and, from the neighborhood, relate other relevant geo-entities based on their name and spatial relations (e.g., distance) to the geo-entity.
+Entailment Score: 0.0005518602556549013
+Neutral Score: 0.9982531666755676
+Contradiction Score: 0.0011949907056987286
+
+Section Title: Introduction
+Retrieved Sentence: This section first presents the preliminary ( §2.1) and then describes the overall approach for learning geo-entities' contextualized representations ( §2.2), the pretraining strategies ( §2.3), and inference procedures ( §2.4).
+Entailment Score: 0.0007255052914842963
+Neutral Score: 0.9956343770027161
+Contradiction Score: 0.0036401653196662664
+
+Section Title: Model
+Retrieved Sentence: Here SPABERT performs the best for the 1:125K maps (30-CA) (Tab.
+Entailment Score: 0.0005250826943665743
+Neutral Score: 0.9990405440330505
+Contradiction Score: 0.00043432958773337305
+
+Section Title: Ethical Consideration
+Retrieved Sentence: Replacing the backbone of SPABERT with a multi-lingual model and training SPABERT with diverse regions could mitigate the bias.
+Entailment Score: 0.0007797214202582836
+Neutral Score: 0.9932312965393066
+Contradiction Score: 0.005989033728837967
+
+Section Title: Spatial Context and Ablation Study
+Retrieved Sentence: Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales.
+Entailment Score: 0.0009412488434463739
+Neutral Score: 0.9957667589187622
+Contradiction Score: 0.0032920069061219692
+
+Section Title: Spatial Context and Ablation Study
+Retrieved Sentence: Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales.
+Entailment Score: 0.0009412488434463739
+Neutral Score: 0.9957667589187622
+Contradiction Score: 0.0032920069061219692
+
+Section Title: Experimental Setup
+Retrieved Sentence: Note that the geocoordinates of geo-entities in the scanned maps are unknown.
+Entailment Score: 0.0011090446496382356
+Neutral Score: 0.995662271976471
+Contradiction Score: 0.0032286278437823057
+
+Section Title: Model
+Retrieved Sentence: Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales.
+Entailment Score: 0.0009412488434463739
+Neutral Score: 0.9957667589187622
+Contradiction Score: 0.0032920069061219692
+
+Section Title: Spatial Context and Ablation Study
+Retrieved Sentence: Since the entity omission criteria of the USGS maps are unknown and Wikidata mostly contain important landmark geo-entities, we also simulate omission using the OSM dataset by gradually removing random neighbors of a pivot entity within a fixed neighborhood.
+Entailment Score: 0.0030606805812567472
+Neutral Score: 0.9826914668083191
+Contradiction Score: 0.014247828163206577
+
+Section Title: Pretraining
+Retrieved Sentence: Since OSM is crowd-sourced, we clean the raw data by removing non-alphanumeric place names and geo-entities that do not have a place name or geocoordinates.
+Entailment Score: 0.0009550440008752048
+Neutral Score: 0.6909494400024414
+Contradiction Score: 0.3080954849720001
+
+Section Title: Pretraining
+Retrieved Sentence: Therefore, we propose and incorporate a masked entity prediction (MEP) task, which randomly masks all subtokens of an entity name in a pseudo sentence.
+Entailment Score: 0.0009283627150580287
+Neutral Score: 0.9693738222122192
+Contradiction Score: 0.02969786338508129
+

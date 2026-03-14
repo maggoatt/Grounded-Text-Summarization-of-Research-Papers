@@ -1,0 +1,20 @@
+TEXTRANK x NLI RESULTS
+
+Sentence: For a query set Q = {(q i , SC(q i ))} |Q| i=1 , the goal is to find the corresponding geo-entity for each
+
+Here, Q and C are the USGS and Wikidata geo-entities ( §3.1).
+
+Best Entailment: 0.9851644039154053
+Best Section: Unsupervised Geo-Entity Linking
+Best Sentence: For a query set Q = {(q i , SC(q i ))} |Q| i=1 , the goal is to find the corresponding geo-entity for each
+
+Here, Q and C are the USGS and Wikidata geo-entities ( §3.1).
+
+Worst: Title: Experimental Setup
+Sentence: The task is to predict the OSM semantic type for each geo-entity.
+Score: 0.5763919949531555
+
+Title: Model Comparison
+Sentence: We use the same baseline 5 Because Q is not georeferenced, we use the top K nearest neighbors instead of pixel distances.
+Score: 0.9326920509338379
+
