@@ -7,7 +7,7 @@ from bm_retrieval import find_best_chunk, tokenize
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-embeddings_dir="paper_embeddings"
+embeddings_dir="../paper_embeddings"
 
 def load_paper_embeddings(paper_id):
     # basically the creation of optimized index for searching

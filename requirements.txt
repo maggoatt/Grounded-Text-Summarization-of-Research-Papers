@@ -1,25 +1,25 @@
 # Data Pipeline
-python-dotenv>=1.0.0
-requests>=2.31.0
+python-dotenv
+requests
 
 # Summarization Models
-scikit-learn>=1.3.0
-networkx>=3.0
-transformers>=4.35.0
-torch>=2.0.0
+scikit-learn
+networkx
+transformers
+torch
 
 # Retrieval
-sentence-transformers>=2.2.0
-faiss-cpu>=1.7.4
-rank-bm25>=0.2.2
+sentence-transformers
+faiss-cpu
+rank-bm25
 
 # Evaluation
-textstat>=0.7.0
-language-tool-python>=2.7.0
-rouge-score>=0.1.2
+textstat
+language-tool-python
+rouge-score
 
 # Text Processing
-nltk>=3.8.0
+nltk
 
 # UI
-streamlit>=1.28.0
+streamlit

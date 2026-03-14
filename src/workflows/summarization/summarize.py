@@ -10,6 +10,8 @@ import json
 import torch
 from transformers import AutoTokenizer, BartForConditionalGeneration
 
+# General
+from nltk.tokenize import sent_tokenize
 
 model_name = "facebook/bart-large-cnn" # (1)
 max_token_count = 1024 # BART's actual positional encoding limit
@@ -20,10 +22,7 @@ def extract_body_text_and_section_map(paper):
     section_map = {}
     for section in paper["sections"]:
         section_title = section["section_title"]
-        sentences = [
-            s.strip()
-            for s in section["text"].replace("?", ".").replace("!", ".").split(".")
-        ]
+        sentences = sent_tokenize(section["text"])
         for sentence in sentences:
             if sentence:
                 section_map[len(body_text)] = section_title
@@ -34,20 +33,23 @@ def extract_body_text_and_section_map(paper):
 def generate_summary_textrank(paper, k=3):
     # TextRank 
     body_text, section_map = extract_body_text_and_section_map(paper)
+
     if not body_text:
         return ""
+
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(body_text)
     similarity_mtx = cosine_similarity(X)
     graph = nx.from_numpy_array(similarity_mtx)
     scores = nx.pagerank(graph)
+
     ranked = sorted(
         ((scores[i], s, section_map[i]) for i, s in enumerate(body_text)),
         reverse=True,
     )
     # normalize: no newlines in summary sentences
     sentences = [s.replace("\n", " ").strip() for _, s, _ in ranked[:k]]
-    summary = ". ".join(sentences) + "."
+    summary = " ".join(sentences)
     return summary
 
 
@@ -60,8 +62,9 @@ def get_token_count(tokenizer, text):
     return len(tokenizer.encode(text, truncation=False))
 
 def summarize(text, bart_model, tokenizer, max_new_tokens=500, min_new_tokens=100):
-    """Summarize a single chunk of text using BART (input auto-truncated to 1024 tokens)."""
+    # summarize a single chunk of text using BART (input auto-truncated to 1024 tokens)
     inputs = tokenizer(text, return_tensors="pt", max_length=max_token_count, truncation=True)
+
     summary_ids = bart_model.generate(
         inputs["input_ids"],
         max_new_tokens=max_new_tokens,
@@ -70,6 +73,7 @@ def summarize(text, bart_model, tokenizer, max_new_tokens=500, min_new_tokens=10
         length_penalty=0.001, # preference for longer vs shorter outputs
         forced_bos_token_id=0
     )
+
     return tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
 def reduce_summaries(texts, tokenizer, bart_model, round_num=1):
@@ -124,14 +128,14 @@ def generate_summary(tokenizer, bart_model, paper):
     section_map = {}
     for section in paper["sections"]: 
         section_title = section["section_title"]
-        sentences = [s.strip() for s in section["text"].replace('?', '.').replace('!', '.').split('.')] # splitting sentences by punc, then strip any leading whitespace
+        sentences = sent_tokenize(section["text"])
     
         for sentence in sentences:
             if sentence:
                 section_map[len(body_text)] = section_title  # track section of sentence based on index of sentence
                 body_text.append(sentence)
 
-    full_body_text = ". ".join(body_text) # (2) turn the list of sentences into string
+    full_body_text = " ".join(body_text) # (2) turn the list of sentences into string
     token_count = get_token_count(tokenizer, full_body_text)
     print(f"total tokens: {token_count}\nmax allowed tokens: {max_token_count}\n")
 

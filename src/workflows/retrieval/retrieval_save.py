@@ -8,10 +8,10 @@ from bm_retrieval import tokenize
 from nltk.tokenize import sent_tokenize
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-embeddings_dir = Path("paper_embeddings")
-summaries_dir = Path("summaries")
-data_dir = Path("data")
-output_dir = Path("retrievals")
+embeddings_dir = Path("../paper_embeddings")
+summaries_dir = Path("../summaries")
+data_dir = Path("../data")
+output_dir = Path("../retrievals")
 output_dir.mkdir(exist_ok=True)
 
 PAPER_IDS = [
