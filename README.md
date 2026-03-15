@@ -59,4 +59,4 @@ Medium Article.
 + ```faiss_retrieval.py```: loads previously saved embeddings and finds top evidence matches (sentences and section titles) for summaries (40 lines)
 + ```retrieval_save.py```: saves all resulting retrievals for all papers to be used in UI and for metric evaluations (87 lines)
 
-All other directories contain evidence of our presaved data (corpus IDs may slightly vary, as Law and Maggie extracted papers at different timepoints), summaries, retrievals, and metrics/benchmarks.
+All other directories contain evidence of our presaved data, summaries, retrievals, and metrics/benchmarks.
