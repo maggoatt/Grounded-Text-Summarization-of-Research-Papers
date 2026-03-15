@@ -1,0 +1,11 @@
+ROUGE RESULTS
+
+TextRank ROUGE (v.s. abstract):
+rouge1: precision=0.00  recall=0.00  f1=0.00
+rouge2: precision=0.00  recall=0.00  f1=0.00
+rougeL: precision=0.00  recall=0.00  f1=0.00
+
+BART ROUGE (v.s. abstract):
+rouge1: precision=1.00  recall=0.10  f1=0.18
+rouge2: precision=0.93  recall=0.09  f1=0.16
+rougeL: precision=0.93  recall=0.09  f1=0.17

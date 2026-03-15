@@ -10,7 +10,7 @@
   "license": null,
   "sections": [
     {
-      "section_title": "I. INTRODUCTION",
+      "section_title": "INTRODUCTION",
       "text": "DNA data storage is an emerging storage medium that encodes binary data into DNA sequences for high-density, long-term storage. However, writing, storing, and reading DNA are error-prone processes that produce multiple noisy reads of the same sequence [1]. Errors can be categorized into two categories: (1) substitutions and erasures, and (2) insertions and deletions. While optimal linear codes are known for erasures and substitutions, no similar guarantees exist for insertions and deletions.\n\nA common approach to address insertion, deletion, and substitution errors is to use a concatenated coding scheme that uses an inner and an outer encoder/decoder pair. The inner code is often nonlinear -using, for example, marker codes [2] or watermark codes [3] -and is typically decoded with the Bahl-Cocke-Jelinek-Raviv (BCJR) algorithm. Under the assumption of perfect channel state information, the BCJR algorithm achieves maximum a posteriori decoding. The outer r 1"
     },
     {
