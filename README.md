@@ -60,3 +60,6 @@ Medium Article.
 + ```retrieval_save.py```: saves all resulting retrievals for all papers to be used in UI and for metric evaluations (87 lines)
 
 All other directories contain evidence of our presaved data, summaries, retrievals, and metrics/benchmarks.
+
+## Demo
+To see the showcase of our project, you can run project.ipynb which demonstrates a small example of our pipeline.
