@@ -1,0 +1,9 @@
+{
+  "Unknown": [
+    "The representations support various downstream applications, including contextualized geo-entity classification and similarity-based inference tasks, such as geo-entity typing and linking."
+  ],
+  "Introduction": [
+    "Specifically, we contextualize a geo-entity by a reasonable surrounding neighborhood learned from experience and, from the neighborhood, relate other relevant geo-entities based on their name and spatial relations (e.g., distance) to the geo-entity.",
+    "This section first presents the preliminary ( \u00a72.1) and then describes the overall approach for learning geo-entities' contextualized representations ( \u00a72.2), the pretraining strategies ( \u00a72.3), and inference procedures ( \u00a72.4)."
+  ]
+}

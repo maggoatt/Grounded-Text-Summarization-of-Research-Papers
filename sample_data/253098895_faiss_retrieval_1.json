@@ -1,0 +1,9 @@
+{
+  "Conclusion": [
+    "This paper presented SPABERT ( ), a language model trained on geographic datasets for contextualizing geo-entities."
+  ],
+  "Introduction": [
+    "SPABERT is a LM built upon a pretrained BERT and further trained to produce contextualized geo-entity representations given large geographic datasets.",
+    "To tackle these challenges, we present SPABERT ( ), a LM that captures the spatially varying semantics of geo-entity names using large geographic datasets for entity representation."
+  ]
+}

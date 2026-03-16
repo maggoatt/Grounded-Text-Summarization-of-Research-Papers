@@ -1,0 +1,11 @@
+{
+  "Spatial Context and Ablation Study": [
+    "Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales."
+  ],
+  "Experimental Setup": [
+    "Note that the geocoordinates of geo-entities in the scanned maps are unknown."
+  ],
+  "Model": [
+    "Our hypothesis is that the 1:125K maps contain denser geo-entities than the test maps at other scales."
+  ]
+}
