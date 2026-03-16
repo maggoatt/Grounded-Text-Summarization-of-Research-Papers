@@ -62,4 +62,4 @@ Medium Article.
 All other directories contain evidence of our presaved data, summaries, retrievals, and metrics/benchmarks.
 
 ## Demo
-To see the showcase of our project, you can run project.ipynb which demonstrates a small example of our pipeline.
+To see the showcase of our project, you can run ```project.ipynb``` which demonstrates a small example of our pipeline.
